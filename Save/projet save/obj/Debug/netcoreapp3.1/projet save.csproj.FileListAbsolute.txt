@@ -1,0 +1,29 @@
+D:\Visual studio\Repos\projet save\projet save\bin\Debug\netcoreapp3.1\projet save.exe
+D:\Visual studio\Repos\projet save\projet save\bin\Debug\netcoreapp3.1\projet save.deps.json
+D:\Visual studio\Repos\projet save\projet save\bin\Debug\netcoreapp3.1\projet save.runtimeconfig.json
+D:\Visual studio\Repos\projet save\projet save\bin\Debug\netcoreapp3.1\projet save.runtimeconfig.dev.json
+D:\Visual studio\Repos\projet save\projet save\bin\Debug\netcoreapp3.1\projet save.dll
+D:\Visual studio\Repos\projet save\projet save\bin\Debug\netcoreapp3.1\projet save.pdb
+D:\Visual studio\Repos\projet save\projet save\obj\Debug\netcoreapp3.1\projet save.csproj.AssemblyReference.cache
+D:\Visual studio\Repos\projet save\projet save\obj\Debug\netcoreapp3.1\projet save.GeneratedMSBuildEditorConfig.editorconfig
+D:\Visual studio\Repos\projet save\projet save\obj\Debug\netcoreapp3.1\projet save.AssemblyInfoInputs.cache
+D:\Visual studio\Repos\projet save\projet save\obj\Debug\netcoreapp3.1\projet save.AssemblyInfo.cs
+D:\Visual studio\Repos\projet save\projet save\obj\Debug\netcoreapp3.1\projet save.csproj.CoreCompileInputs.cache
+D:\Visual studio\Repos\projet save\projet save\obj\Debug\netcoreapp3.1\projet save.dll
+D:\Visual studio\Repos\projet save\projet save\obj\Debug\netcoreapp3.1\projet save.pdb
+D:\Visual studio\Repos\projet save\projet save\obj\Debug\netcoreapp3.1\projet save.genruntimeconfig.cache
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\Save\projet save\bin\Debug\netcoreapp3.1\projet save.exe
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\Save\projet save\bin\Debug\netcoreapp3.1\projet save.deps.json
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\Save\projet save\bin\Debug\netcoreapp3.1\projet save.runtimeconfig.json
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\Save\projet save\bin\Debug\netcoreapp3.1\projet save.runtimeconfig.dev.json
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\Save\projet save\bin\Debug\netcoreapp3.1\projet save.dll
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\Save\projet save\bin\Debug\netcoreapp3.1\projet save.pdb
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\Save\projet save\obj\Debug\netcoreapp3.1\projet save.csproj.AssemblyReference.cache
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\Save\projet save\obj\Debug\netcoreapp3.1\projet save.csproj.ResolveComReference.cache
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\Save\projet save\obj\Debug\netcoreapp3.1\projet save.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\Save\projet save\obj\Debug\netcoreapp3.1\projet save.AssemblyInfoInputs.cache
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\Save\projet save\obj\Debug\netcoreapp3.1\projet save.AssemblyInfo.cs
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\Save\projet save\obj\Debug\netcoreapp3.1\projet save.csproj.CoreCompileInputs.cache
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\Save\projet save\obj\Debug\netcoreapp3.1\projet save.dll
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\Save\projet save\obj\Debug\netcoreapp3.1\projet save.pdb
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\Save\projet save\obj\Debug\netcoreapp3.1\projet save.genruntimeconfig.cache
