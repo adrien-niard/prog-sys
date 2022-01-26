@@ -24,7 +24,7 @@ namespace projet_save
             string type = Console.ReadLine();
 
 
-            string src = "D:/wow.txt";
+            string src = Console.ReadLine();
             string dest = "D:/projet/wow.txt";
 
             //instantiation of sauvegarde
