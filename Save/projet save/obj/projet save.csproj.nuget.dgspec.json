@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hperr\\Source\\Repos\\adrien-niard\\prog-sys\\Save\\projet save\\projet save.csproj": {}
+    "C:\\Users\\adrie\\Source\\Repos\\prog-sys\\Save\\projet save\\projet save.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hperr\\Source\\Repos\\adrien-niard\\prog-sys\\Save\\projet save\\projet save.csproj": {
+    "C:\\Users\\adrie\\Source\\Repos\\prog-sys\\Save\\projet save\\projet save.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hperr\\Source\\Repos\\adrien-niard\\prog-sys\\Save\\projet save\\projet save.csproj",
+        "projectUniqueName": "C:\\Users\\adrie\\Source\\Repos\\prog-sys\\Save\\projet save\\projet save.csproj",
         "projectName": "projet save",
-        "projectPath": "C:\\Users\\hperr\\Source\\Repos\\adrien-niard\\prog-sys\\Save\\projet save\\projet save.csproj",
-        "packagesPath": "C:\\Users\\hperr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hperr\\Source\\Repos\\adrien-niard\\prog-sys\\Save\\projet save\\obj\\",
+        "projectPath": "C:\\Users\\adrie\\Source\\Repos\\prog-sys\\Save\\projet save\\projet save.csproj",
+        "packagesPath": "C:\\Users\\adrie\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\adrie\\Source\\Repos\\prog-sys\\Save\\projet save\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\Visual studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\hperr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\adrie\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -53,12 +49,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.13, 3.1.13]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     }

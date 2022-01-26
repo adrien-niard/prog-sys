@@ -27,3 +27,17 @@ C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\Save\projet save\obj\Debug\net
 C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\Save\projet save\obj\Debug\netcoreapp3.1\projet save.dll
 C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\Save\projet save\obj\Debug\netcoreapp3.1\projet save.pdb
 C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\Save\projet save\obj\Debug\netcoreapp3.1\projet save.genruntimeconfig.cache
+C:\Users\adrie\Source\Repos\prog-sys\Save\projet save\bin\Debug\netcoreapp3.1\projet save.exe
+C:\Users\adrie\Source\Repos\prog-sys\Save\projet save\bin\Debug\netcoreapp3.1\projet save.deps.json
+C:\Users\adrie\Source\Repos\prog-sys\Save\projet save\bin\Debug\netcoreapp3.1\projet save.runtimeconfig.json
+C:\Users\adrie\Source\Repos\prog-sys\Save\projet save\bin\Debug\netcoreapp3.1\projet save.runtimeconfig.dev.json
+C:\Users\adrie\Source\Repos\prog-sys\Save\projet save\bin\Debug\netcoreapp3.1\projet save.dll
+C:\Users\adrie\Source\Repos\prog-sys\Save\projet save\bin\Debug\netcoreapp3.1\projet save.pdb
+C:\Users\adrie\Source\Repos\prog-sys\Save\projet save\obj\Debug\netcoreapp3.1\projet save.csprojAssemblyReference.cache
+C:\Users\adrie\Source\Repos\prog-sys\Save\projet save\obj\Debug\netcoreapp3.1\projet save.csproj.ResolveComReference.cache
+C:\Users\adrie\Source\Repos\prog-sys\Save\projet save\obj\Debug\netcoreapp3.1\projet save.AssemblyInfoInputs.cache
+C:\Users\adrie\Source\Repos\prog-sys\Save\projet save\obj\Debug\netcoreapp3.1\projet save.AssemblyInfo.cs
+C:\Users\adrie\Source\Repos\prog-sys\Save\projet save\obj\Debug\netcoreapp3.1\projet save.csproj.CoreCompileInputs.cache
+C:\Users\adrie\Source\Repos\prog-sys\Save\projet save\obj\Debug\netcoreapp3.1\projet save.dll
+C:\Users\adrie\Source\Repos\prog-sys\Save\projet save\obj\Debug\netcoreapp3.1\projet save.pdb
+C:\Users\adrie\Source\Repos\prog-sys\Save\projet save\obj\Debug\netcoreapp3.1\projet save.genruntimeconfig.cache
