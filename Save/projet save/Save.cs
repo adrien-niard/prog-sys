@@ -24,6 +24,11 @@ namespace projet_save
             type = Type;
         }
 
+        public void SaveAdd()
+        {
+
+        }
+
         //initiate a full save method
         public void RunSave(string source, string destination)
         {
