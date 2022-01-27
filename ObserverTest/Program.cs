@@ -51,6 +51,9 @@ namespace ObserverTest
 
                 //Add the save into the list
                 SaveList.Add(save);
+                log.AddLog();
+
+                Console.WriteLine("--------------------");
 
                 //Asking the user if he want to add an other save or proceed to the execution
                 langage.PrintText(Userchoice, "Would you want to create an other save ? (Yes | No)", "Voulez-vous créer une nouvelle sauvegarde ? (Oui | Non)");
@@ -109,12 +112,6 @@ namespace ObserverTest
                     {
                         ASave SeqExec = new SequentialExec();
                     
-
-
-                }
-                log.AddLog();
-            }
-
                         //Browse the list to execute individualy objects
                         foreach (Save sv in SaveList)
                         {

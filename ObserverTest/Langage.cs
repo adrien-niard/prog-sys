@@ -35,6 +35,9 @@ namespace ObserverTest
                     lang = false;
                 }
             }
+
+            Console.WriteLine("--------------------");
+
             return LangueLow;
         }
 

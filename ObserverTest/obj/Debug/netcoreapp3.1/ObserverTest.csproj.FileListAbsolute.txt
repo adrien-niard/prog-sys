@@ -56,3 +56,5 @@ C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\Obs
 C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.dll
 C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.pdb
 C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.genruntimeconfig.cache
+C:\Users\Adrien\Source\Repos\adrien-niard\prog-sys\ObserverTest\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Adrien\Source\Repos\adrien-niard\prog-sys\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.csproj.CopyComplete

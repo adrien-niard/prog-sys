@@ -11,6 +11,7 @@ namespace ObserverTest
         {
             try
             {
+                Console.WriteLine("Seq Full");
                 /*File.Copy(src, dest, true);*/
             }
 
@@ -22,7 +23,7 @@ namespace ObserverTest
 
         public override void ExecDiff(List<Save> SList)
         {
-
+            Console.WriteLine("Seq Diff");
         }
     }
 }

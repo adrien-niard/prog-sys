@@ -12,6 +12,7 @@ namespace ObserverTest
             try
             {
                 /*File.Copy(src, dest, true);*/
+                Console.WriteLine("Mono Full");
             }
 
             catch (IOException iox)
@@ -22,7 +23,7 @@ namespace ObserverTest
 
         public override void ExecDiff(List<Save> SList)
         {
-
+            Console.WriteLine("Mono Diff");
         }
     }
 }
