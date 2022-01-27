@@ -5,8 +5,8 @@ using System.Text;
 
 namespace ObserverTest
 {
-    class MonoExec : ASave
-    {
+	class SequentialExec : ASave
+	{
         public override void ExecFull(List<Save> SList)
         {
             try
