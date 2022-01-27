@@ -20,11 +20,11 @@ namespace ObserverTest
             Console.WriteLine("L'application devrait être en français ou en anglais ?");
             Console.WriteLine("Should the application be in french or in English ?");
 
-            bool lang = true;
+            bool loop = true;
             string LangueLow = "";
 
             //While loop to choose language and protect from typing mistake
-            while (lang == true)
+            while (loop == true)
             {
                 Console.WriteLine("Type English or Francais / Ecrivez English ou Francais");
                 string langue = Console.ReadLine();
@@ -32,7 +32,7 @@ namespace ObserverTest
 
                 if (LangueLow == "francais" || LangueLow == "english")
                 {
-                    lang = false;
+                    loop = false;
                 }
             }
 

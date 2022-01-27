@@ -17,10 +17,7 @@ namespace ObserverTest
             set
             {
                 _name = value;
-                Notify();
             }
-
-
         }
         private string _name;
         public string src 
@@ -30,26 +27,38 @@ namespace ObserverTest
           set
             {
                 _src = value;
-                Notify();
             }
-        
-        
         }
         private string _src;
 
-        public string dest 
-        
+        public string dest
         { 
-            get { return _dest; }
+            get 
+            { 
+                return _dest; 
+            }
 
             set
             {
                 _dest = value;
-                Notify();
             } 
         }
         private string _dest;
-        public string type { get; set; }
+        public string type 
+        {
+            get 
+            { 
+                return _type; 
+            }
+            
+            set 
+            {
+                _type = value;
+                Notify();
+            }
+        }
+
+        private string _type;
         public Save()
         {
             _observers = new List<IObserver>();

@@ -11,9 +11,9 @@ namespace ObserverTest
             Langage langage = Langage.Instance;
 
             //Creation of a string data that keep the langage choice from the user
-            string Userchoice = langage.EnglishOrFrancais();
+            string ChoosenLanguage = langage.EnglishOrFrancais();
 
-            langage.PrintText(Userchoice, "Welcome on EasySave", "Bienvenue sur EasySave");
+            langage.PrintText(ChoosenLanguage, "Welcome on EasySave", "Bienvenue sur EasySave");
 
             //Loop to create save object(s)
             bool loop = true;
@@ -28,19 +28,19 @@ namespace ObserverTest
                 save.Attach(log);
 
                 //Asking the user how his save should be called
-                langage.PrintText(Userchoice, "Select your save's name :", "Choisissez le nom de votre sauvegarde :");
+                langage.PrintText(ChoosenLanguage, "Select your save's name :", "Choisissez le nom de votre sauvegarde :");
                 string name = Console.ReadLine();
 
                 //Asking the user the save's type that he wants
-                langage.PrintText(Userchoice, "Select your save's type : (Full | Diff)", "Choisissez le type de sauvegarde : (Full | Diff)");
+                langage.PrintText(ChoosenLanguage, "Select your save's type : (Full | Diff)", "Choisissez le type de sauvegarde : (Full | Diff)");
                 string type = Console.ReadLine();
 
                 //Asking the source path
-                langage.PrintText(Userchoice, "Which file do you want to copy ?", "Quel fichier voulez-vous copier ?");
+                langage.PrintText(ChoosenLanguage, "Which file do you want to copy ?", "Quel fichier voulez-vous copier ?");
                 string src = Console.ReadLine();
 
                 //Asking the destination path
-                langage.PrintText(Userchoice, "Where do you want to copy the file ?", "Où voulez-vous copier le fichier");
+                langage.PrintText(ChoosenLanguage, "Where do you want to copy the file ?", "Où voulez-vous copier le fichier");
                 string dest = Console.ReadLine();
 
                 //Set the save attributes depending of the user's choices
@@ -56,7 +56,7 @@ namespace ObserverTest
                 Console.WriteLine("--------------------");
 
                 //Asking the user if he want to add an other save or proceed to the execution
-                langage.PrintText(Userchoice, "Would you want to create an other save ? (Yes | No)", "Voulez-vous créer une nouvelle sauvegarde ? (Oui | Non)");
+                langage.PrintText(ChoosenLanguage, "Would you want to create an other save ? (Yes | No)", "Voulez-vous créer une nouvelle sauvegarde ? (Oui | Non)");
                 string Choice = Console.ReadLine();
                 string ChoiceLow = Choice.ToLower();
 
@@ -71,7 +71,7 @@ namespace ObserverTest
                     loop = false;
                     
                     //Select the execution of one save (Mono) or all the saves (Sequential)
-                    langage.PrintText(Userchoice, "Do you want to execute one or all saves ? (One | All)", "Voulez-vous exécuter une ou toutes les sauvegardes ? (Une | Toutes)");
+                    langage.PrintText(ChoosenLanguage, "Do you want to execute one or all saves ? (One | All)", "Voulez-vous exécuter une ou toutes les sauvegardes ? (Une | Toutes)");
                     string ExecModeChoice = Console.ReadLine();
                     string ExecModeChoiceLow = ExecModeChoice.ToLower();
 
@@ -80,14 +80,14 @@ namespace ObserverTest
                     {
                         int x = 1;
                         //Print the list
-                        foreach (Save sv in SaveList)
+                        foreach (Save Obj in SaveList)
                         {
-                            Console.WriteLine(x + ". Name : " + sv.name);
+                            Console.WriteLine(x + ". " + Obj.name);
                             x++;
                         }
 
                         //The user choose which save he want to execute
-                        langage.PrintText(Userchoice, "Which save do you want to execute ? (Example: 1)", "Quelle sauvegarde voulez-vous exécuter ? (Exemple: 1)");
+                        langage.PrintText(ChoosenLanguage, "Which save do you want to execute ? (Example: 1)", "Quelle sauvegarde voulez-vous exécuter ? (Exemple: 1)");
                         string ExecChoice = Console.ReadLine();
                         Save SaveObject = SaveList[Int32.Parse(ExecChoice) - 1];
 
@@ -111,20 +111,32 @@ namespace ObserverTest
                     else if (ExecModeChoiceLow == "all" || ExecModeChoiceLow == "toutes" || ExecModeChoiceLow == "toute")
                     {
                         ASave SeqExec = new SequentialExec();
-                    
-                        //Browse the list to execute individualy objects
+                        List<Save> AllFull = new List<Save>();
+                        List<Save> AllDiff = new List<Save>();
+
+                        //Separate full execution and differential execution in two different list
                         foreach (Save sv in SaveList)
                         {
-                            //Call the full execution if the object type match
                             if (sv.type == "Full")
                             {
-                                SeqExec.ExecFull(SaveList);
+                                AllFull.Add(sv);
                             }
-                            //Call the differential execution if the object type match
                             else if (sv.type == "Diff")
                             {
-                                SeqExec.ExecDiff(SaveList);
+                                AllDiff.Add(sv);
                             }
+                        }
+
+                        //Full execution
+                        if (AllFull.Count != 0)
+                        {
+                            SeqExec.ExecFull(AllFull);
+                        }
+
+                        //Differiential execution
+                        if (AllDiff.Count != 0)
+                        {
+                            SeqExec.ExecDiff(AllDiff);
                         }
                     }
                 }
