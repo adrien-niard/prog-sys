@@ -4,6 +4,7 @@ using System.Text;
 
 namespace ObserverTest
 {
+    //Setup a singleton pattern to define the langage of the application
     class Langage
     {
         private static Langage instance = new Langage();
@@ -13,14 +14,16 @@ namespace ObserverTest
             get { return instance; }
         }
 
-        //creation of a function that return the langage used by the user
+        //Creation of a function that return the langage used by the user
         public string EnglishOrFrancais()
         {
             Console.WriteLine("L'application devrait être en français ou en anglais ?");
             Console.WriteLine("Should the application be in french or in English ?");
+
             bool lang = true;
             string LangueLow = "";
 
+            //While loop to choose language and protect from typing mistake
             while (lang == true)
             {
                 Console.WriteLine("Type English or Francais / Ecrivez English ou Francais");
@@ -30,13 +33,12 @@ namespace ObserverTest
                 if (LangueLow == "francais" || LangueLow == "english")
                 {
                     lang = false;
-
                 }
             }
             return LangueLow;
         }
 
-        //creation of a function we will use each time we want to print text
+        //creation of a function we will use each time we want to print text either in english or french
         public void PrintText(String langue, string englishText, string frenchText)
         {
             if (langue == "english")

@@ -7,8 +7,8 @@ namespace ObserverTest
 {
 	abstract class ASave
 	{
-		public abstract void ExeComplet(List<Save> SList);
+		public abstract void ExecFull(List<Save> SList);
 
-		public abstract void ExeDiff(List<Save> SList);
+		public abstract void ExecDiff(List<Save> SList);
 	}
 }
