@@ -6,7 +6,7 @@ using System.IO;
 
 namespace ObserverTest
 {
-    class Log : IObserver
+    class State : IObserver
     {
         static string jsonString;
         static JsonSerializer serializer;
@@ -28,15 +28,15 @@ namespace ObserverTest
 
 
         }
-        public void AddLog()
+        public void AddState()
         {
-            using (var streamWriter = new StreamWriter("c:/projet/log.json"))
+            using (var streamWriter = new StreamWriter("c:/projet/state.json"))
             {
                 using (var jsonWriter = new JsonTextWriter(streamWriter))
                 {
                     jsonWriter.Formatting = Formatting.Indented;
                     serializer.Serialize(jsonWriter, JsonConvert.DeserializeObject(jsonString));
-                    Console.WriteLine("addlog OK");
+                    Console.WriteLine("addstate OK");
 
                 }
             }
