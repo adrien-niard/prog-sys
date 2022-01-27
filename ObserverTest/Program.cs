@@ -108,6 +108,12 @@ namespace ObserverTest
                     else if (ExecModeChoiceLow == "all" || ExecModeChoiceLow == "toutes" || ExecModeChoiceLow == "toute")
                     {
                         ASave SeqExec = new SequentialExec();
+                    
+
+
+                }
+                log.AddLog();
+            }
 
                         //Browse the list to execute individualy objects
                         foreach (Save sv in SaveList)
