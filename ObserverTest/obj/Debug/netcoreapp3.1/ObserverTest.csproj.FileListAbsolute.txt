@@ -1,0 +1,42 @@
+D:\Visual studio\Repos\ObserverTest\ObserverTest\bin\Debug\netcoreapp3.1\ObserverTest.exe
+D:\Visual studio\Repos\ObserverTest\ObserverTest\bin\Debug\netcoreapp3.1\ObserverTest.deps.json
+D:\Visual studio\Repos\ObserverTest\ObserverTest\bin\Debug\netcoreapp3.1\ObserverTest.runtimeconfig.json
+D:\Visual studio\Repos\ObserverTest\ObserverTest\bin\Debug\netcoreapp3.1\ObserverTest.runtimeconfig.dev.json
+D:\Visual studio\Repos\ObserverTest\ObserverTest\bin\Debug\netcoreapp3.1\ObserverTest.dll
+D:\Visual studio\Repos\ObserverTest\ObserverTest\bin\Debug\netcoreapp3.1\ObserverTest.pdb
+D:\Visual studio\Repos\ObserverTest\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.csproj.AssemblyReference.cache
+D:\Visual studio\Repos\ObserverTest\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.GeneratedMSBuildEditorConfig.editorconfig
+D:\Visual studio\Repos\ObserverTest\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.AssemblyInfoInputs.cache
+D:\Visual studio\Repos\ObserverTest\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.AssemblyInfo.cs
+D:\Visual studio\Repos\ObserverTest\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.csproj.CoreCompileInputs.cache
+D:\Visual studio\Repos\ObserverTest\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.dll
+D:\Visual studio\Repos\ObserverTest\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.pdb
+D:\Visual studio\Repos\ObserverTest\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.genruntimeconfig.cache
+D:\Téléchargement\hugo save 2\ObserverTest\bin\Debug\netcoreapp3.1\ObserverTest.exe
+D:\Téléchargement\hugo save 2\ObserverTest\bin\Debug\netcoreapp3.1\ObserverTest.deps.json
+D:\Téléchargement\hugo save 2\ObserverTest\bin\Debug\netcoreapp3.1\ObserverTest.runtimeconfig.json
+D:\Téléchargement\hugo save 2\ObserverTest\bin\Debug\netcoreapp3.1\ObserverTest.runtimeconfig.dev.json
+D:\Téléchargement\hugo save 2\ObserverTest\bin\Debug\netcoreapp3.1\ObserverTest.dll
+D:\Téléchargement\hugo save 2\ObserverTest\bin\Debug\netcoreapp3.1\ObserverTest.pdb
+D:\Téléchargement\hugo save 2\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.csproj.AssemblyReference.cache
+D:\Téléchargement\hugo save 2\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.GeneratedMSBuildEditorConfig.editorconfig
+D:\Téléchargement\hugo save 2\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.AssemblyInfoInputs.cache
+D:\Téléchargement\hugo save 2\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.AssemblyInfo.cs
+D:\Téléchargement\hugo save 2\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.csproj.CoreCompileInputs.cache
+D:\Téléchargement\hugo save 2\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.dll
+D:\Téléchargement\hugo save 2\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.pdb
+D:\Téléchargement\hugo save 2\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.genruntimeconfig.cache
+C:\Users\Adrien\Source\Repos\adrien-niard\prog-sys\ObserverTest\bin\Debug\netcoreapp3.1\ObserverTest.exe
+C:\Users\Adrien\Source\Repos\adrien-niard\prog-sys\ObserverTest\bin\Debug\netcoreapp3.1\ObserverTest.deps.json
+C:\Users\Adrien\Source\Repos\adrien-niard\prog-sys\ObserverTest\bin\Debug\netcoreapp3.1\ObserverTest.runtimeconfig.json
+C:\Users\Adrien\Source\Repos\adrien-niard\prog-sys\ObserverTest\bin\Debug\netcoreapp3.1\ObserverTest.runtimeconfig.dev.json
+C:\Users\Adrien\Source\Repos\adrien-niard\prog-sys\ObserverTest\bin\Debug\netcoreapp3.1\ObserverTest.dll
+C:\Users\Adrien\Source\Repos\adrien-niard\prog-sys\ObserverTest\bin\Debug\netcoreapp3.1\ObserverTest.pdb
+C:\Users\Adrien\Source\Repos\adrien-niard\prog-sys\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.csproj.AssemblyReference.cache
+C:\Users\Adrien\Source\Repos\adrien-niard\prog-sys\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Adrien\Source\Repos\adrien-niard\prog-sys\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.AssemblyInfoInputs.cache
+C:\Users\Adrien\Source\Repos\adrien-niard\prog-sys\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.AssemblyInfo.cs
+C:\Users\Adrien\Source\Repos\adrien-niard\prog-sys\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.csproj.CoreCompileInputs.cache
+C:\Users\Adrien\Source\Repos\adrien-niard\prog-sys\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.dll
+C:\Users\Adrien\Source\Repos\adrien-niard\prog-sys\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.pdb
+C:\Users\Adrien\Source\Repos\adrien-niard\prog-sys\ObserverTest\obj\Debug\netcoreapp3.1\ObserverTest.genruntimeconfig.cache
