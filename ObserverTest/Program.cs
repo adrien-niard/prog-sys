@@ -78,8 +78,11 @@ namespace ObserverTest
 
                     Console.WriteLine(SaveList[Int32.Parse(ExecChoice) - 1].name);
 
+                    
+
 
                 }
+                log.AddLog();
             }
 
             /*if (save.type == "Full" || save.type =="Complete")
