@@ -54,11 +54,37 @@ namespace ObserverTest
             set 
             {
                 _type = value;
-                Notify();
             }
         }
 
         private string _type;
+
+        public long FileSize {
+            get
+            {
+                return _fileSize;
+            }
+            set
+            {
+                _fileSize = value;
+            }
+        }
+
+        private long _fileSize;
+        public string Time {
+            get
+            {
+                return _time;
+            }
+
+            set
+            {
+                _time = value;
+                Notify();
+            }
+        }
+
+        private string _time;
         public Save()
         {
             _observers = new List<IObserver>();
@@ -90,6 +116,21 @@ namespace ObserverTest
             {
                 Console.WriteLine(iox.Message);
             }
+        }
+        public long GetFileSize()
+        {
+            FileInfo fi = new FileInfo(src);
+            // Get file size  
+            long size = fi.Length;
+            return size;
+        }
+
+        public string GetTime()
+        {
+            string time;
+            time = DateTime.Now.ToString();
+
+            return time;
         }
     }
 }

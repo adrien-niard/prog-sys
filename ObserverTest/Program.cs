@@ -44,10 +44,13 @@ namespace ObserverTest
                 string dest = Console.ReadLine();
 
                 //Set the save attributes depending of the user's choices
+                
                 save.name = name;
                 save.src = src;
                 save.dest = dest;
                 save.type = type;
+                save.FileSize = save.GetFileSize();
+                save.Time = save.GetTime();
 
                 //Add the save into the list
                 SaveList.Add(save);
