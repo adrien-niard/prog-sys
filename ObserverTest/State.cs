@@ -10,14 +10,17 @@ namespace ObserverTest
     {
         static string jsonString;
 
+        //Function launch when Notify
         public void Update(ISubject subject)
         {
             if (subject is Save save)
             {
                 FileInfo FI = new FileInfo("C:/projet/State.json");
 
+                //Test if the json file exist
                 if (FI.Exists)
                 {
+                    //Store save's attribute in jsonString variable
                     jsonString = ",\n\n";
                     jsonString = jsonString + JsonConvert.SerializeObject(save, Formatting.Indented);
                 }
@@ -27,6 +30,8 @@ namespace ObserverTest
                 }
             };
         }
+
+        //Append a save to the json file
         public void AddState()
         {
             File.AppendAllText(@"C:/projet/State.json", jsonString);

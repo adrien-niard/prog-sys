@@ -8,6 +8,5 @@ namespace ObserverTest
     {
         void Attach(IObserver observer);
         void Notify();
-
     }
 }

@@ -41,7 +41,7 @@ namespace ObserverTest
             return LangueLow;
         }
 
-        //creation of a function we will use each time we want to print text either in english or french
+        //Creation of a function we will use each time we want to print text either in english or french
         public void PrintText(String langue, string englishText, string frenchText)
         {
             if (langue == "english")
