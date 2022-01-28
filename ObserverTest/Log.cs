@@ -9,11 +9,9 @@ namespace ObserverTest
     class Log : IObserver
     {
         static string jsonString;
-        static JsonSerializer serializer;
 
         public void Update(ISubject subject)
         {
-            serializer = new JsonSerializer();
             if (subject is Save save)
             {
                 FileInfo FI = new FileInfo("C:/projet/log.json");
