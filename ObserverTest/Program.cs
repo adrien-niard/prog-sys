@@ -24,8 +24,9 @@ namespace ObserverTest
                 //Creation of save and log objects and setup log as a listener
                 Save save = new Save();
                 Log log = new Log();
-                /*STATE*/
+                State state = new State();
                 save.Attach(log);
+                save.Attach(state);
 
                 //Asking the user how his save should be called
                 langage.PrintText(ChoosenLanguage, "Select your save's name :", "Choisissez le nom de votre sauvegarde :");
