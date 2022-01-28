@@ -44,7 +44,6 @@ namespace ObserverTest
                 string dest = Console.ReadLine();
 
                 //Set the save attributes depending of the user's choices
-                
                 save.name = name;
                 save.src = src;
                 save.dest = dest;
@@ -54,7 +53,6 @@ namespace ObserverTest
 
                 //Add the save into the list
                 SaveList.Add(save);
-                log.AddLog();
 
                 Console.WriteLine("--------------------");
 
@@ -102,12 +100,12 @@ namespace ObserverTest
                         //Call the full execution if the object type match
                         if (SaveObject.type == "Full")
                         {
-                            MonoExec.ExecFull(ListMono);
+                            MonoExec.ExecFull(ListMono, save, log);
                         }
                         //Call the differential execution if the object type match
                         else if (SaveObject.type == "Diff")
                         {
-                            MonoExec.ExecDiff(ListMono);
+                            MonoExec.ExecDiff(ListMono, save, log);
                         }
                     }
                     //Execution of all saves
@@ -133,13 +131,13 @@ namespace ObserverTest
                         //Full execution
                         if (AllFull.Count != 0)
                         {
-                            SeqExec.ExecFull(AllFull);
+                            SeqExec.ExecFull(AllFull, save, log);
                         }
 
                         //Differiential execution
                         if (AllDiff.Count != 0)
                         {
-                            SeqExec.ExecDiff(AllDiff);
+                            SeqExec.ExecDiff(AllDiff, save, log);
                         }
                     }
                 }
