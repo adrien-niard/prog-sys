@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Diagnostics;
+using System.Linq;
 //Add the System.IO fore the File option
 using System.IO;
 
@@ -122,9 +123,9 @@ namespace ObserverTest
         }
         public long GetFileSize()
         {
-            FileInfo fi = new FileInfo(src);
-            // Get file size  
-            long size = fi.Length;
+            DirectoryInfo di = new DirectoryInfo(src);
+
+            long size = di.EnumerateFiles("*", SearchOption.AllDirectories).Sum(fi => fi.Length);
             return size;
         }
 
