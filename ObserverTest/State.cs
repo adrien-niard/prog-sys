@@ -19,10 +19,7 @@ namespace ObserverTest
             serializer = new JsonSerializer();
             if (subject is Save save)
             {
-
                 jsonString = JsonConvert.SerializeObject(save, Formatting.Indented);
-
-
             };
             /*Console.WriteLine("your save {0} as been done, the file {1} just got save here : {2} ", save.name, save.src, save.dest);*/
 

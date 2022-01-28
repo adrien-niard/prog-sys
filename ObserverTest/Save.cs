@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics;
 //Add the System.IO fore the File option
 using System.IO;
 
@@ -20,11 +21,11 @@ namespace ObserverTest
             }
         }
         private string _name;
-        public string src 
-        { 
-          get { return _src; } 
-                
-          set
+        public string src
+        {
+            get { return _src; }
+
+            set
             {
                 _src = value;
             }
@@ -32,26 +33,26 @@ namespace ObserverTest
         private string _src;
 
         public string dest
-        { 
-            get 
-            { 
-                return _dest; 
+        {
+            get
+            {
+                return _dest;
             }
 
             set
             {
                 _dest = value;
-            } 
+            }
         }
         private string _dest;
-        public string type 
+        public string type
         {
-            get 
-            { 
-                return _type; 
+            get
+            {
+                return _type;
             }
-            
-            set 
+
+            set
             {
                 _type = value;
             }
@@ -80,11 +81,27 @@ namespace ObserverTest
             set
             {
                 _time = value;
-                Notify();
             }
         }
 
         private string _time;
+
+        public string RunTime 
+        {
+            get
+            {
+                return _runtime;
+            }
+
+            set
+            {
+                _runtime = value;
+                Notify();
+            }
+        }
+
+        private string _runtime;
+
         public Save()
         {
             _observers = new List<IObserver>();
@@ -103,20 +120,6 @@ namespace ObserverTest
             }
             );
         }
-
-        public void RunSave(string src, string dest)
-        {
-            try
-            {
-                /*ASave Exec = new ASave();*/
-				/*File.Copy(src, dest, true);*/
-			}
-
-            catch (IOException iox)
-            {
-                Console.WriteLine(iox.Message);
-            }
-        }
         public long GetFileSize()
         {
             FileInfo fi = new FileInfo(src);
@@ -131,6 +134,20 @@ namespace ObserverTest
             time = DateTime.Now.ToString();
 
             return time;
+        }
+
+        public Stopwatch GetStartTimer()
+        {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
+            return stopWatch;
+        }
+        public string GetStopTimer(Stopwatch stopWatch)
+        {
+            stopWatch.Stop();
+
+            return stopWatch.Elapsed.ToString();
         }
     }
 }
