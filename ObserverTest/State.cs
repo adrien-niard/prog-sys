@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.IO;
 
 namespace ObserverTest
@@ -15,24 +16,30 @@ namespace ObserverTest
         {
             if (subject is Save save)
             {
-                string SaveName = save.name;
-                string Time = save.Time;
+                FileInfo Fi = new FileInfo("C:/projet/State.json");
 
+                JObject json = new JObject();
 
+                json.Add("Name", save.name);
+                json.Add("Time", save.Time);
+                /*json.Add("State", "N/A");
+                json.Add("TotalFilesToCopy", "N/A");
+                json.Add("TotalFilesSize", "N/A");
+                json.Add("NbFilesLeftToDo", "N/A");
+                json.Add("TotalFilesSizeLeftToDo", "N/A");*/
+                json.Add("SourceFilePath", save.src);
+                json.Add("DestinationFilePath", save.dest);
 
-                /*FileInfo FI = new FileInfo("C:/projet/State.json");
-
-                //Test if the json file exist
-                if (FI.Exists)
+                if (Fi.Exists)
                 {
                     //Store save's attribute in jsonString variable
                     jsonString = ",\n\n";
-                    jsonString = jsonString + JsonConvert.SerializeObject(save, Formatting.Indented);
+                    jsonString = jsonString + JsonConvert.SerializeObject(json, Formatting.Indented);
                 }
                 else
                 {
-                    jsonString = JsonConvert.SerializeObject(save, Formatting.Indented);
-                }*/
+                    jsonString = JsonConvert.SerializeObject(json, Formatting.Indented);
+                }
             }
         }
 
@@ -41,14 +48,29 @@ namespace ObserverTest
         {
             if (NbObj != 0)
             {
-                string State = "In progress";
+                Console.WriteLine(jsonString);
+                var desJSON = JsonConvert.DeserializeObject(jsonString);
+                Console.WriteLine(desJSON);
+                /*string State = "ACTIVE";
+                string TotalFilesToCopy = "";
+                string TotalFilesSize = "";
+                string NbFilesLeftToDo = "";
+                string TotalFilesSizeLeftToDo = "";
 
+                desJSON["State"] = State;
+                desJSON["TotalFilesToCopy"] = TotalFilesToCopy;
+                desJSON["TotalFilesSize"] = TotalFilesSize;
+                desJSON["NbFilesLeftToDo"] = NbFilesLeftToDo;
+                desJSON["TotalFilesSizeLeftToDo"] = TotalFilesSizeLeftToDo;*/
+
+                Console.WriteLine(desJSON);
             }
             else
             {
-                string State = "Complete";
+                string State = "END";
             }
-            /*File.AppendAllText(@"C:/projet/State.json", jsonString);*/
+
+            File.AppendAllText(@"C:/projet/State.json", jsonString);
         }
     }
 }

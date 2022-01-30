@@ -52,6 +52,8 @@ namespace ObserverTest
                         log.AddLog();
                         state.AddState(NbObj);
                     }
+
+                    NbObj -= 1;
                 }
             }
             catch (IOException iox)
@@ -108,6 +110,8 @@ namespace ObserverTest
                             state.AddState(NbObj);
                         }
                     }
+
+                    NbObj -= 1;
                 }
             }
             catch (IOException iox)
