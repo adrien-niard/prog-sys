@@ -10,67 +10,69 @@ namespace ObserverTest
     class State : IObserver
     {
         static string jsonString;
+        static string jsonStringState;
 
         //Function launch when Notify
         public void Update(ISubject subject)
         {
             if (subject is Save save)
             {
-                FileInfo Fi = new FileInfo("C:/projet/State.json");
-
                 JObject json = new JObject();
 
                 json.Add("Name", save.name);
                 json.Add("Time", save.Time);
-                /*json.Add("State", "N/A");
-                json.Add("TotalFilesToCopy", "N/A");
-                json.Add("TotalFilesSize", "N/A");
+                json.Add("State", "N/A");
+                json.Add("TotalFilesToCopy", "N/A"); //save.TotalFiles()
+                json.Add("TotalFilesSize", "N/A"); //save.GetFileSize()
                 json.Add("NbFilesLeftToDo", "N/A");
-                json.Add("TotalFilesSizeLeftToDo", "N/A");*/
+                json.Add("TotalFilesSizeLeftToDo", "N/A");
                 json.Add("SourceFilePath", save.src);
                 json.Add("DestinationFilePath", save.dest);
 
-                if (Fi.Exists)
-                {
-                    //Store save's attribute in jsonString variable
-                    jsonString = ",\n\n";
-                    jsonString = jsonString + JsonConvert.SerializeObject(json, Formatting.Indented);
-                }
-                else
-                {
-                    jsonString = JsonConvert.SerializeObject(json, Formatting.Indented);
-                }
+                jsonString = JsonConvert.SerializeObject(json, Formatting.Indented);
             }
         }
 
         //Append a save to the json file
         public void AddState(int NbObj)
         {
-            if (NbObj != 0)
+            FileInfo Fi = new FileInfo("C:/projet/state.json");
+
+            var desJSON = JsonConvert.DeserializeObject<JObject>(jsonString);
+
+            if (NbObj > 0)
             {
-                Console.WriteLine(jsonString);
-                var desJSON = JsonConvert.DeserializeObject(jsonString);
-                Console.WriteLine(desJSON);
-                /*string State = "ACTIVE";
-                string TotalFilesToCopy = "";
-                string TotalFilesSize = "";
-                string NbFilesLeftToDo = "";
-                string TotalFilesSizeLeftToDo = "";
+				string State = "ACTIVE";
+				string TotalFilesToCopy = "N/A";
+				string TotalFilesSize = "N/A";
+				string NbFilesLeftToDo = "N/A";
+				string TotalFilesSizeLeftToDo = "N/A";
 
-                desJSON["State"] = State;
-                desJSON["TotalFilesToCopy"] = TotalFilesToCopy;
-                desJSON["TotalFilesSize"] = TotalFilesSize;
-                desJSON["NbFilesLeftToDo"] = NbFilesLeftToDo;
-                desJSON["TotalFilesSizeLeftToDo"] = TotalFilesSizeLeftToDo;*/
-
-                Console.WriteLine(desJSON);
-            }
+				desJSON["State"] = State;
+				desJSON["TotalFilesToCopy"] = TotalFilesToCopy;
+				desJSON["TotalFilesSize"] = TotalFilesSize;
+				desJSON["NbFilesLeftToDo"] = NbFilesLeftToDo;
+				desJSON["TotalFilesSizeLeftToDo"] = TotalFilesSizeLeftToDo;
+			}
             else
             {
                 string State = "END";
+
+                desJSON["State"] = State;
             }
 
-            File.AppendAllText(@"C:/projet/State.json", jsonString);
+            if (Fi.Exists)
+            {
+                //Store save's attribute in jsonString variable
+                jsonStringState = ",\n\n";
+                jsonStringState += JsonConvert.SerializeObject(desJSON, Formatting.Indented);
+            }
+            else
+            {
+                jsonStringState += JsonConvert.SerializeObject(desJSON, Formatting.Indented);
+            }
+
+            File.AppendAllText(@"C:/projet/state.json", jsonStringState);
         }
     }
 }

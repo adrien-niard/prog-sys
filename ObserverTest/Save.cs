@@ -47,6 +47,7 @@ namespace ObserverTest
             set
             {
                 _dest = value;
+                Notify();
             }
         }
         private string _dest;
@@ -62,6 +63,7 @@ namespace ObserverTest
             set
             {
                 _type = value;
+                Notify();
             }
         }
         private string _type;
@@ -146,6 +148,14 @@ namespace ObserverTest
                 Console.WriteLine(iox.Message);
             }
             return size;
+        }
+        public long TotalFiles()
+        {
+            DirectoryInfo di = new DirectoryInfo(src);
+
+            long TF = di.EnumerateFiles("*", SearchOption.AllDirectories).LongCount();
+
+            return TF;
         }
 
         //Get the time of the creation of the save

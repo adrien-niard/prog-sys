@@ -36,6 +36,8 @@ namespace ObserverTest
                         save.src = src + "/" + fi.Name;
                         save.dest = dest + "/" + fi.Name;
 
+                        state.AddState(NbObj);
+
                         try
                         {
                             //Copy source directory in destination directory
@@ -49,10 +51,11 @@ namespace ObserverTest
                         //Stop timer
                         Obj.RunTime = Obj.GetStopTimer(sw);
                         log.AddLog();
+
+                        NbObj -= 1;
+
                         state.AddState(NbObj);
                     }
-
-                    NbObj -= 1;
                 }
             }
             catch (IOException iox)
@@ -90,6 +93,8 @@ namespace ObserverTest
                         save.src = src + "/" + fi.Name;
                         save.dest = dest + "/" + fi.Name;
 
+                        state.AddState(NbObj);
+
                         //Compare the last write time of both files
                         if (FiSrc.LastWriteTimeUtc != FiDest.LastWriteTimeUtc)
                         {
@@ -106,11 +111,13 @@ namespace ObserverTest
                             //Stop timer
                             Obj.RunTime = Obj.GetStopTimer(sw);
                             log.AddLog();
-                            state.AddState(NbObj);
-                        }
-                    }
 
-                    NbObj -= 1;
+                        }
+
+                        NbObj -= 1;
+
+                        state.AddState(NbObj);
+                    }
                 }
             }
             catch (IOException iox)
