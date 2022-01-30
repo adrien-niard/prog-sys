@@ -5,6 +5,10 @@
     "\\ObserverTest",
     "\\Save"
   ],
+<<<<<<< HEAD
   "SelectedNode": "\\ObserverTest\\Save.cs",
+=======
+  "SelectedNode": "\\ObserverTest\\SequentialExec.cs",
+>>>>>>> 254c939ca8ad4e731337a2edaf08e88ab05701be
   "PreviewInSolutionExplorer": false
 }
