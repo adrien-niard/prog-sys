@@ -101,13 +101,13 @@ namespace ObserverTest
                         //Call the full execution if the object type match
                         if (SaveObject.type == "Full")
                         {
-                            MonoExec.ExecFull(ListMono, save, log);
+                            MonoExec.ExecFull(ListMono, save, log, state);
                             langage.PrintText(ChoosenLanguage, "Your save has been done successfully !", "Votre sauvegarde a été exécutée corretement !");
                         }
                         //Call the differential execution if the object type match
                         else if (SaveObject.type == "Diff")
                         {
-                            MonoExec.ExecDiff(ListMono, save, log);
+                            MonoExec.ExecDiff(ListMono, save, log, state);
                             langage.PrintText(ChoosenLanguage, "Your save has been done successfully !", "Votre sauvegarde a été exécutée corretement !");
                         }
                     }
@@ -134,14 +134,14 @@ namespace ObserverTest
                         //Full execution
                         if (AllFull.Count != 0)
                         {
-                            SeqExec.ExecFull(AllFull, save, log);
+                            SeqExec.ExecFull(AllFull, save, log, state);
                             langage.PrintText(ChoosenLanguage, "Your save has been done successfully !", "Votre sauvegarde a été exécutée corretement !");
                         }
 
                         //Differiential execution
                         if (AllDiff.Count != 0)
                         {
-                            SeqExec.ExecDiff(AllDiff, save, log);
+                            SeqExec.ExecDiff(AllDiff, save, log, state);
                             langage.PrintText(ChoosenLanguage, "Your save has been done successfully !", "Votre sauvegarde a été exécutée corretement !");
                         }
                     }

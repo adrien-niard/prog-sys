@@ -28,7 +28,7 @@ namespace ObserverTest
                 {
                     jsonString = JsonConvert.SerializeObject(save, Formatting.Indented);
                 }
-            };
+            }
         }
 
         //Append a save to the json file

@@ -8,10 +8,12 @@ namespace ObserverTest
     class MonoExec : ASave
     {
         //Cycle through saves to copy the specified directory in full mode
-        public override void ExecFull(List<Save> SList, Save save, Log log)
+        public override void ExecFull(List<Save> SList, Save save, Log log, State state)
         {
             try
             {
+                int NbObj = SList.Count;
+
                 //Cycle through saves to copy the specified directory in differential mode
                 foreach (Save Obj in SList)
                 {
@@ -48,6 +50,7 @@ namespace ObserverTest
                         //Stop timer
                         Obj.RunTime = Obj.GetStopTimer(sw);
                         log.AddLog();
+                        state.AddState(NbObj);
                     }
                 }
             }
@@ -57,10 +60,12 @@ namespace ObserverTest
             }
         }
 
-        public override void ExecDiff(List<Save> SList, Save save, Log log)
+        public override void ExecDiff(List<Save> SList, Save save, Log log, State state)
         {
             try
             {
+                int NbObj = SList.Count;
+
                 //Cycle through saves to copy the specified directory in differential mode
                 foreach (Save Obj in SList)
                 {
@@ -100,6 +105,7 @@ namespace ObserverTest
                             //Stop timer
                             Obj.RunTime = Obj.GetStopTimer(sw);
                             log.AddLog();
+                            state.AddState(NbObj);
                         }
                     }
                 }

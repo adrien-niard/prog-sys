@@ -15,7 +15,12 @@ namespace ObserverTest
         {
             if (subject is Save save)
             {
-                FileInfo FI = new FileInfo("C:/projet/State.json");
+                string SaveName = save.name;
+                string Time = save.Time;
+
+
+
+                /*FileInfo FI = new FileInfo("C:/projet/State.json");
 
                 //Test if the json file exist
                 if (FI.Exists)
@@ -27,14 +32,23 @@ namespace ObserverTest
                 else
                 {
                     jsonString = JsonConvert.SerializeObject(save, Formatting.Indented);
-                }
-            };
+                }*/
+            }
         }
 
         //Append a save to the json file
-        public void AddState()
+        public void AddState(int NbObj)
         {
-            File.AppendAllText(@"C:/projet/State.json", jsonString);
+            if (NbObj != 0)
+            {
+                string State = "In progress";
+
+            }
+            else
+            {
+                string State = "Complete";
+            }
+            /*File.AppendAllText(@"C:/projet/State.json", jsonString);*/
         }
     }
 }
