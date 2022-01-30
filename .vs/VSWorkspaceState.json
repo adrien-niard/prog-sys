@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\ObserverTest"
+    "\\Model",
+    "\\ObserverTest",
+    "\\Save"
   ],
-  "SelectedNode": "\\ObserverTest.sln",
+  "SelectedNode": "\\ObserverTest\\Save.cs",
   "PreviewInSolutionExplorer": false
 }
