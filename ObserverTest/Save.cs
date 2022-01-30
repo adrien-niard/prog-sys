@@ -12,6 +12,7 @@ namespace ObserverTest
     {
         private List<IObserver> _observers;
 
+        //Definition of the name attribute
         public string name
         {
             get { return _name; }
@@ -22,6 +23,8 @@ namespace ObserverTest
             }
         }
         private string _name;
+
+        //Definition of the source attribute
         public string src
         {
             get { return _src; }
@@ -33,6 +36,7 @@ namespace ObserverTest
         }
         private string _src;
 
+        //Definition of the destination attribute
         public string dest
         {
             get
@@ -46,6 +50,8 @@ namespace ObserverTest
             }
         }
         private string _dest;
+
+        //Definition of the type attribute
         public string type
         {
             get
@@ -58,9 +64,9 @@ namespace ObserverTest
                 _type = value;
             }
         }
-
         private string _type;
 
+        //Definition of the FileSize attribute
         public long FileSize {
             get
             {
@@ -71,8 +77,9 @@ namespace ObserverTest
                 _fileSize = value;
             }
         }
-
         private long _fileSize;
+
+        //Definition of the Time attribute
         public string Time {
             get
             {
@@ -84,9 +91,9 @@ namespace ObserverTest
                 _time = value;
             }
         }
-
         private string _time;
 
+        //Definition of the RunTime attribute
         public string RunTime 
         {
             get
@@ -100,19 +107,21 @@ namespace ObserverTest
                 Notify();
             }
         }
-
         private string _runtime;
 
+        //Constructor
         public Save()
         {
             _observers = new List<IObserver>();
         }
 
+        //Link observer - listener
         public void Attach(IObserver observer)
         {
             _observers.Add(observer);
         }
 
+        //Event
         public void Notify()
         {
             _observers.ForEach(o =>
@@ -121,14 +130,25 @@ namespace ObserverTest
             }
             );
         }
+
+        //Get the size of a directory
         public long GetFileSize()
         {
-            DirectoryInfo di = new DirectoryInfo(src);
+            long size = 0;
+            try
+            {
+                DirectoryInfo di = new DirectoryInfo(src);
 
-            long size = di.EnumerateFiles("*", SearchOption.AllDirectories).Sum(fi => fi.Length);
+                size = di.EnumerateFiles("*", SearchOption.AllDirectories).Sum(fi => fi.Length);
+            }
+            catch (IOException iox)
+            {
+                Console.WriteLine(iox.Message);
+            }
             return size;
         }
 
+        //Get the time of the creation of the save
         public string GetTime()
         {
             string time;
@@ -137,6 +157,7 @@ namespace ObserverTest
             return time;
         }
 
+        //Start the timer to have the execution time
         public Stopwatch GetStartTimer()
         {
             Stopwatch stopWatch = new Stopwatch();
@@ -144,6 +165,8 @@ namespace ObserverTest
 
             return stopWatch;
         }
+
+        //Stop the timer to have the execution time
         public string GetStopTimer(Stopwatch stopWatch)
         {
             stopWatch.Stop();

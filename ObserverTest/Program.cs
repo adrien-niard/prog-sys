@@ -37,11 +37,11 @@ namespace ObserverTest
                 string type = Console.ReadLine();
 
                 //Asking the source path
-                langage.PrintText(ChoosenLanguage, "Which file do you want to copy ?", "Quel fichier voulez-vous copier ?");
+                langage.PrintText(ChoosenLanguage, "Which directory do you want to copy ?", "Quel dossier voulez-vous copier ?");
                 string src = Console.ReadLine();
 
                 //Asking the destination path
-                langage.PrintText(ChoosenLanguage, "Where do you want to copy the file ?", "Où voulez-vous copier le fichier");
+                langage.PrintText(ChoosenLanguage, "Where do you want to copy the directory ?", "Où voulez-vous copier le dossier");
                 string dest = Console.ReadLine();
 
                 //Set the save attributes depending of the user's choices
@@ -101,12 +101,14 @@ namespace ObserverTest
                         //Call the full execution if the object type match
                         if (SaveObject.type == "Full")
                         {
-                            MonoExec.ExecFull(ListMono, save, log);
+                            MonoExec.ExecFull(ListMono, save, log, state);
+                            langage.PrintText(ChoosenLanguage, "Your save has been done successfully !", "Votre sauvegarde a été exécutée corretement !");
                         }
                         //Call the differential execution if the object type match
                         else if (SaveObject.type == "Diff")
                         {
-                            MonoExec.ExecDiff(ListMono, save, log);
+                            MonoExec.ExecDiff(ListMono, save, log, state);
+                            langage.PrintText(ChoosenLanguage, "Your save has been done successfully !", "Votre sauvegarde a été exécutée corretement !");
                         }
                     }
                     //Execution of all saves
@@ -132,13 +134,15 @@ namespace ObserverTest
                         //Full execution
                         if (AllFull.Count != 0)
                         {
-                            SeqExec.ExecFull(AllFull, save, log);
+                            SeqExec.ExecFull(AllFull, save, log, state);
+                            langage.PrintText(ChoosenLanguage, "Your save has been done successfully !", "Votre sauvegarde a été exécutée corretement !");
                         }
 
                         //Differiential execution
                         if (AllDiff.Count != 0)
                         {
-                            SeqExec.ExecDiff(AllDiff, save, log);
+                            SeqExec.ExecDiff(AllDiff, save, log, state);
+                            langage.PrintText(ChoosenLanguage, "Your save has been done successfully !", "Votre sauvegarde a été exécutée corretement !");
                         }
                     }
                 }

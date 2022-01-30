@@ -7,56 +7,106 @@ namespace ObserverTest
 {
     class MonoExec : ASave
     {
-        public override void ExecFull(List<Save> SList, Save save, Log log)
+        //Cycle through saves to copy the specified directory in full mode
+        public override void ExecFull(List<Save> SList, Save save, Log log, State state)
         {
             try
             {
+                int NbObj = SList.Count;
+
+                //Cycle through saves to copy the specified directory in differential mode
                 foreach (Save Obj in SList)
                 {
+                    //Start the timer
                     var sw = Obj.GetStartTimer();
-
                     string name = Obj.name;
                     string src = Obj.src;
                     string dest = Obj.dest;
                     string type = Obj.type;
-                    
-                    File.Copy(src, dest, true);
-                    
-                    Console.WriteLine("File \x1B[4m" + src + "\x1B[0m well copied at \x1B[4m" + dest + "\x1B[0m");
-                    Obj.RunTime = Obj.GetStopTimer(sw);
-                    log.AddLog();
+
+                    DirectoryInfo DirSrc = new DirectoryInfo(src);
+                    DirectoryInfo DirDest = new DirectoryInfo(dest);
+
+                    //Cycle through the file in the folder to copy them into the destination folder
+                    foreach (FileInfo fi in DirSrc.GetFiles())
+                    {
+                        //Define source/destination files
+                        FileInfo FiSrc = new FileInfo(Path.Combine(DirSrc.ToString(), fi.Name));
+                        FileInfo FiDest = new FileInfo(Path.Combine(DirDest.ToString(), fi.Name));
+
+                        save.src = src + "/" + fi.Name;
+                        save.dest = dest + "/" + fi.Name;
+
+                        try
+                        {
+                            //Copy source directory in destination directory
+                            File.Copy(FiSrc.ToString(), FiDest.ToString(), true);
+                        }
+                        catch (IOException iox)
+                        {
+                            Console.WriteLine(iox.Message);
+                        }
+
+                        //Stop timer
+                        Obj.RunTime = Obj.GetStopTimer(sw);
+                        log.AddLog();
+                        state.AddState(NbObj);
+                    }
                 }
             }
-
             catch (IOException iox)
             {
                 Console.WriteLine(iox.Message);
             }
         }
 
-        public override void ExecDiff(List<Save> SList, Save save, Log log)
+        public override void ExecDiff(List<Save> SList, Save save, Log log, State state)
         {
             try
             {
+                int NbObj = SList.Count;
+
+                //Cycle through saves to copy the specified directory in differential mode
                 foreach (Save Obj in SList)
                 {
-                    FileInfo FiSrc = new FileInfo(Obj.src);
-                    FileInfo FiDest = new FileInfo(Obj.dest);
+                    //Start the timer
+                    var sw = Obj.GetStartTimer();
+                    string name = Obj.name;
+                    string src = Obj.src;
+                    string dest = Obj.dest;
+                    string type = Obj.type;
 
-                    if (FiSrc.LastWriteTimeUtc != FiDest.LastWriteTimeUtc)
+                    DirectoryInfo DirSrc = new DirectoryInfo(src);
+                    DirectoryInfo DirDest = new DirectoryInfo(dest);
+
+                    //Cycle through the file in the folder to copy them into the destination folder
+                    foreach (FileInfo fi in DirSrc.GetFiles())
                     {
-                        var sw = Obj.GetStartTimer();
+                        //Define source/destination files
+                        FileInfo FiSrc = new FileInfo(Path.Combine(DirSrc.ToString(), fi.Name));
+                        FileInfo FiDest = new FileInfo(Path.Combine(DirDest.ToString(), fi.Name));
 
-                        string name = Obj.name;
-                        string src = Obj.src;
-                        string dest = Obj.dest;
-                        string type = Obj.type;
+                        save.src = src + "/" + fi.Name;
+                        save.dest = dest + "/" + fi.Name;
 
-                        File.Copy(src, dest, true);
+                        //Compare the last write time of both files
+                        if (FiSrc.LastWriteTimeUtc != FiDest.LastWriteTimeUtc)
+                        {
+                            try
+                            {
+                                //Copy source directory in destination directory
+                                File.Copy(FiSrc.ToString(), FiDest.ToString(), true);
+                            }
+                            catch (IOException iox)
+                            {
+                                Console.WriteLine(iox.Message);
+                            }
 
-                        Console.WriteLine("File \x1B[4m" + src + "\x1B[0m well copied at \x1B[4m" + dest + "\x1B[0m");
-                        Obj.RunTime = Obj.GetStopTimer(sw);
-                        log.AddLog();
+                            //Stop timer
+                            Obj.RunTime = Obj.GetStopTimer(sw);
+                            log.AddLog();
+                            state.AddState(NbObj);
+                        }
                     }
                 }
             }
