@@ -1,0 +1,163 @@
+﻿    <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style TargetType="{x:Type Button}">
+        <!-- General for all buttons -->
+        <Setter Property="Foreground"
+                Value="black" />
+        <Setter Property="Background"
+                Value="#3c5b74"></Setter>
+        <Setter Property="FontFamily"
+                Value="Verdana" />
+        <Setter Property="FontSize"
+                Value="12" />
+        <Setter Property="FontWeight"
+                Value="Bold" />
+        <Setter Property="MinWidth"
+                Value="100"></Setter>
+        <Setter Property="MinHeight"
+                Value="45"></Setter>
+        <Setter Property="Margin"
+                Value="4,4,4,4"></Setter>
+        <Setter Property="VerticalAlignment"
+                Value="Center"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Rectangle x:Name="GelBackground"
+                                   Opacity="1"
+                                   RadiusX="9"
+                                   RadiusY="9"
+                                   Fill="{TemplateBinding Background}"></Rectangle>
+                        <Rectangle x:Name="GelShine"
+                                   Margin="2,2,2,0"
+                                   VerticalAlignment="Top"
+                                   RadiusX="4"
+                                   RadiusY="4"
+                                   Opacity=".8"
+                                   Stroke="Transparent"
+                                   Height="15">
+                        </Rectangle>
+                        <ContentPresenter Margin="10,0,10,0"
+                                          VerticalAlignment="Center"
+                                          HorizontalAlignment="Center" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="true">
+                            <Setter Property="Foreground"
+                                    Value="White" />
+                            <Setter Property="FontSize"
+                                    Value="12" />
+                            <Setter Property="Background"
+                                    Value="#b67929"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed"
+                                 Value="true">
+                            <Setter Property="Foreground"
+                                    Value="Black" />
+                            <Setter Property="Background"
+                                    Value="#264b77"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="ComboBoxTest2" TargetType="{x:Type ComboBox}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ComboBox">
+                    <Grid>
+                        <ToggleButton Grid.Column="2" Focusable="false" IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}" >
+                            <ToggleButton.Template>
+                                <ControlTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="5*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Border x:Name="Border"  Grid.ColumnSpan="2" CornerRadius="5" Background="Beige" BorderBrush="Black" BorderThickness="1" />
+                                        <Border Grid.Column="0" CornerRadius="5,0,0,5"  Margin="1"  Background="AliceBlue"  BorderBrush="Black" BorderThickness="0,0,1,0" />
+                                        <Path x:Name="Arrow" Grid.Column="1"  Fill="Orange" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 0 0 L 4 4 L 8 0 Z"/>
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="ToggleButton.IsMouseOver" Value="true">
+                                            <Setter TargetName="Border" Property="Background" Value="Green" />
+                                        </Trigger>
+                                        <Trigger Property="ToggleButton.IsChecked" Value="true">
+                                            <Setter TargetName="Border" Property="Background" Value="Green" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </ToggleButton.Template>
+                        </ToggleButton>
+                        <ContentPresenter Name="ContentSite" IsHitTestVisible="False"  Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Margin="3"  />
+                        <TextBox x:Name="PART_EditableTextBox" Visibility="Hidden" IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                        <Popup Name="Popup" Placement="Bottom" IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True"  Focusable="False" PopupAnimation="Slide">
+                            <Grid  Name="DropDown" SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                <Border x:Name="DropDownBorder" Background="Blue" />
+                                <ScrollViewer SnapsToDevicePixels="True">
+                                    <StackPanel IsItemsHost="True" />
+                                </ScrollViewer>
+                            </Grid>
+                        </Popup>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="TextBox">
+        <Setter Property="Foreground"
+                Value="black" />
+        <Setter Property="Background"
+                Value="#a3acb1"></Setter>
+        <Setter Property="FontFamily"
+                Value="Verdana" />
+        <Setter Property="FontSize"
+                Value="13" />
+        <Setter Property="FontWeight"
+                Value="Bold" />
+        <Setter Property="MinWidth"
+                Value="100"></Setter>
+        <Setter Property="MinHeight"
+                Value="30"></Setter>
+        <Setter Property="Margin"
+                Value="4,4,4,4"></Setter>
+        <Setter Property="VerticalAlignment"
+                Value="Center"></Setter>
+    </Style>
+
+    <Style TargetType="Label">
+        <Setter Property="Foreground"
+                Value="White"/>
+    </Style>
+    <Storyboard x:Key="sbdUserControlAnimation">
+        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
+                                       Storyboard.TargetProperty="Width">
+            <SplineDoubleKeyFrame KeyTime="00:00:00"
+                                  Value="0" />
+            <SplineDoubleKeyFrame KeyTime="00:00:01"
+                                  Value="600" />
+            <SplineDoubleKeyFrame KeyTime="00:00:03"
+                                  Value="600" />
+            <!--<SplineDoubleKeyFrame KeyTime="00:00:01" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Border}}, Path=ActualWidth}"/>
+            <SplineDoubleKeyFrame KeyTime="00:00:03" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Border}}, Path=ActualWidth}"/>-->
+        </DoubleAnimationUsingKeyFrames>
+        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
+                                       Storyboard.TargetProperty="Height"
+                                       AccelerationRatio="1">
+            <SplineDoubleKeyFrame KeyTime="00:00:00"
+                                  Value="10" />
+            <SplineDoubleKeyFrame KeyTime="00:00:01"
+                                  Value="10" />
+            <SplineDoubleKeyFrame KeyTime="00:00:03"
+                                  Value="200" />
+            <!--<SplineDoubleKeyFrame KeyTime="00:00:03" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Border}}, Path=ActualHeight}"/>-->
+        </DoubleAnimationUsingKeyFrames>
+    </Storyboard>
+</ResourceDictionary>

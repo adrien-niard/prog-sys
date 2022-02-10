@@ -1,2 +1,0 @@
-# prog-sys
-Read.Me
