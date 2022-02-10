@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Diagnostics;
 
 namespace EasySavev2.Model
 {
@@ -30,12 +31,18 @@ namespace EasySavev2.Model
                     //Cycle through the file in the folder to copy them into the destination folder
                     foreach (FileInfo fi in DirSrc.GetFiles())
                     {
+                        Process CryptProcess = new Process();
+
                         //Define source/destination files
                         FileInfo FiSrc = new FileInfo(Path.Combine(DirSrc.ToString(), fi.Name));
                         FileInfo FiDest = new FileInfo(Path.Combine(DirDest.ToString(), fi.Name));
 
                         save.src = src + "/" + fi.Name;
                         save.dest = dest + "/" + fi.Name;
+
+                        CryptProcess.StartInfo.FileName = @"C:\Users\adrie\source\repos\prog-sys\Crypto\bin\Debug\netcoreapp3.1\Crypto.exe";
+                        CryptProcess.StartInfo.Arguments = src;
+                        CryptProcess.Start();
 
                         try
                         {

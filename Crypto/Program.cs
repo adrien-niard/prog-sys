@@ -89,12 +89,12 @@ namespace crypto
                 tw.Write(Solution);
             }
             //Recover again the Solution, Decrypt it, and rewrite to get back the first message
-            string FinalRe = en.EncryptOrDecrypt(Solution, key);
+            //string FinalRe = en.EncryptOrDecrypt(Solution, key);
             
-            using (TextWriter tw = new StreamWriter(fi.Open(FileMode.Truncate)))
+            /*using (TextWriter tw = new StreamWriter(fi.Open(FileMode.Truncate)))
             {
                 tw.Write(FinalRe);
-            }
+            }*/
             Console.ReadKey();
             
         }
