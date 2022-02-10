@@ -1,0 +1,14 @@
+C:\Users\JeanGONCALVES\source\repos\Crypto\Crypto\bin\x64\CryptoSoft\netcoreapp3.1\Crypto.exe
+C:\Users\JeanGONCALVES\source\repos\Crypto\Crypto\bin\x64\CryptoSoft\netcoreapp3.1\Crypto.deps.json
+C:\Users\JeanGONCALVES\source\repos\Crypto\Crypto\bin\x64\CryptoSoft\netcoreapp3.1\Crypto.runtimeconfig.json
+C:\Users\JeanGONCALVES\source\repos\Crypto\Crypto\bin\x64\CryptoSoft\netcoreapp3.1\Crypto.runtimeconfig.dev.json
+C:\Users\JeanGONCALVES\source\repos\Crypto\Crypto\bin\x64\CryptoSoft\netcoreapp3.1\Crypto.dll
+C:\Users\JeanGONCALVES\source\repos\Crypto\Crypto\bin\x64\CryptoSoft\netcoreapp3.1\Crypto.pdb
+C:\Users\JeanGONCALVES\source\repos\Crypto\Crypto\obj\x64\CryptoSoft\netcoreapp3.1\Crypto.csproj.AssemblyReference.cache
+C:\Users\JeanGONCALVES\source\repos\Crypto\Crypto\obj\x64\CryptoSoft\netcoreapp3.1\Crypto.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\JeanGONCALVES\source\repos\Crypto\Crypto\obj\x64\CryptoSoft\netcoreapp3.1\Crypto.AssemblyInfoInputs.cache
+C:\Users\JeanGONCALVES\source\repos\Crypto\Crypto\obj\x64\CryptoSoft\netcoreapp3.1\Crypto.AssemblyInfo.cs
+C:\Users\JeanGONCALVES\source\repos\Crypto\Crypto\obj\x64\CryptoSoft\netcoreapp3.1\Crypto.csproj.CoreCompileInputs.cache
+C:\Users\JeanGONCALVES\source\repos\Crypto\Crypto\obj\x64\CryptoSoft\netcoreapp3.1\Crypto.dll
+C:\Users\JeanGONCALVES\source\repos\Crypto\Crypto\obj\x64\CryptoSoft\netcoreapp3.1\Crypto.pdb
+C:\Users\JeanGONCALVES\source\repos\Crypto\Crypto\obj\x64\CryptoSoft\netcoreapp3.1\Crypto.genruntimeconfig.cache
