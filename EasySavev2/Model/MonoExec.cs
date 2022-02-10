@@ -40,8 +40,10 @@ namespace EasySavev2.Model
                         save.src = src + "/" + fi.Name;
                         save.dest = dest + "/" + fi.Name;
 
-                        CryptProcess.StartInfo.FileName = @"C:\Users\adrie\source\repos\prog-sys\Crypto\bin\Debug\netcoreapp3.1\Crypto.exe";
-                        CryptProcess.StartInfo.Arguments = src;
+                        CryptProcess.StartInfo.FileName = @"C:\Users\Adrien\source\repos\prog-sys\publish\Crypto.exe";
+                        CryptProcess.StartInfo.ArgumentList.Add(src + "/" + fi.Name);
+                        CryptProcess.StartInfo.ArgumentList.Add(fi.Name);
+                        CryptProcess.StartInfo.ArgumentList.Add("acbd27");
                         CryptProcess.Start();
 
                         try

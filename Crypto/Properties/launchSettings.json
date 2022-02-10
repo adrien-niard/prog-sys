@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "Crypto": {
-      "commandName": "Project",
-      "commandLineArgs": "Path, NamFile, key"
-    }
-  }
-}

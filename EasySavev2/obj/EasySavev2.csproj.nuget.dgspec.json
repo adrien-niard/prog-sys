@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\adrie\\source\\repos\\prog-sys\\EasySavev2\\EasySavev2.csproj": {}
+    "C:\\Users\\Adrien\\Source\\Repos\\prog-sys\\EasySavev2\\EasySavev2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\adrie\\source\\repos\\prog-sys\\EasySavev2\\EasySavev2.csproj": {
+    "C:\\Users\\Adrien\\Source\\Repos\\prog-sys\\EasySavev2\\EasySavev2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\adrie\\source\\repos\\prog-sys\\EasySavev2\\EasySavev2.csproj",
+        "projectUniqueName": "C:\\Users\\Adrien\\Source\\Repos\\prog-sys\\EasySavev2\\EasySavev2.csproj",
         "projectName": "EasySavev2",
-        "projectPath": "C:\\Users\\adrie\\source\\repos\\prog-sys\\EasySavev2\\EasySavev2.csproj",
-        "packagesPath": "C:\\Users\\adrie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\adrie\\source\\repos\\prog-sys\\EasySavev2\\obj\\",
+        "projectPath": "C:\\Users\\Adrien\\Source\\Repos\\prog-sys\\EasySavev2\\EasySavev2.csproj",
+        "packagesPath": "C:\\Users\\Adrien\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Adrien\\Source\\Repos\\prog-sys\\EasySavev2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\adrie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Adrien\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,12 +55,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[3.1.13, 3.1.13]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -69,7 +63,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
