@@ -14,7 +14,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-
 namespace EasySavev2
 {
     /// <summary>
@@ -32,6 +31,7 @@ namespace EasySavev2
         {
             //creating a openfilDialog instance to browse inside our file explorer
             Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
+            openFileDialog.Filter = "";
             Nullable<bool> result = openFileDialog.ShowDialog();
             //Put the file name into the source textbox
             if (result == true)

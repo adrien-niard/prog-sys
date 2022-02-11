@@ -112,6 +112,21 @@ namespace EasySavev2.Model
         }
         private string _runtime;
 
+        public string CryptTime
+        {
+            get
+            {
+                return _cryptTime;
+            }
+
+            set
+            {
+                _cryptTime = value;
+                Notify();
+            }
+        }
+        private string _cryptTime;
+
         //Constructor
         public Save()
         {

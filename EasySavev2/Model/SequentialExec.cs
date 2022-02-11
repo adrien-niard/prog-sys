@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Diagnostics;
 
 namespace EasySavev2.Model
 {
@@ -16,6 +17,8 @@ namespace EasySavev2.Model
                 //Cycle through saves to copy the specified directory in differential mode
                 foreach (Save Obj in SList)
                 {
+                    Process CryptProcess = new Process();
+
                     //Start the timer
                     var sw = Obj.GetStartTimer();
                     string name = Obj.name;
@@ -36,6 +39,14 @@ namespace EasySavev2.Model
                         save.src = src + "/" + fi.Name;
                         save.dest = dest + "/" + fi.Name;
 
+                        var ct = Obj.GetStartTimer();
+
+                        CryptProcess.StartInfo.FileName = @"C:\Users\adrie\source\repos\prog-sys\publish\Crypto.exe";
+                        CryptProcess.StartInfo.ArgumentList.Add(src + "/" + fi.Name);
+                        CryptProcess.StartInfo.ArgumentList.Add(fi.Name);
+                        CryptProcess.StartInfo.ArgumentList.Add("0111000101101001");
+                        CryptProcess.Start();
+
                         state.AddState(NbObj);
 
                         try
@@ -47,6 +58,20 @@ namespace EasySavev2.Model
                         {
                             Console.WriteLine(iox.Message);
                         }
+
+                        CryptProcess.StartInfo.FileName = @"C:\Users\adrie\source\repos\prog-sys\publish\Crypto.exe";
+                        CryptProcess.StartInfo.ArgumentList.Add(src + "/" + fi.Name);
+                        CryptProcess.StartInfo.ArgumentList.Add(fi.Name);
+                        CryptProcess.StartInfo.ArgumentList.Add("0111000101101001");
+                        CryptProcess.Start();
+
+                        /*CryptProcess.StartInfo.FileName = @"C:\Users\adrie\source\repos\prog-sys\publish\Crypto.exe";
+                        CryptProcess.StartInfo.ArgumentList.Add(dest + "/" + fi.Name);
+                        CryptProcess.StartInfo.ArgumentList.Add(fi.Name);
+                        CryptProcess.StartInfo.ArgumentList.Add("0111000101101001");
+                        CryptProcess.Start();*/
+
+                        Obj.CryptTime = Obj.GetStopTimer(ct);
 
                         //Stop timer
                         Obj.RunTime = Obj.GetStopTimer(sw);
@@ -86,12 +111,22 @@ namespace EasySavev2.Model
                     //Cycle through the file in the folder to copy them into the destination folder
                     foreach (FileInfo fi in DirSrc.GetFiles())
                     {
+                        Process CryptProcess = new Process();
+
                         //Define source/destination files
                         FileInfo FiSrc = new FileInfo(Path.Combine(DirSrc.ToString(), fi.Name));
                         FileInfo FiDest = new FileInfo(Path.Combine(DirDest.ToString(), fi.Name));
 
                         save.src = src + "/" + fi.Name;
                         save.dest = dest + "/" + fi.Name;
+
+                        var ct = Obj.GetStartTimer();
+
+                        CryptProcess.StartInfo.FileName = @"C:\Users\adrie\source\repos\prog-sys\publish\Crypto.exe";
+                        CryptProcess.StartInfo.ArgumentList.Add(src + "/" + fi.Name);
+                        CryptProcess.StartInfo.ArgumentList.Add(fi.Name);
+                        CryptProcess.StartInfo.ArgumentList.Add("0111000101101001");
+                        CryptProcess.Start();
 
                         state.AddState(NbObj);
 
@@ -107,6 +142,20 @@ namespace EasySavev2.Model
                             {
                                 Console.WriteLine(iox.Message);
                             }
+
+                            CryptProcess.StartInfo.FileName = @"C:\Users\adrie\source\repos\prog-sys\publish\Crypto.exe";
+                            CryptProcess.StartInfo.ArgumentList.Add(src + "/" + fi.Name);
+                            CryptProcess.StartInfo.ArgumentList.Add(fi.Name);
+                            CryptProcess.StartInfo.ArgumentList.Add("0111000101101001");
+                            CryptProcess.Start();
+
+                            /*CryptProcess.StartInfo.FileName = @"C:\Users\adrie\source\repos\prog-sys\publish\Crypto.exe";
+                            CryptProcess.StartInfo.ArgumentList.Add(dest + "/" + fi.Name);
+                            CryptProcess.StartInfo.ArgumentList.Add(fi.Name);
+                            CryptProcess.StartInfo.ArgumentList.Add("0111000101101001");
+                            CryptProcess.Start();*/
+
+                            Obj.CryptTime = Obj.GetStopTimer(ct);
 
                             //Stop timer
                             Obj.RunTime = Obj.GetStopTimer(sw);
