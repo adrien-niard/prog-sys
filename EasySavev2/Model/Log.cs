@@ -11,8 +11,8 @@ namespace EasySavev2.Model
 {
     class Log : IObserver
     {
-        static string jsonString;
-        static string jsonStringLog;
+        JObject JsonObj = new JObject();
+
         string JsonPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/EasySave/" + DateTime.Now.ToString("yyyy'-'MM'-'dd") + ".json";
         string XmlPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/EasySave/" + DateTime.Now.ToString("yyyy'-'MM'-'dd") + ".xml";
 
@@ -21,18 +21,15 @@ namespace EasySavev2.Model
         {
             if (subject is Save save)
             {
-                FileInfo FI = new FileInfo(JsonPath);
-                JObject json = new JObject();
+                JsonObj.RemoveAll();
 
-                json.Add("Name", save.name);
-                json.Add("Type", save.type);
-                json.Add("SourceFilePath", save.src);
-                json.Add("DestinationFilePath", save.dest);
-                json.Add("Time", save.GetTime());
-                json.Add("RunTime", save.RunTime);
-                json.Add("CryptTime", save.CryptTime);
-
-                jsonString = JsonConvert.SerializeObject(json, Newtonsoft.Json.Formatting.Indented);
+                JsonObj.Add("Name", save.name);
+                JsonObj.Add("Type", save.type);
+                JsonObj.Add("SourceFilePath", save.src);
+                JsonObj.Add("DestinationFilePath", save.dest);
+                JsonObj.Add("Time", save.GetTime());
+                JsonObj.Add("RunTime", save.RunTime);
+                JsonObj.Add("CryptTime", save.CryptTime);
             }
         }
 
@@ -43,22 +40,24 @@ namespace EasySavev2.Model
             {
                 FileInfo Fi = new FileInfo(JsonPath);
                 XmlDocument xml = new XmlDocument();
+                List<JObject> saveJsonList = new List<JObject>();
 
-                if (Fi.Exists)
+                if (!Fi.Exists)
                 {
-                    //Store save's attribute in jsonString variable
-                    jsonStringLog = ",\n\n";
-                    jsonStringLog += JsonConvert.SerializeObject(jsonString, Newtonsoft.Json.Formatting.Indented);
+                    saveJsonList.Add(JsonObj);
                 }
                 else
                 {
-                    jsonStringLog += JsonConvert.SerializeObject(jsonString, Newtonsoft.Json.Formatting.Indented);
+                    string JsonRead = File.ReadAllText(JsonPath);
+
+                    saveJsonList = JsonConvert.DeserializeObject<List<JObject>>(JsonRead);
+
+                    saveJsonList.Add(JsonObj);
                 }
 
-                File.AppendAllText(JsonPath, jsonString);
+                string jsonStringLog = JsonConvert.SerializeObject(saveJsonList, Newtonsoft.Json.Formatting.Indented);
 
-                xml = JsonConvert.DeserializeXmlNode(jsonStringLog);
-                /*File.AppendAllText(XmlPath, xml.ToString());*/
+                File.WriteAllText(JsonPath, jsonStringLog);
             }
             catch (Exception ex)
             {

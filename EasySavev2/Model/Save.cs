@@ -62,7 +62,6 @@ namespace EasySavev2.Model
             set
             {
                 _type = value;
-                Notify();
             }
         }
         private string _type;
@@ -92,9 +91,24 @@ namespace EasySavev2.Model
             set
             {
                 _time = value;
+                Notify();
             }
         }
         private string _time;
+
+        public string CryptTime
+        {
+            get
+            {
+                return _cryptTime;
+            }
+
+            set
+            {
+                _cryptTime = value;
+            }
+        }
+        private string _cryptTime;
 
         //Definition of the RunTime attribute
         public string RunTime
@@ -111,21 +125,6 @@ namespace EasySavev2.Model
             }
         }
         private string _runtime;
-
-        public string CryptTime
-        {
-            get
-            {
-                return _cryptTime;
-            }
-
-            set
-            {
-                _cryptTime = value;
-                Notify();
-            }
-        }
-        private string _cryptTime;
 
         //Constructor
         public Save()

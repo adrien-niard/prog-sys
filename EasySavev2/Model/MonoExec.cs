@@ -37,16 +37,10 @@ namespace EasySavev2.Model
                         FileInfo FiSrc = new FileInfo(Path.Combine(DirSrc.ToString(), fi.Name));
                         FileInfo FiDest = new FileInfo(Path.Combine(DirDest.ToString(), fi.Name));
 
-                        save.src = src + @"\" + fi.Name;
-                        save.dest = dest + @"\" + fi.Name;
+                        save.src = src + fi.Name;
+                        save.dest = dest + fi.Name;
 
                         var ct = Obj.GetStartTimer();
-
-                        /*CryptProcess.StartInfo.FileName = @"C:\Users\adrie\source\repos\prog-sys\publish\Crypto.exe";
-                        CryptProcess.StartInfo.ArgumentList.Add(src + "/" + fi.Name);
-                        CryptProcess.StartInfo.ArgumentList.Add(fi.Name);
-                        CryptProcess.StartInfo.ArgumentList.Add("0111000101101001");
-                        CryptProcess.Start();*/
 
                         state.AddState(NbObj);
 
@@ -60,17 +54,11 @@ namespace EasySavev2.Model
                             Console.WriteLine(iox.Message);
                         }
 
-                        CryptProcess.StartInfo.FileName = @"C:\Users\adrie\source\repos\prog-sys\publish\Crypto.exe";
+                        CryptProcess.StartInfo.FileName = @"..\..\..\..\publish\Crypto.exe";
                         CryptProcess.StartInfo.ArgumentList.Add(src + "/" + fi.Name);
                         CryptProcess.StartInfo.ArgumentList.Add(fi.Name);
                         CryptProcess.StartInfo.ArgumentList.Add("0111000101101001");
                         CryptProcess.Start();
-
-                        /*CryptProcess.StartInfo.FileName = @"C:\Users\adrie\source\repos\prog-sys\publish\Crypto.exe";
-                        CryptProcess.StartInfo.ArgumentList.Add(dest + "/" + fi.Name);
-                        CryptProcess.StartInfo.ArgumentList.Add(fi.Name);
-                        CryptProcess.StartInfo.ArgumentList.Add("0111000101101001");
-                        CryptProcess.Start();*/
 
                         Obj.CryptTime = Obj.GetStopTimer(ct);
 
@@ -116,8 +104,8 @@ namespace EasySavev2.Model
                         FileInfo FiSrc = new FileInfo(Path.Combine(DirSrc.ToString(), fi.Name));
                         FileInfo FiDest = new FileInfo(Path.Combine(DirDest.ToString(), fi.Name));
 
-                        save.src = src + "/" + fi.Name;
-                        save.dest = dest + "/" + fi.Name;
+                        save.src = src + fi.Name;
+                        save.dest = dest + fi.Name;
 
                         state.AddState(NbObj);
 
