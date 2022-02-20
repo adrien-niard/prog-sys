@@ -12,7 +12,7 @@ namespace EasySavev2.Model
         private List<IObserver> _observers;
 
         //Definition of the name attribute
-        public string name
+        public string Name
         {
             get { return _name; }
 
@@ -24,7 +24,7 @@ namespace EasySavev2.Model
         private string _name;
 
         //Definition of the source attribute
-        public string src
+        public string Src
         {
             get { return _src; }
 
@@ -36,7 +36,7 @@ namespace EasySavev2.Model
         private string _src;
 
         //Definition of the destination attribute
-        public string dest
+        public string Dest
         {
             get
             {
@@ -52,7 +52,7 @@ namespace EasySavev2.Model
         private string _dest;
 
         //Definition of the type attribute
-        public string type
+        public string Type
         {
             get
             {
@@ -154,7 +154,7 @@ namespace EasySavev2.Model
             long size = 0;
             try
             {
-                DirectoryInfo di = new DirectoryInfo(src);
+                DirectoryInfo di = new DirectoryInfo(Src);
 
                 size = di.EnumerateFiles("*", SearchOption.AllDirectories).Sum(fi => fi.Length);
             }
@@ -166,7 +166,7 @@ namespace EasySavev2.Model
         }
         public long TotalFiles()
         {
-            DirectoryInfo di = new DirectoryInfo(src);
+            DirectoryInfo di = new DirectoryInfo(Src);
 
             long TF = di.EnumerateFiles("*", SearchOption.AllDirectories).LongCount();
 

@@ -20,10 +20,10 @@ namespace EasySavev2.Model
                 {
                     //Start the timer
                     var sw = Obj.GetStartTimer();
-                    string name = Obj.name;
-                    string src = Obj.src;
-                    string dest = Obj.dest;
-                    string type = Obj.type;
+                    string name = Obj.Name;
+                    string src = Obj.Src;
+                    string dest = Obj.Dest;
+                    string type = Obj.Type;
 
                     DirectoryInfo DirSrc = new DirectoryInfo(src);
                     DirectoryInfo DirDest = new DirectoryInfo(dest);
@@ -37,8 +37,8 @@ namespace EasySavev2.Model
                         FileInfo FiSrc = new FileInfo(Path.Combine(DirSrc.ToString(), fi.Name));
                         FileInfo FiDest = new FileInfo(Path.Combine(DirDest.ToString(), fi.Name));
 
-                        save.src = src + fi.Name;
-                        save.dest = dest + fi.Name;
+                        save.Src = src + fi.Name;
+                        save.Dest = dest + fi.Name;
 
                         var ct = Obj.GetStartTimer();
 
@@ -87,10 +87,10 @@ namespace EasySavev2.Model
                 {
                     //Start the timer
                     var sw = Obj.GetStartTimer();
-                    string name = Obj.name;
-                    string src = Obj.src;
-                    string dest = Obj.dest;
-                    string type = Obj.type;
+                    string name = Obj.Name;
+                    string src = Obj.Src;
+                    string dest = Obj.Dest;
+                    string type = Obj.Type;
 
                     DirectoryInfo DirSrc = new DirectoryInfo(src);
                     DirectoryInfo DirDest = new DirectoryInfo(dest);
@@ -104,8 +104,8 @@ namespace EasySavev2.Model
                         FileInfo FiSrc = new FileInfo(Path.Combine(DirSrc.ToString(), fi.Name));
                         FileInfo FiDest = new FileInfo(Path.Combine(DirDest.ToString(), fi.Name));
 
-                        save.src = src + fi.Name;
-                        save.dest = dest + fi.Name;
+                        save.Src = src + fi.Name;
+                        save.Dest = dest + fi.Name;
 
                         state.AddState(NbObj);
 

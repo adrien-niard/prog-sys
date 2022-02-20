@@ -61,7 +61,7 @@ namespace EasySavev2
                 State state = new State();
                 obj.Attach(log);
                 obj.Attach(state);
-                if (obj.type == "Full")
+                if (obj.Type == "Full")
                 {
                     ASave mono = new MonoExec();
                     mono.ExecFull(SaveList, obj, log, state);
@@ -83,10 +83,10 @@ namespace EasySavev2
         {
             Save save = new Save();
 
-            save.name = SaveName.Text;
-            save.src = SaveSrc.Text;
-            save.dest = SaveDest.Text;
-            save.type = SaveType.Text;
+            save.Name = SaveName.Text;
+            save.Src = SaveSrc.Text;
+            save.Dest = SaveDest.Text;
+            save.Type = SaveType.Text;
             save.FileSize = save.GetFileSize();
             save.Time = save.GetTime();
             SaveList.Add(save);

@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\EasySavev2",
+    "\\EasySavev2\\Model",
+    "\\publish"
   ],
-  "SelectedNode": "\\EasySavev2.sln",
+  "SelectedNode": "\\EasySavev2\\Model\\State.cs",
   "PreviewInSolutionExplorer": false
 }

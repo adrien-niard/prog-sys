@@ -10,9 +10,9 @@ namespace EasySavev2.Model
 {
     class State : IObserver
     {
-        JObject StateObj = new JObject();
+        private JObject StateObj = new JObject();
 
-        string StatePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/EasySave/state.json";
+        private string StatePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/EasySave/state.json";
 
         //Function launch when Notify
         public void Update(ISubject subject)
@@ -21,17 +21,15 @@ namespace EasySavev2.Model
             {
                 StateObj.RemoveAll();
 
-                StateObj.Add("Name", save.name);
+                StateObj.Add("Name", save.Name);
                 StateObj.Add("Time", save.Time);
                 StateObj.Add("State", "N/A");
                 StateObj.Add("TotalFilesToCopy", "N/A"); //save.TotalFiles()
                 StateObj.Add("TotalFilesSize", "N/A"); //save.GetFileSize()
                 StateObj.Add("NbFilesLeftToDo", "N/A");
                 StateObj.Add("TotalFilesSizeLeftToDo", "N/A");
-                StateObj.Add("SourceFilePath", save.src);
-                StateObj.Add("DestinationFilePath", save.dest);
-
-                /*jsonString = JsonConvert.SerializeObject(json, Formatting.Indented);*/
+                StateObj.Add("SourceFilePath", save.Src);
+                StateObj.Add("DestinationFilePath", save.Dest);
             }
         }
 
@@ -42,7 +40,6 @@ namespace EasySavev2.Model
             {
                 FileInfo Fi = new FileInfo(StatePath);
                 List<JObject> stateJsonList = new List<JObject>();
-                /*var desJSON = JsonConvert.DeserializeObject<JObject>(JsonObj);*/
 
                 if (NbObj > 0)
                 {
@@ -77,19 +74,6 @@ namespace EasySavev2.Model
 
                     stateJsonList.Add(StateObj);
                 }
-
-                /*if (Fi.Exists)
-                {
-                    //Store save's attribute in jsonString variable
-                    jsonStringState = ",\n";
-                    jsonStringState += JsonConvert.SerializeObject(desJSON, Formatting.Indented);
-                }
-                else
-                {
-                    jsonStringState += JsonConvert.SerializeObject(desJSON, Formatting.Indented);
-                }*/
-
-                /*File.AppendAllText(Path, jsonStringState);*/
 
                 string stateStringLog = JsonConvert.SerializeObject(stateJsonList, Newtonsoft.Json.Formatting.Indented);
 
