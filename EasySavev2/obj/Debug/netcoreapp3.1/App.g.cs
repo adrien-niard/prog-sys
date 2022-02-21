@@ -11,7 +11,6 @@
 
 using EasySavev2;
 using EasySavev2.ViewModel;
-//using EasySavev2.View;
 using System;
 using System.Diagnostics;
 using System.Windows;
@@ -47,7 +46,7 @@ namespace EasySavev2 {
         /// InitializeComponent
         /// </summary>
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "6.0.1.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.4.0")]
         public void InitializeComponent() {
             
             #line 6 "..\..\..\App.xaml"
@@ -62,7 +61,7 @@ namespace EasySavev2 {
         /// </summary>
         [System.STAThreadAttribute()]
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "6.0.1.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.4.0")]
         public static void Main() {
             EasySavev2.App app = new EasySavev2.App();
             app.InitializeComponent();
