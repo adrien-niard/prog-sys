@@ -29,12 +29,14 @@ namespace EasySavev2
                 if (keys != null)
                 {
                     ListEncrypt.Items.Add(key);
+                    SizeKo.Text = ConfigurationManager.AppSettings.Get("size");
 
                 }
 
             }
             
-             
+
+
 
 
         }
@@ -76,7 +78,7 @@ namespace EasySavev2
             {
                 //var ext = ConfigurationManager.AppSettings["ext"];
 
-                conf.AppSettings.Settings.Remove("ext" + Element);
+                conf.AppSettings.Settings.Remove(Element);
             }
             conf.Save(ConfigurationSaveMode.Modified);
         }
@@ -139,7 +141,7 @@ namespace EasySavev2
 
         private void SizeKo_TextChanged(object sender, TextChangedEventArgs e)
         {
-            SizeKo.Text = ConfigurationManager.AppSettings.Get("size");
+            
         }
     }
 }
