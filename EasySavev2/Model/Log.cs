@@ -1,18 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
+using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 using System.Xml;
 using System.Xml.Serialization;
+using System.Xml.Linq;
 
 namespace EasySavev2.Model
 {
     class Log : IObserver
     {
         private JObject JsonObj = new JObject();
+        private XmlDocument doc = new XmlDocument();
+        private XDocument XmlObj;
+        private string XmlString = "";
 
         private string JsonPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/EasySave/" + DateTime.Now.ToString("yyyy'-'MM'-'dd") + ".json";
         private string XmlPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/EasySave/" + DateTime.Now.ToString("yyyy'-'MM'-'dd") + ".xml";
@@ -31,6 +35,20 @@ namespace EasySavev2.Model
                 JsonObj.Add("Time", save.GetTime());
                 JsonObj.Add("RunTime", save.RunTime);
                 JsonObj.Add("CryptTime", save.CryptTime);
+
+                XmlObj = new XDocument(
+                    new XElement("Log",
+                        new XElement(save.Name, 
+                            new XElement("Name", save.Name),
+                            new XElement("Type", save.Type),
+                            new XElement("SourceFilePath", save.Src),
+                            new XElement("DestinationFilePath", save.Dest),
+                            new XElement("Time", save.GetTime()),
+                            new XElement("RunTime", save.RunTime),
+                            new XElement("CryptTime", save.CryptTime)
+                        )
+                    )
+                );
             }
         }
 
@@ -63,38 +81,65 @@ namespace EasySavev2.Model
                 //Write it into the json file
                 File.WriteAllText(JsonPath, jsonStringLog);
 
-                //Xml file creation
-                try
-                {
-                    XmlDocument XmlObj = JsonConvert.DeserializeXmlNode(jsonStringLog);
-
-                    FileInfo XmlFi = new FileInfo(XmlPath);
-                    XmlSerializer xml = new XmlSerializer(JsonObj.GetType());
-                    List<XmlDocument> saveXmlList = new List<XmlDocument>();
-
-                    if (!XmlFi.Exists)
-                    {
-                        saveXmlList.Add(XmlObj);
-                    }
-                    else
-                    {
-                        string XmlRead = File.ReadAllText(XmlPath);
-
-                        saveXmlList = JsonConvert.DeserializeObject<List<XmlDocument>>(XmlRead);
-
-                        saveXmlList.Add(XmlObj);
-                    }
-
-                    string xmlStringLog = JsonConvert.SerializeObject(saveXmlList, Newtonsoft.Json.Formatting.Indented);
-
-                    File.WriteAllText(XmlPath, xmlStringLog);
-                }
-                catch (IOException ex)
-                {
-                    Debug.WriteLine(ex);
-                }
             }
             catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+
+            //Xml file creation
+            try
+            {
+                FileInfo XmlFi = new FileInfo(XmlPath);
+
+                if (!XmlFi.Exists)
+                {
+                    //If the json file doesn't exist => just add json informations
+                    XmlString = XmlObj.ToString();
+                }
+                else
+                {
+					XmlSerializer XS = new XmlSerializer(typeof(XmlDocument));
+                    FileStream stream = File.Open(XmlPath, FileMode.Open);
+					
+                    XmlDocument desXml = (XmlDocument)XS.Deserialize(stream);
+
+                    doc.LoadXml(XmlObj.ToString());
+
+					XmlElement Child = desXml.CreateElement(doc.FirstChild.ChildNodes[0].Value.ToString());
+					Child.SetAttribute("Name", doc.FirstChild.ChildNodes[0].ChildNodes[0].Value.ToString());
+					Child.SetAttribute("Type", doc.FirstChild.ChildNodes[0].ChildNodes[1].Value.ToString());
+					Child.SetAttribute("SourceFilePath", doc.FirstChild.ChildNodes[0].ChildNodes[2].Value.ToString());
+					Child.SetAttribute("DestinationFilePath", doc.FirstChild.ChildNodes[0].ChildNodes[3].Value.ToString());
+					Child.SetAttribute("Time", doc.FirstChild.ChildNodes[0].ChildNodes[4].Value.ToString());
+					Child.SetAttribute("RunTime", doc.FirstChild.ChildNodes[0].ChildNodes[5].Value.ToString());
+					Child.SetAttribute("CryptTime", doc.FirstChild.ChildNodes[0].ChildNodes[6].Value.ToString());
+
+					XmlNode RootNode = desXml.SelectSingleNode("//RootElement");
+					RootNode.AppendChild(Child);
+
+					XS.Serialize(stream, RootNode);
+
+					/*var parent = XmlObj;
+					XmlString += "\n" + XmlObj.ToString();*/
+
+					/*//If the json file exist => deserialization of the existing file, then add to the informations the new save's informations
+					XmlSerializer XS = new XmlSerializer(XmlPath.GetType());
+                    *//*Stream reader = new FileStream(XmlPath, FileMode.Open);*//*
+                    string reader = File.ReadAllText(XmlPath);
+					XmlWriter writer = new XmlTextWriter(reader, Encoding.Unicode);
+
+					*//*saveXmlList = (List<XDocument>)XS.Deserialize(reader);*//*
+
+					saveXmlList.Add(XmlObj);
+
+					XS.Serialize(writer, saveXmlList);*/
+				}
+
+                //Write it into the xml file
+                File.WriteAllText(XmlPath, XmlString);
+            }
+            catch (IOException ex)
             {
                 Debug.WriteLine(ex);
             }

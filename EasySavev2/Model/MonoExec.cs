@@ -33,14 +33,25 @@ namespace EasySavev2.Model
                     {
                         Process CryptProcess = new Process();
 
-                        //Define source/destination files
-                        FileInfo FiSrc = new FileInfo(Path.Combine(DirSrc.ToString(), fi.Name));
-                        FileInfo FiDest = new FileInfo(Path.Combine(DirDest.ToString(), fi.Name));
+                        string SrcFull = Path.Combine(DirSrc.ToString(), fi.Name);
+                        string DestFull = Path.Combine(DirDest.ToString(), fi.Name);
 
-                        save.Src = src + fi.Name;
-                        save.Dest = dest + fi.Name;
+                        //Define source/destination files
+                        FileInfo FiSrc = new FileInfo(SrcFull);
+                        FileInfo FiDest = new FileInfo(DestFull);
+
+                        save.Src = SrcFull;
+                        save.Dest = DestFull;
 
                         var ct = Obj.GetStartTimer();
+
+                        CryptProcess.StartInfo.FileName = @"..\..\..\..\publish\Crypto.exe";
+                        CryptProcess.StartInfo.ArgumentList.Add(SrcFull);
+                        CryptProcess.StartInfo.ArgumentList.Add(fi.Name);
+                        CryptProcess.StartInfo.ArgumentList.Add("0111000101101001");
+                        CryptProcess.Start();
+
+                        Obj.CryptTime = Obj.GetStopTimer(ct);
 
                         state.AddState(NbObj);
 
@@ -53,14 +64,6 @@ namespace EasySavev2.Model
                         {
                             Console.WriteLine(iox.Message);
                         }
-
-                        CryptProcess.StartInfo.FileName = @"..\..\..\..\publish\Crypto.exe";
-                        CryptProcess.StartInfo.ArgumentList.Add(src + "/" + fi.Name);
-                        CryptProcess.StartInfo.ArgumentList.Add(fi.Name);
-                        CryptProcess.StartInfo.ArgumentList.Add("0111000101101001");
-                        CryptProcess.Start();
-
-                        Obj.CryptTime = Obj.GetStopTimer(ct);
 
                         //Stop timer
                         Obj.RunTime = Obj.GetStopTimer(sw);
