@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Configuration;
 
 namespace EasySavev2
 {
@@ -100,5 +101,13 @@ namespace EasySavev2
             SaveSrc.Clear();
             SaveType.SelectedIndex = -1;
         }
-	}
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Settings settings = new Settings();
+            this.Visibility = Visibility.Hidden;
+            settings.Show();
+
+        }
+    }
 }

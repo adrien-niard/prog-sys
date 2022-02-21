@@ -10,7 +10,7 @@
 
     <Window.Resources>
         <ResourceDictionary Source="Styles\Page1.xaml"></ResourceDictionary>
-        
+
     </Window.Resources>
 
     <Grid>
@@ -54,6 +54,7 @@
         <Button x:Name="Play" Content="Play" HorizontalAlignment="Left" Margin="0,280,0,0" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1"/>
         <Button Content="Pause" HorizontalAlignment="Left" Margin="138,279,0,0" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1"/>
         <Button Content="Stop" HorizontalAlignment="Left" Margin="271,279,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.21,-0.866" Grid.Column="2" Grid.Row="1"/>
+        <Button Content="Paramètre" HorizontalAlignment="Left" Margin="139,344,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.21,-0.866" Grid.Column="2" Grid.Row="1" Click="Button_Click"/>
 
     </Grid>
 </Window>

@@ -69,3 +69,29 @@ C:\Users\Adrien\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySav
 C:\Users\Adrien\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.dll
 C:\Users\Adrien\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.pdb
 C:\Users\Adrien\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.genruntimeconfig.cache
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\bin\Debug\netcoreapp3.1\EasySavev2.exe
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\bin\Debug\netcoreapp3.1\EasySavev2.deps.json
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\bin\Debug\netcoreapp3.1\EasySavev2.runtimeconfig.json
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\bin\Debug\netcoreapp3.1\EasySavev2.runtimeconfig.dev.json
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\bin\Debug\netcoreapp3.1\EasySavev2.dll
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\bin\Debug\netcoreapp3.1\EasySavev2.pdb
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.csproj.AssemblyReference.cache
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.csproj.ResolveComReference.cache
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\Styles\Page1.baml
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2_MarkupCompile.cache
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2_MarkupCompile.lref
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.g.resources
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.AssemblyInfoInputs.cache
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.AssemblyInfo.cs
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.csproj.CoreCompileInputs.cache
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.csproj.CopyComplete
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.dll
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.pdb
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.genruntimeconfig.cache
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\View\ViewSettings.g.cs
+C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\View\ViewSettings.baml
