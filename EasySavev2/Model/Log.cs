@@ -14,8 +14,7 @@ namespace EasySavev2.Model
     class Log : IObserver
     {
         private JObject JsonObj = new JObject();
-        private XmlDocument doc = new XmlDocument();
-        private XDocument XmlObj;
+        private XElement XmlObj;
         private string XmlString = "";
 
         private string JsonPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/EasySave/" + DateTime.Now.ToString("yyyy'-'MM'-'dd") + ".json";
@@ -36,9 +35,7 @@ namespace EasySavev2.Model
                 JsonObj.Add("RunTime", save.RunTime);
                 JsonObj.Add("CryptTime", save.CryptTime);
 
-                XmlObj = new XDocument(
-                    new XElement("Log",
-                        new XElement(save.Name, 
+                XmlObj = new XElement(save.Name, 
                             new XElement("Name", save.Name),
                             new XElement("Type", save.Type),
                             new XElement("SourceFilePath", save.Src),
@@ -46,8 +43,6 @@ namespace EasySavev2.Model
                             new XElement("Time", save.GetTime()),
                             new XElement("RunTime", save.RunTime),
                             new XElement("CryptTime", save.CryptTime)
-                        )
-                    )
                 );
             }
         }
@@ -91,50 +86,21 @@ namespace EasySavev2.Model
             try
             {
                 FileInfo XmlFi = new FileInfo(XmlPath);
+                XDocument XmlDoc;
 
                 if (!XmlFi.Exists)
                 {
-                    //If the json file doesn't exist => just add json informations
-                    XmlString = XmlObj.ToString();
+                    XmlDoc = new XDocument();
+                    XmlDoc.Add(new XElement("Log", XmlObj));
                 }
                 else
                 {
-					XmlSerializer XS = new XmlSerializer(typeof(XmlDocument));
-                    FileStream stream = File.Open(XmlPath, FileMode.Open);
-					
-                    XmlDocument desXml = (XmlDocument)XS.Deserialize(stream);
+                    XmlDoc = XDocument.Load(XmlPath);
 
-                    doc.LoadXml(XmlObj.ToString());
-
-					XmlElement Child = desXml.CreateElement(doc.FirstChild.ChildNodes[0].Value.ToString());
-					Child.SetAttribute("Name", doc.FirstChild.ChildNodes[0].ChildNodes[0].Value.ToString());
-					Child.SetAttribute("Type", doc.FirstChild.ChildNodes[0].ChildNodes[1].Value.ToString());
-					Child.SetAttribute("SourceFilePath", doc.FirstChild.ChildNodes[0].ChildNodes[2].Value.ToString());
-					Child.SetAttribute("DestinationFilePath", doc.FirstChild.ChildNodes[0].ChildNodes[3].Value.ToString());
-					Child.SetAttribute("Time", doc.FirstChild.ChildNodes[0].ChildNodes[4].Value.ToString());
-					Child.SetAttribute("RunTime", doc.FirstChild.ChildNodes[0].ChildNodes[5].Value.ToString());
-					Child.SetAttribute("CryptTime", doc.FirstChild.ChildNodes[0].ChildNodes[6].Value.ToString());
-
-					XmlNode RootNode = desXml.SelectSingleNode("//RootElement");
-					RootNode.AppendChild(Child);
-
-					XS.Serialize(stream, RootNode);
-
-					/*var parent = XmlObj;
-					XmlString += "\n" + XmlObj.ToString();*/
-
-					/*//If the json file exist => deserialization of the existing file, then add to the informations the new save's informations
-					XmlSerializer XS = new XmlSerializer(XmlPath.GetType());
-                    *//*Stream reader = new FileStream(XmlPath, FileMode.Open);*//*
-                    string reader = File.ReadAllText(XmlPath);
-					XmlWriter writer = new XmlTextWriter(reader, Encoding.Unicode);
-
-					*//*saveXmlList = (List<XDocument>)XS.Deserialize(reader);*//*
-
-					saveXmlList.Add(XmlObj);
-
-					XS.Serialize(writer, saveXmlList);*/
+                    XmlDoc.Root.LastNode.AddAfterSelf(XmlObj);
 				}
+
+                XmlString = XmlDoc.ToString();
 
                 //Write it into the xml file
                 File.WriteAllText(XmlPath, XmlString);

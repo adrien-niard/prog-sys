@@ -54,7 +54,9 @@ namespace EasySavev2
 
         //initiate the event when we click on the save button
         private void Save_Click(object sender, RoutedEventArgs e)
-        {           
+        {
+            int i = 0;
+
             foreach (Save obj in SaveList)
             {
                 Log log = new Log();
@@ -63,20 +65,20 @@ namespace EasySavev2
                 obj.Attach(state);
                 if (obj.Type == "Full")
                 {
-                    ASave mono = new MonoExec();
-                    mono.ExecFull(SaveList, obj, log, state);
+                    ASave ParaExec = new ParallèleExec();
+                    ParaExec.ExecFull(SaveList, log, state, i);
                     MessageBox.Show("Your full save as been done");
-                    Environment.Exit(0);
+                }
+                else if (obj.Type == "Diff")
+                {
+                    ASave ParaExec = new ParallèleExec();
+                    ParaExec.ExecDiff(SaveList, log, state, i);
+                    MessageBox.Show("Your diff save as been done");
                 }
 
-                else
-                {
-                    ASave mono = new MonoExec();
-                    mono.ExecDiff(SaveList, obj, log, state);
-                    MessageBox.Show("Your diff save as been done");
-                    Environment.Exit(0);
-                }
+                i++;
             }
+            Environment.Exit(0);
         }
 
         private void AddSave_Click(object sender, RoutedEventArgs e)
