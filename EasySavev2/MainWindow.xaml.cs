@@ -102,7 +102,7 @@ namespace EasySavev2
             SaveType.SelectedIndex = -1;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Settings_Click(object sender, RoutedEventArgs e)
         {
             Settings settings = new Settings();
             this.Visibility = Visibility.Hidden;
