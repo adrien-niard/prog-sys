@@ -136,6 +136,12 @@
         <Setter Property="Foreground"
                 Value="White"/>
     </Style>
+    <Style TargetType="ProgressBar">
+        <Setter Property="Background"
+                Value="white"></Setter>
+        <Setter Property="Foreground"
+                Value="#b67929"></Setter>
+    </Style>
     <Storyboard x:Key="sbdUserControlAnimation">
         <DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
                                        Storyboard.TargetProperty="Width">
