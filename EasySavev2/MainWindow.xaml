@@ -47,9 +47,6 @@
         </ComboBox>
         <Label x:Name="SavetypeLabel" Content="Type :" HorizontalAlignment="Left" Margin="28,264,0,0" VerticalAlignment="Top" FontSize="20" Grid.Row="1"/>
 
-
-
-
         <Button x:Name="AddSave" Content="AddSave" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Width="154" Height="40" Click="AddSave_Click" Visibility="Visible" Grid.Column="2" Grid.Row="1"/>
         <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="204,80,0,0" VerticalAlignment="Top" Height="41" Width="154" Click="Save_Click" Grid.Column="2" Grid.Row="1"/>
         <Label x:Name="Description" Content="Actions" HorizontalAlignment="Left" Margin="138,21,0,0" VerticalAlignment="Top" FontSize="24" Grid.Column="2" Grid.Row="1"/>
