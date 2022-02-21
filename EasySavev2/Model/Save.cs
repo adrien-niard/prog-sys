@@ -19,6 +19,7 @@ namespace EasySavev2.Model
             set
             {
                 _name = value;
+                Notify();
             }
         }
         private string _name;
@@ -31,6 +32,7 @@ namespace EasySavev2.Model
             set
             {
                 _src = value;
+                Notify();
             }
         }
         private string _src;
@@ -62,6 +64,7 @@ namespace EasySavev2.Model
             set
             {
                 _type = value;
+                Notify();
             }
         }
         private string _type;
@@ -76,6 +79,7 @@ namespace EasySavev2.Model
             set
             {
                 _fileSize = value;
+                Notify();
             }
         }
         private long _fileSize;
@@ -106,6 +110,7 @@ namespace EasySavev2.Model
             set
             {
                 _cryptTime = value;
+                Notify();
             }
         }
         private string _cryptTime;
