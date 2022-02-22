@@ -14,9 +14,9 @@
         <Setter Property="FontWeight"
                 Value="Bold" />
         <Setter Property="MinWidth"
-                Value="100"></Setter>
+                Value="0"></Setter>
         <Setter Property="MinHeight"
-                Value="45"></Setter>
+                Value="0"></Setter>
         <Setter Property="Margin"
                 Value="4,4,4,4"></Setter>
         <Setter Property="VerticalAlignment"
@@ -39,7 +39,7 @@
                                    Stroke="Transparent"
                                    Height="15">
                         </Rectangle>
-                        <ContentPresenter Margin="10,0,10,0"
+                        <ContentPresenter Margin="1,0,1,0"
                                           VerticalAlignment="Center"
                                           HorizontalAlignment="Center" />
                     </Grid>

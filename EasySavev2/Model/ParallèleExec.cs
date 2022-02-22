@@ -64,7 +64,7 @@ namespace EasySavev2.Model
                     foreach (FileInfo file in Priority)
                     {
                         //Launch semaphore to copy files
-                        if (fi.Length < koMax) //1000 à changer avec un paramètre
+                        if (koMax.ToString() == null || fi.Length < koMax)
                         {
                             Semaphore semaphore = new Semaphore(SList.Count, SList.Count);
                             DELG delg_semaphore = () =>
@@ -132,6 +132,10 @@ namespace EasySavev2.Model
                 DirectoryInfo DirSrc = new DirectoryInfo(src);
                 DirectoryInfo DirDest = new DirectoryInfo(dest);
 
+                //Variable for size max of a file to copy
+                string sizeMax = ConfigurationManager.AppSettings.Get("size");
+                int koMax = Int32.Parse(sizeMax);
+
                 //Cycle through the file in the folder to copy them into the destination folder
                 foreach (FileInfo fi in DirSrc.GetFiles())
                 {
@@ -153,7 +157,7 @@ namespace EasySavev2.Model
                     {
 
                         //Launch semaphore to copy files
-                        if (fi.Length < 1000) //1000 à changer avec un paramètre
+                        if (koMax.ToString() == null || fi.Length < koMax)
                         {
 
                             Semaphore semaphore = new Semaphore(SList.Count, SList.Count);

@@ -105,9 +105,8 @@ namespace EasySavev2
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
             Settings settings = new Settings();
-            this.Visibility = Visibility.Hidden;
-            settings.Show();
-
+			this.Visibility = Visibility.Hidden;
+			settings.Show();
         }
     }
 }

@@ -121,6 +121,6 @@ C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreap
 C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.pdb
 C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.genruntimeconfig.cache
 C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.csproj.AssemblyReference.cache
-C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\View\ViewSettings.baml
 C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\View\ViewSettings.g.cs
 C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\View\ViewSettings.baml

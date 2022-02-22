@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Configuration;
 using System.Collections.Specialized;
+using System.Diagnostics;
 
 namespace EasySavev2
 {
@@ -30,15 +31,8 @@ namespace EasySavev2
                 {
                     ListEncrypt.Items.Add(key);
                     SizeKo.Text = ConfigurationManager.AppSettings.Get("size");
-
                 }
-
             }
-            
-
-
-
-
         }
         private void ButAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -47,7 +41,6 @@ namespace EasySavev2
                 bool Exist = false;
                 if (el != null)
                 {
-
                     foreach (string i in ListEncrypt.Items )
                     {
                         if (i == el)
@@ -62,7 +55,6 @@ namespace EasySavev2
                     {
                         ListEncrypt.Items.Add(TextEncrypt.Text);
                         TextEncrypt.Clear();
-
                     }
                 }
             }
@@ -88,55 +80,63 @@ namespace EasySavev2
 
         }
 
-
         private void ListEncrypt_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //ListBox ListEncrypt = new ListBox();
             //Configuration conf = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            
-
-
-
         }
 
         private void SaveSet_Click(object sender, RoutedEventArgs e)
         {
-            
-            Configuration conf = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            string[] keys = ConfigurationManager.AppSettings.AllKeys;
-
-            foreach (string Element in ListEncrypt.Items)
+            try
             {
-                bool Exist = false;
+                Configuration conf = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                string[] keys = ConfigurationManager.AppSettings.AllKeys;
 
-                //var ext = ConfigurationManager.AppSettings["ext"];
-                if (Element != null)
+                foreach (string Element in ListEncrypt.Items)
                 {
-                    for (int i = 0; i < keys.Length; i++)
+                    bool Exist = false;
+
+                    //var ext = ConfigurationManager.AppSettings["ext"];
+                    if (Element != null)
                     {
-                        if (keys[i] == Element)
+                        for (int i = 0; i < keys.Length; i++)
                         {
-                            Exist = true;
-                            break;
+                            if (keys[i] == Element)
+                            {
+                                Exist = true;
+                                break;
+                            }
+                        }
+
+                        if (Exist == false)
+                        {
+                            conf.AppSettings.Settings.Add(Element, Element);
                         }
                     }
-
-                    if (Exist == false)
-                    {
-                        conf.AppSettings.Settings.Add(Element, Element);
-                    }
                 }
+                string size = SizeKo.Text;
+                conf.AppSettings.Settings.Remove("size");
+                conf.AppSettings.Settings.Add("size", size);
+                conf.Save(ConfigurationSaveMode.Modified);
+
+                System.Windows.MessageBox.Show("Settings saved");
+
+                MainWindow main = new MainWindow();
+                main.Show();
+                this.Close();
             }
-            string size = SizeKo.Text;
-            conf.AppSettings.Settings.Add("size", size);
-            conf.Save(ConfigurationSaveMode.Modified);
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
 
         private void ButBack_Click(object sender, RoutedEventArgs e)
         {
             MainWindow main = new MainWindow();
-            this.Visibility = Visibility.Hidden;
             main.Show();
+            this.Close();
         }
 
         private void SizeKo_TextChanged(object sender, TextChangedEventArgs e)
