@@ -142,7 +142,7 @@ namespace EasySavev2 {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/EasySavev2;component/view/viewsettings.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/EasySavev2_gu2mvog5_wpftmp;component/view/viewsettings.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\ViewSettings.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
