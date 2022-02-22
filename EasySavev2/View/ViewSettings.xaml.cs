@@ -62,7 +62,7 @@ namespace EasySavev2
                     {
                         ListEncrypt.Items.Add(TextEncrypt.Text);
                         TextEncrypt.Clear();
-
+                        
                     }
                 }
             }
