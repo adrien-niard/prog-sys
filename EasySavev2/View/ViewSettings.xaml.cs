@@ -29,35 +29,36 @@ namespace EasySavev2
             {
                 if (keys != null)
                 {
-                    ListEncrypt.Items.Add(key);
+                    if (key.IndexOf(".") == 0)
+                    {
+                        ListEncrypt.Items.Add(key);
+                    }
+
                     SizeKo.Text = ConfigurationManager.AppSettings.Get("size");
+                    LanguageBox.Text = ConfigurationManager.AppSettings.Get("langue");
                 }
             }
         }
         private void ButAdd_Click(object sender, RoutedEventArgs e)
         {
-            foreach (string el in ListEncrypt.Items)
+            bool Exist = false;
+            if (ListEncrypt != null && TextEncrypt.Text != null)
             {
-                bool Exist = false;
-                if (el != null)
+                foreach (string i in ListEncrypt.Items)
                 {
-                    foreach (string i in ListEncrypt.Items )
+                    if (TextEncrypt.Text == i)
                     {
-                        if (i == el)
-                        {
-                            Exist = true;
-                            //MessageBox.Show("")
-                            break;
-                        }
-                        TextEncrypt.Clear();
-                    }
-                    if (Exist == false)
-                    {
-                        ListEncrypt.Items.Add(TextEncrypt.Text);
-                        TextEncrypt.Clear();
+                        Exist = true;
+                        break;
                     }
                 }
             }
+
+            if (Exist == false && TextEncrypt.Text != null)
+            {
+                ListEncrypt.Items.Add(TextEncrypt.Text);
+            }
+            TextEncrypt.Clear();
         }
 
         private void ButDelete_Click(object sender, RoutedEventArgs e)
@@ -115,10 +116,19 @@ namespace EasySavev2
                         }
                     }
                 }
+
                 string size = SizeKo.Text;
                 conf.AppSettings.Settings.Remove("size");
                 conf.AppSettings.Settings.Add("size", size);
                 conf.Save(ConfigurationSaveMode.Modified);
+
+                string language = LanguageBox.Text;
+                if (language != "")
+                {
+                    conf.AppSettings.Settings.Remove("langue");
+                    conf.AppSettings.Settings.Add("langue", language);
+                    conf.Save(ConfigurationSaveMode.Modified);
+                }
 
                 System.Windows.MessageBox.Show("Settings saved");
 

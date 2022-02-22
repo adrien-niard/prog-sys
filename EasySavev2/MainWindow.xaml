@@ -34,11 +34,11 @@
         </Grid>
 
         <StackPanel Grid.ColumnSpan="4" Margin="0,16,0,24"/>
-        <Label x:Name="SaveNameLabel" Content="Save Name :" HorizontalAlignment="Left" Margin="47,5,0,0" VerticalAlignment="Top" FontSize="20" Grid.Row="1"/>
+        <Label x:Name="SaveNameLabel" Content="Save Name :" HorizontalAlignment="Left" Margin="47,5,0,0" VerticalAlignment="Top" FontSize="20" Grid.Row="1" Grid.ColumnSpan="2" Width="304"/>
         <TextBox x:Name="SaveName" HorizontalAlignment="Left" Margin="52,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" Height="30" Grid.ColumnSpan="2" Grid.Row="1"/>
-        <Label x:Name="SaveSrcLabel" Content="Copy Source :" HorizontalAlignment="Left" Margin="47,101,0,0" VerticalAlignment="Top" FontSize="20" Grid.Row="1"/>
+        <Label x:Name="SaveSrcLabel" Content="Copy Source :" HorizontalAlignment="Left" Margin="47,101,0,0" VerticalAlignment="Top" FontSize="20" Grid.Row="1" Grid.ColumnSpan="2" Width="304"/>
         <TextBox x:Name="SaveSrc" Text="C:/Copy/" HorizontalAlignment="Left" Margin="52,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" Height="30" Grid.ColumnSpan="2" Grid.Row="1"/>
-        <Label x:Name="SaveDestLabel" Content="Copy Destination :" HorizontalAlignment="Left" Margin="47,196,0,0" VerticalAlignment="Top" FontSize="20" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Label x:Name="SaveDestLabel" Content="Copy Destination :" HorizontalAlignment="Left" Margin="47,196,0,0" VerticalAlignment="Top" FontSize="20" Grid.ColumnSpan="2" Grid.Row="1" Width="304"/>
         <TextBox x:Name="SaveDest" Text="C:/Paste/" HorizontalAlignment="Left" Margin="52,237,0,0" TextWrapping="Wrap" Width="208" Height="30" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top"/>
         <Button x:Name="BrowseSrc" Content="..." HorizontalAlignment="Left" Margin="90,141,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="26" Width="35" Click="BrowseSrc_Click" Grid.Column="1" Grid.Row="1"></Button>
         <Button x:Name="BrowseDest" Content="..." HorizontalAlignment="Left" Margin="90,239,0,0" Height="25" Width="35" Click="BrowseDest_Click" RenderTransformOrigin="0.498,0.535" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top"/>
@@ -46,7 +46,7 @@
             <ComboBoxItem Background="#a3acb1" Content="Full"/>
             <ComboBoxItem Background="#a3acb1" Content="Diff"/>
         </ComboBox>
-        <Label x:Name="SavetypeLabel" Content="Type :" HorizontalAlignment="Left" Margin="52,278,0,0" VerticalAlignment="Top" FontSize="20" Grid.Row="1"/>
+        <Label x:Name="SavetypeLabel" Content="Type :" HorizontalAlignment="Left" Margin="52,278,0,0" VerticalAlignment="Top" FontSize="20" Grid.Row="1" Grid.ColumnSpan="2" Width="299"/>
 
         <Button x:Name="AddSave" Content="AddSave" HorizontalAlignment="Left" Margin="52,405,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="AddSave_Click" Visibility="Visible" Grid.Row="1"/>
         <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="174,405,0,0" VerticalAlignment="Top" Height="40" Width="100" Click="Save_Click" Grid.Row="1" Grid.ColumnSpan="2"/>
@@ -54,7 +54,7 @@
         <Button Content="Pause" HorizontalAlignment="Left" Margin="185,404,0,0" VerticalAlignment="Top" Grid.Column="4" Grid.Row="1" Width="100" Height="40"/>
         <Button Content="Stop" HorizontalAlignment="Left" Margin="317,404,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.21,-0.866" Grid.Column="4" Grid.Row="1" Width="100" Height="40"/>
         <ListBox Grid.Column="4" Grid.Row="1" Margin="32,42,62,153"/>
-        <Button HorizontalAlignment="Left" Margin="443,19,0,0" RenderTransformOrigin="0.21,-0.866" Grid.Column="4" Click="Settings_Click" Width="30" Grid.ColumnSpan="1" FontSize="15" Height="30" VerticalAlignment="Top">
+        <Button x:Name="Settings" HorizontalAlignment="Left" Margin="443,19,0,0" RenderTransformOrigin="0.21,-0.866" Grid.Column="4" Click="Settings_Click" Width="30" Grid.ColumnSpan="1" FontSize="15" Height="30" VerticalAlignment="Top">
             <Button.Background>
                 <ImageBrush ImageSource="/cog_icon.png" TileMode="Tile" Stretch="Fill"/>
             </Button.Background>
