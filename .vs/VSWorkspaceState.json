@@ -1,12 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\EasySavev2\\bin",
-    "\\EasySavev2\\bin\\Debug",
-    "\\EasySavev2\\bin\\Debug\\netcoreapp3.1",
-    "\\EasySavev2\\bin\\Release",
-    "\\EasySavev2\\bin\\Release\\netcoreapp3.1"
+    "\\EasySavev2",
+    "\\EasySavev2\\View"
   ],
-  "SelectedNode": "\\EasySavev2.sln",
+  "SelectedNode": "\\EasySavev2\\View\\ViewSettings.xaml",
   "PreviewInSolutionExplorer": false
 }
