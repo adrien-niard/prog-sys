@@ -17,7 +17,7 @@
 
         </Grid.ColumnDefinitions>
         <Label Content="Choice Language" HorizontalAlignment="Left" Margin="160,25,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Height="20" Margin="152,55,0,0" VerticalAlignment="Top" Width="116" SelectionChanged="ComboBox_SelectionChanged">
+        <ComboBox x:Name="LanguageBox" HorizontalAlignment="Left" Height="20" Margin="152,55,0,0" VerticalAlignment="Top" Width="116" SelectionChanged="ComboBox_SelectionChanged">
             <ComboBoxItem Content="FR"/>
             <ComboBoxItem Content="EN"/>
         </ComboBox>
