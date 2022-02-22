@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.IO;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -64,6 +65,10 @@ namespace EasySavev2
                 State state = new State();
                 obj.Attach(log);
                 obj.Attach(state);
+
+                DirectoryInfo di = new DirectoryInfo(obj.Src);
+                i = di.GetFiles().Length;
+                
                 if (obj.Type == "Full")
                 {
                     ASave ParaExec = new ParallèleExec();
@@ -77,7 +82,7 @@ namespace EasySavev2
                     System.Windows.MessageBox.Show("Your diff save as been done");
                 }
 
-                i++;
+                i--;
             }
             Environment.Exit(0);
         }
