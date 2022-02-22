@@ -5,6 +5,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Threading;
 using System.Configuration;
+using System.Windows;
 
 namespace EasySavev2.Model
 {
@@ -43,10 +44,9 @@ namespace EasySavev2.Model
                     Obj.Dest = DestFull;
 
                     state.AddState(NbObj);
-                    string sizeMax = ConfigurationManager.AppSettings.Get("size");
-                    int koMax = Int32.Parse(sizeMax);
+
                     //Launch semaphore to copy files
-                    if (fi.Length < koMax) //1000 à changer avec un paramètre
+                    if (fi.Length < 1000) //1000 à changer avec un paramètre
                     {
                         Semaphore semaphore = new Semaphore(SList.Count, SList.Count);
                         DELG delg_semaphore = () =>
@@ -55,16 +55,37 @@ namespace EasySavev2.Model
                             File.Copy(FiSrc.ToString(), FiDest.ToString(), true);
                         };
 
-                        Thread SemaThread = new Thread(delg_semaphore.Invoke);
-                        SemaThread.Start();
+                            Thread SemaThread = new Thread(delg_semaphore.Invoke);
+                            SemaThread.Start();
 
-                        //Call the CryptoSoft method to decrypt the source
-                        CryptoSoft(DestFull, "encryptkey1234", Obj);
+                            //Call the CryptoSoft method to decrypt the source
+                            CryptoSoft(DestFull, "encryptkey1234", Obj);
+                            log.AddLog();
+                        }
                     }
 
+                    foreach (FileInfo file in NoPriority)
+                    {
+                        if (fi.Length < 1000) //1000 à changer avec un paramètre
+                        {
+                            Semaphore semaphore = new Semaphore(SList.Count, SList.Count);
+                            DELG delg_semaphore = () =>
+                            {
+                                semaphore.WaitOne();
+                                File.Copy(FiSrc.ToString(), FiDest.ToString(), true);
+                            };
+
+                            Thread SemaThread = new Thread(delg_semaphore.Invoke);
+                            SemaThread.Start();
+
+                            //Call the CryptoSoft method to decrypt the source
+                            CryptoSoft(DestFull, "encryptkey1234", Obj);
+                            log.AddLog();
+                        }
+                    }
                     //Stop timer
                     Obj.RunTime = Obj.GetStopTimer(runTime);
-                    log.AddLog();
+                    
                 }
                 NbObj -= 1;
                 state.AddState(NbObj);
