@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EasySavev2"
         mc:Ignorable="d"
-        Title="" Height="450" Width="800"
+        Title="" Height="593" Width="1000"
         Background="#00243f">
 
     <Window.Resources>
@@ -13,9 +13,9 @@
 
     </Window.Resources>
 
-    <Grid>
+    <Grid Margin="0,0,0,-6" Width="1000">
         <Grid.RowDefinitions>
-            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="75"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -25,36 +25,37 @@
         </Grid.ColumnDefinitions>
 
         <Grid Background="#b67929"
-              Grid.ColumnSpan="3">
+              Grid.ColumnSpan="3" Margin="0,16,0,24">
             <TextBlock Text="EasySave"
                    Foreground="White"
                    FontSize="24"
                    Margin=" 26,0,0,0"></TextBlock>
         </Grid>
 
-        <StackPanel Grid.ColumnSpan="2"></StackPanel>
-        <Label x:Name="SaveNameLabel" Content="Save Name :" HorizontalAlignment="Left" Margin="23,21,0,0" VerticalAlignment="Top" FontSize="20" Grid.Row="1"/>
-        <TextBox x:Name="SaveName" HorizontalAlignment="Left" Margin="28,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="30" Grid.ColumnSpan="2" Grid.Row="1"/>
-        <Label x:Name="SaveSrcLabel" Content="Copy Source :" HorizontalAlignment="Left" Margin="23,107,0,0" VerticalAlignment="Top" FontSize="20" Grid.ColumnSpan="2" Grid.Row="1"/>
-        <TextBox x:Name="SaveSrc" Text="C:/Copy/" HorizontalAlignment="Left" Margin="28,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="30" Grid.ColumnSpan="2" Grid.Row="1"/>
-        <Label x:Name="SaveDestLabel" Content="Copy Destination :" HorizontalAlignment="Left" Margin="23,193,0,0" VerticalAlignment="Top" FontSize="20" Grid.ColumnSpan="2" Grid.Row="1"/>
-        <TextBox x:Name="SaveDest" Text="C:/Paste/" HorizontalAlignment="Left" Margin="28,234,0,0" TextWrapping="Wrap" Width="160" Height="30" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Row="1"/>
-        <Button x:Name="BrowseSrc" Content="Browse" HorizontalAlignment="Left" Margin="82,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="32" Width="54" Click="BrowseSrc_Click" Grid.Column="1" Grid.Row="1"></Button>
-        <Button x:Name="BrowseDest" Content="Browse" HorizontalAlignment="Left" Margin="82,222,0,0" VerticalAlignment="Top" Height="30" Width="54" Click="BrowseDest_Click" RenderTransformOrigin="0.38,0.179" Grid.Column="1" Grid.Row="1"/>
-        <ComboBox x:Name="SaveType" HorizontalAlignment="Left" Margin="29,307,0,0" VerticalAlignment="Top" Width="160" Height="30" Grid.ColumnSpan="2" Grid.Row="1">
+        <StackPanel Grid.ColumnSpan="2" Margin="0,16,0,24"/>
+        <Label x:Name="SaveNameLabel" Content="Save Name :" HorizontalAlignment="Left" Margin="23,5,0,0" VerticalAlignment="Top" FontSize="20" Grid.Row="1"/>
+        <TextBox x:Name="SaveName" HorizontalAlignment="Left" Margin="28,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" Height="30" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Label x:Name="SaveSrcLabel" Content="Copy Source :" HorizontalAlignment="Left" Margin="23,101,0,0" VerticalAlignment="Top" FontSize="20" Grid.Row="1"/>
+        <TextBox x:Name="SaveSrc" Text="C:/Copy/" HorizontalAlignment="Left" Margin="28,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" Height="30" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Label x:Name="SaveDestLabel" Content="Copy Destination :" HorizontalAlignment="Left" Margin="23,196,0,0" VerticalAlignment="Top" FontSize="20" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <TextBox x:Name="SaveDest" Text="C:/Paste/" HorizontalAlignment="Left" Margin="28,237,0,0" TextWrapping="Wrap" Width="208" Height="30" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top"/>
+        <Button x:Name="BrowseSrc" Content="Browse" HorizontalAlignment="Left" Margin="64,131,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="32" Width="54" Click="BrowseSrc_Click" Grid.Column="1" Grid.Row="1"></Button>
+        <Button x:Name="BrowseDest" Content="Browse" HorizontalAlignment="Left" Margin="66,230,0,0" Height="30" Width="54" Click="BrowseDest_Click" RenderTransformOrigin="0.38,0.179" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top"/>
+        <ComboBox x:Name="SaveType" HorizontalAlignment="Left" Margin="29,321,0,0" VerticalAlignment="Top" Width="209" Height="30" Grid.ColumnSpan="2" Grid.Row="1">
             <ComboBoxItem Background="#a3acb1" Content="Full"/>
             <ComboBoxItem Background="#a3acb1" Content="Diff"/>
         </ComboBox>
-        <Label x:Name="SavetypeLabel" Content="Type :" HorizontalAlignment="Left" Margin="28,264,0,0" VerticalAlignment="Top" FontSize="20" Grid.Row="1"/>
+        <Label x:Name="SavetypeLabel" Content="Type :" HorizontalAlignment="Left" Margin="28,278,0,0" VerticalAlignment="Top" FontSize="20" Grid.Row="1"/>
 
-        <Button x:Name="AddSave" Content="AddSave" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Width="154" Height="40" Click="AddSave_Click" Visibility="Visible" Grid.Column="2" Grid.Row="1"/>
-        <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="204,80,0,0" VerticalAlignment="Top" Height="41" Width="154" Click="Save_Click" Grid.Column="2" Grid.Row="1"/>
-        <Label x:Name="Description" Content="Actions" HorizontalAlignment="Left" Margin="138,21,0,0" VerticalAlignment="Top" FontSize="24" Grid.Column="2" Grid.Row="1"/>
-        <Label x:Name="Description_Copy" Content="Interaction" HorizontalAlignment="Left" Margin="121,211,0,0" VerticalAlignment="Top" FontSize="24" Grid.Column="2" Grid.Row="1"/>
-        <Button x:Name="Play" Content="Play" HorizontalAlignment="Left" Margin="0,280,0,0" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1"/>
-        <Button Content="Pause" HorizontalAlignment="Left" Margin="138,279,0,0" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1"/>
-        <Button Content="Stop" HorizontalAlignment="Left" Margin="271,279,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.21,-0.866" Grid.Column="2" Grid.Row="1"/>
-        <Button Content="Paramètre" HorizontalAlignment="Left" Margin="139,344,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.21,-0.866" Grid.Column="2" Grid.Row="1" Click="Settings_Click"/>
+        <Button x:Name="AddSave" Content="AddSave" HorizontalAlignment="Left" Margin="18,423,0,0" VerticalAlignment="Top" Width="154" Height="40" Click="AddSave_Click" Visibility="Visible" Grid.Row="1"/>
+        <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="28,423,0,0" VerticalAlignment="Top" Height="41" Width="154" Click="Save_Click" Grid.Column="1" Grid.Row="1"/>
+        <Label x:Name="Description" Content="Actions" HorizontalAlignment="Left" Margin="146,364,0,0" VerticalAlignment="Top" FontSize="24" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <Label x:Name="Description_Copy" Content="Interaction" HorizontalAlignment="Left" Margin="182,246,0,0" VerticalAlignment="Top" FontSize="24" Grid.Column="2" Grid.Row="1"/>
+        <Button x:Name="Play" Content="Play" HorizontalAlignment="Left" Margin="61,315,0,0" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1"/>
+        <Button Content="Pause" HorizontalAlignment="Center" Margin="0,314,0,0" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1"/>
+        <Button Content="Stop" HorizontalAlignment="Left" Margin="332,314,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.21,-0.866" Grid.Column="2" Grid.Row="1"/>
+        <Button Content="Paramètre" HorizontalAlignment="Center" Margin="0,379,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.21,-0.866" Grid.Column="2" Grid.Row="1" Click="Settings_Click"/>
+        <ListBox Grid.Column="2" Grid.Row="1" Margin="41,40,53,309"/>
 
     </Grid>
 </Window>

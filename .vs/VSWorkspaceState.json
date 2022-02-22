@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\EasySavev2\\bin",
+    "\\EasySavev2\\bin\\Debug",
+    "\\EasySavev2\\bin\\Debug\\netcoreapp3.1",
+    "\\EasySavev2\\bin\\Release",
+    "\\EasySavev2\\bin\\Release\\netcoreapp3.1"
   ],
-  "SelectedNode": "\\C:\\Users\\JeanGONCALVES\\Source\\Repos\\adrien-niard\\prog-sys",
+  "SelectedNode": "\\EasySavev2.sln",
   "PreviewInSolutionExplorer": false
 }
