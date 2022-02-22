@@ -2,6 +2,8 @@
 # Ce fichier .gitignore a été automatiquement créé par Microsoft(R) Visual Studio.
 ################################################################################
 
+
+/.vs/slnx.sqlite
 /.vs/EasySavev2/v16
 /.vs/prog-sys/v16
 /EasySavev2/bin/Debug/netcoreapp3.1/EasySavev2.dll
