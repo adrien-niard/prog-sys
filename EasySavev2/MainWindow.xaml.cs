@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Configuration;
+using System.Windows.Forms;
 
 namespace EasySavev2
 {
@@ -30,26 +31,25 @@ namespace EasySavev2
         //initiate the event when we click on the first browse button
         private void BrowseSrc_Click(object sender, RoutedEventArgs e)
         {
-            //creating a openfilDialog instance to browse inside our file explorer
-            Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
-            openFileDialog.Filter = "";
-            Nullable<bool> result = openFileDialog.ShowDialog();
-            //Put the file name into the source textbox
-            if (result == true)
+            //Use openFolderDialog to select a folder
+            FolderBrowserDialog openFolderDialog = new FolderBrowserDialog();
+            DialogResult result = openFolderDialog.ShowDialog();
+
+            if (result.ToString() == "OK")
             {
-                SaveSrc.Text = openFileDialog.FileName;
+                SaveSrc.Text = openFolderDialog.SelectedPath;
             }
         }
         //initiate the event when we click on the second browse button
         private void BrowseDest_Click(object sender, RoutedEventArgs e)
         {
-            //creating a openfilDialog instance to browse inside our file explorer
-            Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
-            Nullable<bool> result = openFileDialog.ShowDialog();
-            if (result == true)
+            //Use openFolderDialog to select a folder
+            FolderBrowserDialog openFolderDialog = new FolderBrowserDialog();
+            DialogResult result = openFolderDialog.ShowDialog();
+
+            if (result.ToString() == "OK")
             {
-                //Put the file name into the destination textbox
-                SaveDest.Text = openFileDialog.FileName;
+                SaveDest.Text = openFolderDialog.SelectedPath;
             }
         }
 
@@ -68,13 +68,13 @@ namespace EasySavev2
                 {
                     ASave ParaExec = new ParallèleExec();
                     ParaExec.ExecFull(SaveList, log, state, i);
-                    MessageBox.Show("Your full save as been done");
+                    System.Windows.MessageBox.Show("Your full save as been done");
                 }
                 else if (obj.Type == "Diff")
                 {
                     ASave ParaExec = new ParallèleExec();
                     ParaExec.ExecDiff(SaveList, log, state, i);
-                    MessageBox.Show("Your diff save as been done");
+                    System.Windows.MessageBox.Show("Your diff save as been done");
                 }
 
                 i++;
@@ -94,7 +94,7 @@ namespace EasySavev2
             save.Time = save.GetTime();
             SaveList.Add(save);
 
-            MessageBox.Show("Save add in success !");
+            System.Windows.MessageBox.Show("Save add in success !");
 
             SaveName.Clear();
             SaveDest.Clear();
