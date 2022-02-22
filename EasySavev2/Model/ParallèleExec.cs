@@ -4,6 +4,7 @@ using System.Text;
 using System.IO;
 using System.Diagnostics;
 using System.Threading;
+using System.Configuration;
 using System.Windows;
 
 namespace EasySavev2.Model

@@ -17,8 +17,9 @@ namespace EasySavev2.Model
         private XElement XmlObj;
         private string XmlString = "";
 
-        private string JsonPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/EasySave/" + DateTime.Now.ToString("yyyy'-'MM'-'dd") + ".json";
-        private string XmlPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/EasySave/" + DateTime.Now.ToString("yyyy'-'MM'-'dd") + ".xml";
+        private static string ESapp = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/EasySave/";
+        private static string JsonPath = ESapp + DateTime.Now.ToString("yyyy'-'MM'-'dd") + ".json";
+        private static string XmlPath = ESapp + DateTime.Now.ToString("yyyy'-'MM'-'dd") + ".xml";
 
         //Function launch when Notify
         public void Update(ISubject subject)
@@ -54,6 +55,12 @@ namespace EasySavev2.Model
             {
                 FileInfo JsonFi = new FileInfo(JsonPath);
                 List<JObject> saveJsonList = new List<JObject>();
+
+                if (!File.Exists(ESapp))
+                {
+                    //If the EasySave directory doesn't exist => create it
+                    DirectoryInfo di = Directory.CreateDirectory(ESapp);
+                }
 
                 if (!JsonFi.Exists)
                 {
