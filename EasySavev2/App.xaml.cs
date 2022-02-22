@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using static EasySavev2.Model.MonoInstance;
 
 namespace EasySavev2
 {
@@ -13,5 +14,12 @@ namespace EasySavev2
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            if (SingleInstance.AlreadyRunning())
+                App.Current.Shutdown(); // Just shutdown the current application,if any instance found.  
+
+            base.OnStartup(e);
+        }
     }
 }

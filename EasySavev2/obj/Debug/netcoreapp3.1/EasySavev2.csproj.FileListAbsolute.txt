@@ -22,6 +22,7 @@ D:\Visual studio\Repos\EasySavev2\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.
 D:\Visual studio\Repos\EasySavev2\EasySavev2\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\Visual studio\Repos\EasySavev2\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.csproj.CopyComplete
 D:\Visual studio\Repos\EasySavev2\EasySavev2\obj\Debug\netcoreapp3.1\Styles\Page1.baml
+C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.csprojAssemblyReference.cache
 C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.csproj.ResolveComReference.cache
 C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\Styles\Page1.baml
 C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\MainWindow.g.cs
@@ -94,7 +95,29 @@ C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\Eas
 C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.genruntimeconfig.cache
 C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\View\ViewSettings.g.cs
 C:\Users\JeanGONCALVES\DOCS\CESI\Projet ProgSys\Projet\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\View\ViewSettings.baml
-C:\Users\adrie\source\repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.csproj.AssemblyReference.cache
-C:\Users\adrie\source\repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\View\ViewSettings.g.cs
-C:\Users\adrie\source\repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\View\ViewSettings.baml
-C:\Users\adrie\source\repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\bin\Debug\netcoreapp3.1\EasySavev2.exe
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\bin\Debug\netcoreapp3.1\EasySavev2.deps.json
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\bin\Debug\netcoreapp3.1\EasySavev2.runtimeconfig.json
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\bin\Debug\netcoreapp3.1\EasySavev2.runtimeconfig.dev.json
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\bin\Debug\netcoreapp3.1\EasySavev2.dll
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\bin\Debug\netcoreapp3.1\EasySavev2.pdb
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.csproj.AssemblyReference.cache
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.csproj.ResolveComReference.cache
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\Styles\Page1.baml
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\View\ViewSettings.g.cs
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2_MarkupCompile.cache
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2_MarkupCompile.lref
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\View\ViewSettings.baml
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.g.resources
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.AssemblyInfoInputs.cache
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.AssemblyInfo.cs
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.csproj.CoreCompileInputs.cache
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.csproj.CopyComplete
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.dll
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.pdb
+C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.genruntimeconfig.cache
