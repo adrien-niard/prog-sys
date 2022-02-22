@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\EasySavev2"
   ],
-  "SelectedNode": "\\EasySavev2.sln",
+  "SelectedNode": "\\EasySavev2\\MainWindow.xaml.cs",
   "PreviewInSolutionExplorer": false
 }

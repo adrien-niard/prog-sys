@@ -43,9 +43,10 @@ namespace EasySavev2.Model
                     Obj.Dest = DestFull;
 
                     state.AddState(NbObj);
-
+                    string sizeMax = ConfigurationManager.AppSettings.Get("size");
+                    int koMax = Int32.Parse(sizeMax);
                     //Launch semaphore to copy files
-                    if (fi.Length < 1000) //1000 à changer avec un paramètre
+                    if (fi.Length < koMax) //1000 à changer avec un paramètre
                     {
                         Semaphore semaphore = new Semaphore(SList.Count, SList.Count);
                         DELG delg_semaphore = () =>
