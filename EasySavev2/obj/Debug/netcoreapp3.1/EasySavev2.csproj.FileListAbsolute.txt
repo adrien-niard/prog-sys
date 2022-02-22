@@ -22,7 +22,6 @@ D:\Visual studio\Repos\EasySavev2\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.
 D:\Visual studio\Repos\EasySavev2\EasySavev2\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\Visual studio\Repos\EasySavev2\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.csproj.CopyComplete
 D:\Visual studio\Repos\EasySavev2\EasySavev2\obj\Debug\netcoreapp3.1\Styles\Page1.baml
-C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.csprojAssemblyReference.cache
 C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.csproj.ResolveComReference.cache
 C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\Styles\Page1.baml
 C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\MainWindow.g.cs
@@ -121,3 +120,7 @@ C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreap
 C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.dll
 C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.pdb
 C:\Users\hperr\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.genruntimeconfig.cache
+C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.csproj.AssemblyReference.cache
+C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\View\ViewSettings.baml
+C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\View\ViewSettings.g.cs
+C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.GeneratedMSBuildEditorConfig.editorconfig

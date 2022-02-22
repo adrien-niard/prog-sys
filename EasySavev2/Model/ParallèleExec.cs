@@ -30,6 +30,10 @@ namespace EasySavev2.Model
                 DirectoryInfo DirSrc = new DirectoryInfo(src);
                 DirectoryInfo DirDest = new DirectoryInfo(dest);
 
+                //Variable for size max of a file to copy
+                string sizeMax = ConfigurationManager.AppSettings.Get("size");
+                int koMax = Int32.Parse(sizeMax);
+
                 //Cycle through files in the source folder to copy them into the destination folder
                 foreach (FileInfo fi in DirSrc.GetFiles())
                 {
@@ -44,16 +48,30 @@ namespace EasySavev2.Model
                     Obj.Dest = DestFull;
 
                     state.AddState(NbObj);
+                    List<FileInfo> Priority = new List<FileInfo>();
+                    List<FileInfo> NoPriority = new List<FileInfo>();
 
-                    //Launch semaphore to copy files
-                    if (fi.Length < 1000) //1000 à changer avec un paramètre
+                    if (fi.Extension == ".docx")
                     {
-                        Semaphore semaphore = new Semaphore(SList.Count, SList.Count);
-                        DELG delg_semaphore = () =>
+                        Priority.Add(fi);
+                    }
+
+                    else
+                    {
+                        NoPriority.Add(fi);
+                    }
+
+                    foreach (FileInfo file in Priority)
+                    {
+                        //Launch semaphore to copy files
+                        if (fi.Length < koMax) //1000 à changer avec un paramètre
                         {
-                            semaphore.WaitOne();
-                            File.Copy(FiSrc.ToString(), FiDest.ToString(), true);
-                        };
+                            Semaphore semaphore = new Semaphore(SList.Count, SList.Count);
+                            DELG delg_semaphore = () =>
+                            {
+                                semaphore.WaitOne();
+                                File.Copy(FiSrc.ToString(), FiDest.ToString(), true);
+                            };
 
                             Thread SemaThread = new Thread(delg_semaphore.Invoke);
                             SemaThread.Start();
@@ -66,7 +84,7 @@ namespace EasySavev2.Model
 
                     foreach (FileInfo file in NoPriority)
                     {
-                        if (fi.Length < 1000) //1000 à changer avec un paramètre
+                        if (fi.Length < koMax) //1000 à changer avec un paramètre
                         {
                             Semaphore semaphore = new Semaphore(SList.Count, SList.Count);
                             DELG delg_semaphore = () =>
@@ -85,7 +103,7 @@ namespace EasySavev2.Model
                     }
                     //Stop timer
                     Obj.RunTime = Obj.GetStopTimer(runTime);
-                    
+
                 }
                 NbObj -= 1;
                 state.AddState(NbObj);
