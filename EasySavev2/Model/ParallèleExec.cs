@@ -82,6 +82,10 @@ namespace EasySavev2.Model
                             //Call the CryptoSoft method to decrypt the source
                             CryptoSoft(DestFull, "encryptkey1234", Obj);
                             log.AddLog();
+                            /*while (State == 1)
+                            {
+                                Thread.Sleep(2000);
+                            }*/
                         }
                     }
 
