@@ -188,7 +188,7 @@ namespace EasySavev2.Model
                 DirectoryInfo di = new DirectoryInfo(DestModif);
 
                 size = di.EnumerateFiles("*", SearchOption.AllDirectories).Sum(fi => fi.Length);
-             }
+            }
             catch (IOException iox)
             {
                 Console.WriteLine(iox.Message);
