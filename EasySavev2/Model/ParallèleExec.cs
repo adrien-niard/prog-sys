@@ -12,11 +12,13 @@ namespace EasySavev2.Model
     class ParallèleExec : ASave
     {
         private delegate void DELG();
-        
+        private static EventWaitHandle waitHandle = new ManualResetEvent(initialState: true); // c'est qui permet de gerer mon play et mon pause
+        private Process ActiveJobProcess { get; set; }
         public override void ExecFull(List<Save> SList, Log log, State state, int NbObj, int NbSave)
         {
             try
             {
+                
                 Save Obj = SList[NbSave];
                 
                 //Start the timer & define variables for save attributes
@@ -33,6 +35,7 @@ namespace EasySavev2.Model
                 List<FileInfo> NoPriority = new List<FileInfo>();
 
                 //Variable for size max of a file to copy
+                ConfigurationManager.RefreshSection("appSettings");
                 string sizeMax = ConfigurationManager.AppSettings.Get("size");
                 int koMax = 0;
                 
@@ -41,7 +44,7 @@ namespace EasySavev2.Model
                     koMax = Int32.Parse(sizeMax) * 1000;
                 }
 
-                ConfigurationManager.RefreshSection("appSettings");
+                
                 string[] keys = ConfigurationManager.AppSettings.AllKeys;
                 bool Prio = false;
                 bool NonPrio = false;
@@ -88,6 +91,14 @@ namespace EasySavev2.Model
 
                 foreach (FileInfo file in Priority)
                 {
+                    while (this.VerifyProcess())
+                    {
+                        waitHandle.Reset(); // re set the value 
+                        MessageBox.Show("Processus");
+                        ActiveJobProcess.WaitForExit();
+                        waitHandle.Set();
+                    }
+
                     var runTime = Obj.GetStartTimer();
 
                     string SrcFull = DirSrc.ToString() + file.Name;
@@ -126,6 +137,14 @@ namespace EasySavev2.Model
 
                 foreach (FileInfo file in NoPriority)
                 {
+                    while (this.VerifyProcess())
+                    {
+                        waitHandle.Reset(); // re set the value 
+                        MessageBox.Show("Processus");
+                        ActiveJobProcess.WaitForExit();
+                        waitHandle.Set();
+                    }
+
                     var runTime = Obj.GetStartTimer();
 
                     string SrcFull = DirSrc.ToString() + file.Name;
@@ -193,6 +212,13 @@ namespace EasySavev2.Model
                 //Cycle through the file in the folder to copy them into the destination folder
                 foreach (FileInfo fi in DirSrc.GetFiles())
                 {
+                    while (this.VerifyProcess())
+                    {
+                        waitHandle.Reset(); // re set the value 
+                        MessageBox.Show("Processus");
+                        ActiveJobProcess.WaitForExit();
+                        waitHandle.Set();
+                    }
                     //Define source/destination files
                     string SrcDiff = Path.Combine(DirSrc.ToString(), fi.Name);
                     string DestDiff = Path.Combine(DirDest.ToString(), fi.Name);
@@ -253,6 +279,13 @@ namespace EasySavev2.Model
                     }
                     foreach (FileInfo file in Priority)
                     {
+                        while (this.VerifyProcess())
+                        {
+                            waitHandle.Reset(); // re set the value 
+                            MessageBox.Show("Processus");
+                            ActiveJobProcess.WaitForExit();
+                            waitHandle.Set();
+                        }
                         //Launch semaphore to copy files
                         if (koMax == 0 || fi.Length < koMax)
                         {
@@ -274,6 +307,13 @@ namespace EasySavev2.Model
 
                     foreach (FileInfo file in NoPriority)
                     {
+                        while (this.VerifyProcess())
+                        {
+                            waitHandle.Reset(); // re set the value 
+                            MessageBox.Show("Processus");
+                            ActiveJobProcess.WaitForExit();
+                            waitHandle.Set();
+                        }
                         if (koMax == 0 || fi.Length < koMax)
                         {
                             Semaphore semaphore = new Semaphore(SList.Count, SList.Count);
@@ -304,6 +344,20 @@ namespace EasySavev2.Model
             {
                 Console.WriteLine(iox.Message);
             }
+        }
+
+        internal bool VerifyProcess()
+        {
+            ConfigurationManager.RefreshSection("appSettings");
+            var job = ConfigurationManager.AppSettings.Get("job");
+            Process[] process = Process.GetProcessesByName(job);
+            if (process.Length > 0)
+            {
+                ActiveJobProcess = process[0];
+                return true;
+            }
+
+            return false;
         }
 
         public void CryptoSoft(string SrcPath, string key, Save Obj, FileInfo fi)
