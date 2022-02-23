@@ -28,17 +28,41 @@ namespace EasySavev2
     {
         List<Save> SaveList = new List<Save>();
         public static ResourceManager rm = new ResourceManager("EasySavev2.English", Assembly.GetExecutingAssembly());
+        public static ResourceManager rm2 = new ResourceManager("EasySavev2.Francais", Assembly.GetExecutingAssembly());
         public MainWindow()
         {
             InitializeComponent();
-            SaveNameLabel.Content = rm.GetString("Name");
-            SaveSrcLabel.Content = rm.GetString("Source");
-            SaveDestLabel.Content = rm.GetString("Destination");
-            SavetypeLabel.Content = rm.GetString("Type");
-            BrowseSrc.Content = rm.GetString("Browse");
-            BrowseDest.Content = rm.GetString("Browse");
-            AddSave.Content = rm.GetString("Add");
-            Save.Content = rm.GetString("Save");
+            ConfigurationManager.RefreshSection("appSettings");
+            try
+            {
+                if (ConfigurationManager.AppSettings.Get("langue") == "EN")
+                {
+
+                    SaveNameLabel.Content = rm.GetString("Name");
+                    SaveSrcLabel.Content = rm.GetString("Source");
+                    SaveDestLabel.Content = rm.GetString("Destination");
+                    SavetypeLabel.Content = rm.GetString("Type");
+                    BrowseSrc.Content = rm.GetString("Browse");
+                    BrowseDest.Content = rm.GetString("Browse");
+                    AddSave.Content = rm.GetString("Add");
+                    Save.Content = rm.GetString("Save");
+                }
+                if (ConfigurationManager.AppSettings.Get("langue") == "FR")
+                {
+                    SaveNameLabel.Content = rm2.GetString("Name");
+                    SaveSrcLabel.Content = rm2.GetString("Source");
+                    SaveDestLabel.Content = rm2.GetString("Destination");
+                    SavetypeLabel.Content = rm2.GetString("Type");
+                    BrowseSrc.Content = rm2.GetString("Browse");
+                    BrowseDest.Content = rm2.GetString("Browse");
+                    AddSave.Content = rm2.GetString("Add");
+                    Save.Content = rm2.GetString("Save");
+                }
+            }
+            catch
+            {
+
+            }
         }
         //initiate the event when we click on the first browse button
         private void BrowseSrc_Click(object sender, RoutedEventArgs e)
