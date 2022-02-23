@@ -12,6 +12,7 @@ namespace EasySavev2.Model
     class ParallèleExec : ASave
     {
         private delegate void DELG();
+        
         public override void ExecFull(List<Save> SList, Log log, State state, int NbObj, int NbSave)
         {
             try
@@ -54,16 +55,23 @@ namespace EasySavev2.Model
                     state.AddState(NbObj);
                     List<FileInfo> Priority = new List<FileInfo>();
                     List<FileInfo> NoPriority = new List<FileInfo>();
+                    ConfigurationManager.RefreshSection("appSettings");
+                    string[] keys = ConfigurationManager.AppSettings.AllKeys;
 
-                    if (fi.Extension == ".docx")
+                    foreach (string cle in keys)
                     {
-                        Priority.Add(fi);
+                        if(cle.IndexOf(".") != -1 && cle.Substring(0, cle.IndexOf(".")) == "pri") 
+                        { 
+                            if (fi.Extension == cle.Substring(3, cle.Length - 3))
+                            {
+                                Priority.Add(fi);
+                            }
+                            else
+                            {
+                                NoPriority.Add(fi);
+                            }
+                        }
                     }
-                    else
-                    {
-                        NoPriority.Add(fi);
-                    }
-
                     foreach (FileInfo file in Priority)
                     {
                         //Launch semaphore to copy files
@@ -80,7 +88,8 @@ namespace EasySavev2.Model
                             SemaThread.Start();
 
                             //Call the CryptoSoft method to decrypt the source
-                            CryptoSoft(DestFull, "encryptkey1234", Obj);
+
+                            CryptoSoft(DestFull, "encryptkey1234", Obj, fi);
                             log.AddLog();
                             /*while (State == 1)
                             {
@@ -104,7 +113,7 @@ namespace EasySavev2.Model
                             SemaThread.Start();
 
                             //Call the CryptoSoft method to decrypt the source
-                            CryptoSoft(DestFull, "encryptkey1234", Obj);
+                            CryptoSoft(DestFull, "encryptkey1234", Obj, fi) ;
                             log.AddLog();
                         }
                     }
@@ -177,18 +186,84 @@ namespace EasySavev2.Model
                             t1.Start();
 
                             //Call the CryptoSoft method
-                            CryptoSoft(DestDiff, "encryptkey1234", Obj);
+                            
+                            CryptoSoft(DestDiff, "encryptkey1234", Obj, fi);
+                            //Stop timer
+                            Obj.RunTime = Obj.GetStopTimer(runTime);
+                            log.AddLog();
                         }
+                    }
+                    List<FileInfo> Priority = new List<FileInfo>();
+                    List<FileInfo> NoPriority = new List<FileInfo>();
+                    ConfigurationManager.RefreshSection("appSettings");
+                    string[] keys = ConfigurationManager.AppSettings.AllKeys;
 
+                    foreach (string cle in keys)
+                    {
+                        if (cle.IndexOf(".") != -1 && cle.Substring(0, cle.IndexOf(".")) == "pri")
+                        {
+                            if (fi.Extension == cle.Substring(3, cle.Length - 3))
+                            {
+                                Priority.Add(fi);
+                            }
+                            else
+                            {
+                                NoPriority.Add(fi);
+                            }
+                        }
+                    }
+                    foreach (FileInfo file in Priority)
+                    {
+                        //Launch semaphore to copy files
+                        if (koMax == 0 || fi.Length < koMax)
+                        {
+                            Semaphore semaphore = new Semaphore(SList.Count, SList.Count);
+                            DELG delg_semaphore = () =>
+                            {
+                                semaphore.WaitOne();
+                                File.Copy(FiSrc.ToString(), FiDest.ToString(), true);
+                            };
+
+                            Thread SemaThread = new Thread(delg_semaphore.Invoke);
+                            SemaThread.Start();
+
+                            //Call the CryptoSoft method to decrypt the source
+
+                            CryptoSoft(DestDiff, "encryptkey1234", Obj, fi);
+                            log.AddLog();
+                            /*while (State == 1)
+                            {
+                                Thread.Sleep(2000);
+                            }*/
+                        }
+                    }
+                    foreach (FileInfo file in NoPriority)
+                    {
+                        if (koMax == 0 || fi.Length < koMax)
+                        {
+                            Semaphore semaphore = new Semaphore(SList.Count, SList.Count);
+                            DELG delg_semaphore = () =>
+                            {
+                                semaphore.WaitOne();
+                                File.Copy(FiSrc.ToString(), FiDest.ToString(), true);
+                            };
+
+                            Thread SemaThread = new Thread(delg_semaphore.Invoke);
+                            SemaThread.Start();
+
+                            //Call the CryptoSoft method to decrypt the source
+                            CryptoSoft(DestDiff, "encryptkey1234", Obj, fi);
+                            log.AddLog();
+                        }
                         //Stop timer
                         Obj.RunTime = Obj.GetStopTimer(runTime);
-                        log.AddLog();
                     }
+                    NbObj -= 1;
+
+                    state.AddState(NbObj);
+
+
                 }
-                NbObj -= 1;
-
-                state.AddState(NbObj);
-
             }
             catch (IOException iox)
             {
@@ -196,7 +271,7 @@ namespace EasySavev2.Model
             }
         }
 
-        public void CryptoSoft(string SrcPath, string key, Save Obj)
+        public void CryptoSoft(string SrcPath, string key, Save Obj, FileInfo fi)
         {
             //Method to launch cryptosoft.exe
             Process CryptProcess = new Process();
@@ -207,7 +282,26 @@ namespace EasySavev2.Model
             CryptProcess.StartInfo.FileName = @"..\..\..\..\publish\Crypto.exe";
             CryptProcess.StartInfo.ArgumentList.Add(SrcPath);
             CryptProcess.StartInfo.ArgumentList.Add(key);
-            CryptProcess.Start();
+            
+            ConfigurationManager.RefreshSection("appSettings");
+            string[] keys = ConfigurationManager.AppSettings.AllKeys;
+
+            foreach (string cle in keys)
+            {
+                if (keys != null)
+                {
+                    if (cle.IndexOf(".") != -1 && cle.Substring(0, cle.IndexOf(".")) == "ext")
+                    {
+                        if (cle.Substring(3, cle.Length - 3) == fi.Extension)
+                        {
+
+                            CryptProcess.Start();
+                        }
+                    }
+
+                }
+            }
+
 
             Obj.CryptTime = Obj.GetStopTimer(cryptTime);
         }
