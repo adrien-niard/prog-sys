@@ -155,3 +155,4 @@ C:\Users\JeanGONCALVES\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\n
 C:\Users\JeanGONCALVES\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.dll
 C:\Users\JeanGONCALVES\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.pdb
 C:\Users\JeanGONCALVES\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.genruntimeconfig.cache
+C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2_MarkupCompile.lref
