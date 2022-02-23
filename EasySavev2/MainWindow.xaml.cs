@@ -19,7 +19,6 @@ using System.Windows.Forms;
 using System.Resources;
 using System.Reflection;
 
-
 namespace EasySavev2
 {
     /// <summary>
@@ -28,9 +27,6 @@ namespace EasySavev2
     public partial class MainWindow : Window
     {
         List<Save> SaveList = new List<Save>();
-
-        
-
         public static ResourceManager rm = new ResourceManager("EasySavev2.English", Assembly.GetExecutingAssembly());
         public static ResourceManager rm2 = new ResourceManager("EasySavev2.Francais", Assembly.GetExecutingAssembly());
         public MainWindow()
@@ -96,7 +92,7 @@ namespace EasySavev2
         //initiate the event when we click on the save button
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            int i = 0;
+            int NbSave = 0;
 
             foreach (Save obj in SaveList)
             {
@@ -106,22 +102,22 @@ namespace EasySavev2
                 obj.Attach(state);
 
                 DirectoryInfo di = new DirectoryInfo(obj.Src);
-                i = di.GetFiles().Length;
-                
+                int NbFile = di.GetFiles("*.*", SearchOption.AllDirectories).Length;
+
                 if (obj.Type == "Full")
                 {
                     ASave ParaExec = new ParallèleExec();
-                    ParaExec.ExecFull(SaveList, log, state, i);
+                    ParaExec.ExecFull(SaveList, log, state, NbFile, NbSave); ;
                     System.Windows.MessageBox.Show("Your full save as been done");
                 }
                 else if (obj.Type == "Diff")
                 {
                     ASave ParaExec = new ParallèleExec();
-                    ParaExec.ExecDiff(SaveList, log, state, i);
+                    ParaExec.ExecDiff(SaveList, log, state, NbFile, NbSave);
                     System.Windows.MessageBox.Show("Your diff save as been done");
                 }
 
-                i--;
+                NbSave++;
             }
             Environment.Exit(0);
         }
@@ -149,27 +145,8 @@ namespace EasySavev2
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
             Settings settings = new Settings();
-           /* string[] keys = ConfigurationManager.AppSettings.AllKeys;
-
-            foreach (string key in keys)
-            {
-
-                if (keys != null)
-                {
-                    if (key.IndexOf(".") != -1 && key.Substring(0, key.IndexOf(".")) == "ext")
-                    {
-                        settings.ListEncrypt.Items.Add(key.Substring(3, key.Length - 3));
-                    }
-
-                    settings.SizeKo.Text = ConfigurationManager.AppSettings.Get("size");
-                    settings.LanguageBox.Text = ConfigurationManager.AppSettings.Get("langue");
-                }
-            }*/
-
-            this.Visibility = Visibility.Hidden;
-            //settings.UpdateLayout();
+			this.Visibility = Visibility.Hidden;
             settings.Show();
-            
         }
     }
 }

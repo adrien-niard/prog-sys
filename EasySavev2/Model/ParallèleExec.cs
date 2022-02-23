@@ -12,13 +12,12 @@ namespace EasySavev2.Model
     class ParallèleExec : ASave
     {
         private delegate void DELG();
-        public override void ExecFull(List<Save> SList, Log log, State state, int i)
+        public override void ExecFull(List<Save> SList, Log log, State state, int NbObj, int NbSave)
         {
             try
             {
-                Save Obj = SList[i];
-                int NbObj = i;
-
+                Save Obj = SList[NbSave];
+                
                 //Start the timer & define variables for save attributes
                 var runTime = Obj.GetStartTimer();
                 string name = Obj.Name;
@@ -32,7 +31,12 @@ namespace EasySavev2.Model
 
                 //Variable for size max of a file to copy
                 string sizeMax = ConfigurationManager.AppSettings.Get("size");
-                int koMax = Int32.Parse(sizeMax);
+                int koMax = 0;
+
+                if (sizeMax != "")
+                {
+                    koMax = Int32.Parse(sizeMax);
+                }
 
                 //Cycle through files in the source folder to copy them into the destination folder
                 foreach (FileInfo fi in DirSrc.GetFiles())
@@ -55,7 +59,6 @@ namespace EasySavev2.Model
                     {
                         Priority.Add(fi);
                     }
-
                     else
                     {
                         NoPriority.Add(fi);
@@ -64,7 +67,7 @@ namespace EasySavev2.Model
                     foreach (FileInfo file in Priority)
                     {
                         //Launch semaphore to copy files
-                        if (koMax.ToString() == null || fi.Length < koMax)
+                        if (koMax == 0 || fi.Length < koMax)
                         {
                             Semaphore semaphore = new Semaphore(SList.Count, SList.Count);
                             DELG delg_semaphore = () =>
@@ -88,7 +91,7 @@ namespace EasySavev2.Model
 
                     foreach (FileInfo file in NoPriority)
                     {
-                        if (fi.Length < koMax) //1000 à changer avec un paramètre
+                        if (koMax == 0 || fi.Length < koMax)
                         {
                             Semaphore semaphore = new Semaphore(SList.Count, SList.Count);
                             DELG delg_semaphore = () =>
@@ -118,12 +121,11 @@ namespace EasySavev2.Model
             }
         }
 
-        public override void ExecDiff(List<Save> SList, Log log, State state, int i)
+        public override void ExecDiff(List<Save> SList, Log log, State state, int NbObj, int NbSave)
         {
             try
             {
-                Save Obj = SList[0];
-                int NbObj = i;
+                Save Obj = SList[NbSave];
 
                 //Start the timer & define variables for save attributes
                 var runTime = Obj.GetStartTimer();

@@ -27,7 +27,6 @@ C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\Styles\P
 C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\MainWindow.g.cs
 C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\App.g.cs
 C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2_MarkupCompile.cache
-C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2_MarkupCompile.lref
 C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.dll
 C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.pdb
 C:\Users\adrie\Source\Repos\prog-sys\EasySavev2\bin\Debug\netcoreapp3.1\EasySavev2.exe
