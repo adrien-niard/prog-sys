@@ -164,8 +164,6 @@ namespace EasySavev2
             for (int i = 1; i <= 100; i++)
             {
                 (sender as BackgroundWorker).ReportProgress(i);
-
-                Thread.Sleep(2000);
             }
         }
 

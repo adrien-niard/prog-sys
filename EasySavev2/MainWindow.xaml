@@ -61,7 +61,7 @@
             <Image Source="Data\cog_icon.png" Width="25"/>
         </Button>
         <ProgressBar x:Name="PB" Grid.Column="4" HorizontalAlignment="Left" Height="10" Margin="32,380,0,0" Grid.Row="1" VerticalAlignment="Top" Width="406"/>
-        <Label x:Name="percent" Grid.Column="4" Content="Label" HorizontalAlignment="Left" Margin="216,391,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label x:Name="percent" Grid.Column="4" HorizontalAlignment="Left" Margin="216,391,0,0" Grid.Row="1" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
