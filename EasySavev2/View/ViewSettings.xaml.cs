@@ -29,7 +29,6 @@ namespace EasySavev2
 
             ConfigurationManager.RefreshSection("appSettings");
            
-           
             //NameValueCollection test = new NameValueCollection();
             string[] keys = ConfigurationManager.AppSettings.AllKeys;
             
@@ -57,59 +56,80 @@ namespace EasySavev2
         
         public void startSet()
         {
-            string[] keys2 = ConfigurationManager.AppSettings.AllKeys;
-            Settings settings = new Settings();
-            MessageBox.Show("init tab2");
-            foreach (string key in keys2)
+            try
             {
-
-                if (keys2 != null)
+                string[] keys2 = ConfigurationManager.AppSettings.AllKeys;
+                Settings settings = new Settings();
+                MessageBox.Show("init tab2");
+                foreach (string key in keys2)
                 {
-                    if (key.IndexOf(".") != -1 && key.Substring(0, key.IndexOf(".")) == "ext")
-                    {
-                        settings.ListEncrypt.Items.Add(key.Substring(3, key.Length - 3));
-                    }
 
-                    settings.SizeKo.Text = ConfigurationManager.AppSettings.Get("size");
-                    settings.LanguageBox.Text = ConfigurationManager.AppSettings.Get("langue");
+                    if (keys2 != null)
+                    {
+                        if (key.IndexOf(".") != -1 && key.Substring(0, key.IndexOf(".")) == "ext")
+                        {
+                            settings.ListEncrypt.Items.Add(key.Substring(3, key.Length - 3));
+                        }
+
+                        settings.SizeKo.Text = ConfigurationManager.AppSettings.Get("size");
+                        settings.LanguageBox.Text = ConfigurationManager.AppSettings.Get("langue");
+                    }
                 }
             }
-        }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+}
         
 
         private void ButAdd_Click(object sender, RoutedEventArgs e)
         {
-            bool Exist = false;
-            if (ListEncrypt != null && TextEncrypt.Text != null)
+            try
             {
-                foreach (string i in ListEncrypt.Items)
+                bool Exist = false;
+                if (ListEncrypt != null && TextEncrypt.Text != null)
                 {
-                    if (TextEncrypt.Text == i)
+                    foreach (string i in ListEncrypt.Items)
                     {
-                        Exist = true;
-                        break;
+                        if (TextEncrypt.Text == i)
+                        {
+                            Exist = true;
+                            break;
+                        }
                     }
                 }
-            }
 
-            if (Exist == false && TextEncrypt.Text != null)
-            {
-                ListEncrypt.Items.Add(TextEncrypt.Text);
+                if (Exist == false && TextEncrypt.Text != null)
+                {
+                    ListEncrypt.Items.Add(TextEncrypt.Text);
+                }
+                TextEncrypt.Clear();
             }
-            TextEncrypt.Clear();
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
         }
 
         private void ButDelete_Click(object sender, RoutedEventArgs e)
         {
-            Configuration conf = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            object selectobj = ListEncrypt.SelectedItem;
-            string selectstring =selectobj.ToString();
-            conf.AppSettings.Settings.Remove("ext" + selectstring);
-            ListEncrypt.Items.Remove(selectobj);
-            TextEncrypt.Clear(); 
-                
-  
-            conf.Save(ConfigurationSaveMode.Modified);
+            try
+            {
+                Configuration conf = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                object selectobj = ListEncrypt.SelectedItem;
+                string selectstring = selectobj.ToString();
+                conf.AppSettings.Settings.Remove("ext" + selectstring);
+                ListEncrypt.Items.Remove(selectobj);
+                TextEncrypt.Clear();
+
+
+                conf.Save(ConfigurationSaveMode.Modified);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -174,8 +194,6 @@ namespace EasySavev2
                             conf.AppSettings.Settings.Add("pri" + Element2, Element2);
                         }
                     }
-
-
                 }
 
                 string size = SizeKo.Text;
@@ -232,37 +250,50 @@ namespace EasySavev2
 
         private void ButAdd_Click2(object sender, RoutedEventArgs e)
         {
-            bool Exist = false;
-            if (ListPriority != null && TextPriority.Text != null)
+            try
             {
-                foreach (string i in ListPriority.Items)
+                bool Exist = false;
+                if (ListPriority != null && TextPriority.Text != null)
                 {
-                    if (TextPriority.Text == i)
+                    foreach (string i in ListPriority.Items)
                     {
-                        Exist = true;
-                        break;
+                        if (TextPriority.Text == i)
+                        {
+                            Exist = true;
+                            break;
+                        }
                     }
                 }
-            }
 
-            if (Exist == false && TextPriority.Text != null)
-            {
-                ListPriority.Items.Add(TextPriority.Text);
+                if (Exist == false && TextPriority.Text != null)
+                {
+                    ListPriority.Items.Add(TextPriority.Text);
+                }
+                TextPriority.Clear();
             }
-            TextPriority.Clear();
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
         }
 
         private void ButDelete_Click2(object sender, RoutedEventArgs e)
         {
-            Configuration conf = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            object selectobj = ListPriority.SelectedItem;
-            string selectstring = selectobj.ToString();
-            conf.AppSettings.Settings.Remove("pri" + selectstring);
-            ListPriority.Items.Remove(selectobj);
-            TextPriority.Clear();
-
-
-            conf.Save(ConfigurationSaveMode.Modified);
+            try
+            {
+                Configuration conf = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                object selectobj = ListPriority.SelectedItem;
+                string selectstring = selectobj.ToString();
+                conf.AppSettings.Settings.Remove("pri" + selectstring);
+                ListPriority.Items.Remove(selectobj);
+                TextPriority.Clear();
+                
+                conf.Save(ConfigurationSaveMode.Modified);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
         }
     }
 }

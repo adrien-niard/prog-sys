@@ -28,7 +28,7 @@
         <Button x:Name="ButDelete" Content="-" HorizontalAlignment="Left" Margin="26,205,0,0" Click="ButDelete_Click" Width="20" Height="20" VerticalAlignment="Top"/>
         <Button x:Name="Save" Content="Save Settings" HorizontalAlignment="Left" Margin="160,361,0,0" VerticalAlignment="Top" Height="40" Width="100" Click="SaveSet_Click"/>
         <Button Content="Back" HorizontalAlignment="Left" Margin="24,18,0,0" VerticalAlignment="Top" Click="ButBack_Click" Width="100" Height="40"/>
-        <Label Content="File size max" HorizontalAlignment="Left" Margin="78,287,0,0" VerticalAlignment="Top"/>
+        <Label Content="File size max (ko)" HorizontalAlignment="Left" Margin="66,287,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name ="SizeKo"  HorizontalAlignment="Left" Height="20" Margin="66,317,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="57" TextChanged="SizeKo_TextChanged"/>
         <Label Content="Add Priority Extension
 " HorizontalAlignment="Left" Margin="242,99,0,0" VerticalAlignment="Top"/>

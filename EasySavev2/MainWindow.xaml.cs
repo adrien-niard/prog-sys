@@ -20,6 +20,7 @@ using System.Resources;
 using System.Reflection;
 using System.ComponentModel;
 using System.Threading;
+using System.Diagnostics;
 
 namespace EasySavev2
 {
@@ -49,6 +50,7 @@ namespace EasySavev2
                     AddSave.Content = rm.GetString("Add");
                     Save.Content = rm.GetString("Save");
                 }
+
                 if (ConfigurationManager.AppSettings.Get("langue") == "FR")
                 {
                     SaveNameLabel.Content = rm2.GetString("Name");
@@ -61,9 +63,9 @@ namespace EasySavev2
                     Save.Content = rm2.GetString("Save");
                 }
             }
-            catch
+            catch (Exception ex)
             {
-
+                Debug.WriteLine(ex.Message);
             }
         }
         //initiate the event when we click on the first browse button
@@ -75,7 +77,7 @@ namespace EasySavev2
 
             if (result.ToString() == "OK")
             {
-                SaveSrc.Text = openFolderDialog.SelectedPath;
+                SaveSrc.Text = openFolderDialog.SelectedPath + @"\";
             }
         }
         //initiate the event when we click on the second browse button
@@ -87,7 +89,7 @@ namespace EasySavev2
 
             if (result.ToString() == "OK")
             {
-                SaveDest.Text = openFolderDialog.SelectedPath;
+                SaveDest.Text = openFolderDialog.SelectedPath + @"\";
             }
         }
 

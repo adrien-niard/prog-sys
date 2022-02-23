@@ -158,7 +158,7 @@ namespace EasySavev2.Model
             long size = 0;
             try
             {
-                string SrcModif = Src.Substring(0, Src.LastIndexOf("/") + 1);
+                string SrcModif = Src.Substring(0, Src.LastIndexOf(@"\") + 1);
                 DirectoryInfo di = new DirectoryInfo(SrcModif);
 
                 size = di.EnumerateFiles("*", SearchOption.AllDirectories).Sum(fi => fi.Length);
@@ -171,7 +171,7 @@ namespace EasySavev2.Model
         }
         public long TotalFiles()
         {
-            string SrcModif = Src.Substring(0, Src.LastIndexOf("/") + 1);
+            string SrcModif = Src.Substring(0, Src.LastIndexOf(@"\") + 1);
             DirectoryInfo di = new DirectoryInfo(SrcModif);
 
             int TF = di.EnumerateFiles("*", SearchOption.AllDirectories).Count();
@@ -184,7 +184,7 @@ namespace EasySavev2.Model
             long size = 0;
             try
             {
-                string DestModif = Dest.Substring(0, Dest.LastIndexOf("/") + 1);
+                string DestModif = Dest.Substring(0, Dest.LastIndexOf(@"\") + 1);
                 DirectoryInfo di = new DirectoryInfo(DestModif);
 
                 size = di.EnumerateFiles("*", SearchOption.AllDirectories).Sum(fi => fi.Length);
