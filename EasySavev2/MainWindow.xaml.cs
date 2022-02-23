@@ -19,6 +19,7 @@ using System.Windows.Forms;
 using System.Resources;
 using System.Reflection;
 
+
 namespace EasySavev2
 {
     /// <summary>
@@ -27,18 +28,45 @@ namespace EasySavev2
     public partial class MainWindow : Window
     {
         List<Save> SaveList = new List<Save>();
+
+        
+
         public static ResourceManager rm = new ResourceManager("EasySavev2.English", Assembly.GetExecutingAssembly());
+        public static ResourceManager rm2 = new ResourceManager("EasySavev2.Francais", Assembly.GetExecutingAssembly());
         public MainWindow()
         {
             InitializeComponent();
-            SaveNameLabel.Content = rm.GetString("Name");
-            SaveSrcLabel.Content = rm.GetString("Source");
-            SaveDestLabel.Content = rm.GetString("Destination");
-            SavetypeLabel.Content = rm.GetString("Type");
-            BrowseSrc.Content = rm.GetString("Browse");
-            BrowseDest.Content = rm.GetString("Browse");
-            AddSave.Content = rm.GetString("Add");
-            Save.Content = rm.GetString("Save");
+            ConfigurationManager.RefreshSection("appSettings");
+            try
+            {
+                if (ConfigurationManager.AppSettings.Get("langue") == "EN")
+                {
+
+                    SaveNameLabel.Content = rm.GetString("Name");
+                    SaveSrcLabel.Content = rm.GetString("Source");
+                    SaveDestLabel.Content = rm.GetString("Destination");
+                    SavetypeLabel.Content = rm.GetString("Type");
+                    BrowseSrc.Content = rm.GetString("Browse");
+                    BrowseDest.Content = rm.GetString("Browse");
+                    AddSave.Content = rm.GetString("Add");
+                    Save.Content = rm.GetString("Save");
+                }
+                if (ConfigurationManager.AppSettings.Get("langue") == "FR")
+                {
+                    SaveNameLabel.Content = rm2.GetString("Name");
+                    SaveSrcLabel.Content = rm2.GetString("Source");
+                    SaveDestLabel.Content = rm2.GetString("Destination");
+                    SavetypeLabel.Content = rm2.GetString("Type");
+                    BrowseSrc.Content = rm2.GetString("Browse");
+                    BrowseDest.Content = rm2.GetString("Browse");
+                    AddSave.Content = rm2.GetString("Add");
+                    Save.Content = rm2.GetString("Save");
+                }
+            }
+            catch
+            {
+
+            }
         }
         //initiate the event when we click on the first browse button
         private void BrowseSrc_Click(object sender, RoutedEventArgs e)
@@ -121,8 +149,27 @@ namespace EasySavev2
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
             Settings settings = new Settings();
-			this.Visibility = Visibility.Hidden;
-			settings.Show();
+           /* string[] keys = ConfigurationManager.AppSettings.AllKeys;
+
+            foreach (string key in keys)
+            {
+
+                if (keys != null)
+                {
+                    if (key.IndexOf(".") != -1 && key.Substring(0, key.IndexOf(".")) == "ext")
+                    {
+                        settings.ListEncrypt.Items.Add(key.Substring(3, key.Length - 3));
+                    }
+
+                    settings.SizeKo.Text = ConfigurationManager.AppSettings.Get("size");
+                    settings.LanguageBox.Text = ConfigurationManager.AppSettings.Get("langue");
+                }
+            }*/
+
+            this.Visibility = Visibility.Hidden;
+            //settings.UpdateLayout();
+            settings.Show();
+            
         }
     }
 }
