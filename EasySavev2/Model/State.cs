@@ -22,11 +22,13 @@ namespace EasySavev2.Model
                 StateObj.RemoveAll();
 
                 StateObj.Add("Name", save.Name);
+                StateObj.Add("Type", save.Type);
                 StateObj.Add("Time", save.Time);
                 StateObj.Add("State", "N/A");
-                StateObj.Add("TotalFilesToCopy", "N/A"); //save.TotalFiles()
-                StateObj.Add("TotalFilesSize", "N/A"); //save.GetFileSize()
+                StateObj.Add("TotalFilesToCopy", save.TotalFiles().ToString()); 
+                StateObj.Add("TotalFilesSize", save.GetFileSize().ToString()); 
                 StateObj.Add("NbFilesLeftToDo", "N/A");
+                StateObj.Add("TotalFileSizeCopied", save.GetDestFilesSize().ToString());
                 StateObj.Add("TotalFilesSizeLeftToDo", "N/A");
                 StateObj.Add("SourceFilePath", save.Src);
                 StateObj.Add("DestinationFilePath", save.Dest);
@@ -44,14 +46,10 @@ namespace EasySavev2.Model
                 if (NbObj > 0)
                 {
                     string State = "ACTIVE";
-                    string TotalFilesToCopy = "N/A";
-                    string TotalFilesSize = "N/A";
-                    string NbFilesLeftToDo = "N/A";
-                    string TotalFilesSizeLeftToDo = "N/A";
+                    string NbFilesLeftToDo = ((int)StateObj.GetValue("TotalFilesToCopy") - NbObj).ToString();
+                    string TotalFilesSizeLeftToDo = ((int)StateObj.GetValue("TotalFilesSize") - (int)StateObj.GetValue("TotalFileSizeCopied")).ToString();
 
                     StateObj["State"] = State;
-                    StateObj["TotalFilesToCopy"] = TotalFilesToCopy;
-                    StateObj["TotalFilesSize"] = TotalFilesSize;
                     StateObj["NbFilesLeftToDo"] = NbFilesLeftToDo;
                     StateObj["TotalFilesSizeLeftToDo"] = TotalFilesSizeLeftToDo;
                 }

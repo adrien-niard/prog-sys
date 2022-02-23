@@ -32,7 +32,6 @@ namespace EasySavev2.Model
             set
             {
                 _src = value;
-                Notify();
             }
         }
         private string _src;
@@ -171,11 +170,28 @@ namespace EasySavev2.Model
         }
         public long TotalFiles()
         {
-            DirectoryInfo di = new DirectoryInfo(Src);
+            string SrcModif = Src.Substring(0, Src.LastIndexOf("/") + 1);
+            DirectoryInfo di = new DirectoryInfo(SrcModif);
 
-            long TF = di.EnumerateFiles("*", SearchOption.AllDirectories).LongCount();
+            int TF = di.EnumerateFiles("*", SearchOption.AllDirectories).Count();
 
             return TF;
+        }
+
+        public long GetDestFilesSize()
+        {
+            long size = 0;
+            try
+            {
+                DirectoryInfo di = new DirectoryInfo(Dest);
+
+                size = di.EnumerateFiles("*", SearchOption.AllDirectories).Sum(fi => fi.Length);
+            }
+            catch (IOException iox)
+            {
+                Console.WriteLine(iox.Message);
+            }
+            return size;
         }
 
         //Get the time of the creation of the save
