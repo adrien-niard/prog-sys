@@ -140,7 +140,6 @@ C:\Users\JeanGONCALVES\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\n
 C:\Users\JeanGONCALVES\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\View\ViewSettings.g.cs
 C:\Users\JeanGONCALVES\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\App.g.cs
 C:\Users\JeanGONCALVES\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2_MarkupCompile.cache
-C:\Users\JeanGONCALVES\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2_MarkupCompile.lref
 C:\Users\JeanGONCALVES\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\MainWindow.baml
 C:\Users\JeanGONCALVES\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\View\ViewSettings.baml
 C:\Users\JeanGONCALVES\Source\Repos\adrien-niard\prog-sys\EasySavev2\obj\Debug\netcoreapp3.1\EasySavev2.g.resources
