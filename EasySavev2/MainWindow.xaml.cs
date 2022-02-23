@@ -18,6 +18,8 @@ using System.Configuration;
 using System.Windows.Forms;
 using System.Resources;
 using System.Reflection;
+using System.ComponentModel;
+using System.Threading;
 
 namespace EasySavev2
 {
@@ -92,6 +94,13 @@ namespace EasySavev2
         //initiate the event when we click on the save button
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            //création, initialisation et mise à jour de l'objet BackgroundWorker
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.WorkerReportsProgress = true;
+            worker.DoWork += worker_DoWork;
+            worker.ProgressChanged += worker_ProgressChanged;
+            worker.RunWorkerAsync();
+
             int NbSave = 0;
 
             foreach (Save obj in SaveList)
@@ -147,6 +156,26 @@ namespace EasySavev2
             Settings settings = new Settings();
 			this.Visibility = Visibility.Hidden;
             settings.Show();
+        }
+
+        // Méthode qui initialise la barre de progression 
+        void worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            for (int i = 1; i <= 100; i++)
+            {
+                (sender as BackgroundWorker).ReportProgress(i);
+
+                Thread.Sleep(2000);
+            }
+        }
+
+        void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            //initialisation de la barre de progression avec le pourcentage de progression
+            PB.Value = e.ProgressPercentage;
+
+            //Affichage de la progression sur un label
+            percent.Content = PB.Value.ToString() + "%";
         }
     }
 }
