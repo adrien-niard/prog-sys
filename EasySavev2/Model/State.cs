@@ -82,7 +82,7 @@ namespace EasySavev2.Model
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex);
+                Debug.WriteLine(ex.Message);
             }
         }
     }

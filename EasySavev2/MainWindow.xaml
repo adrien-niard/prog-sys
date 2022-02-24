@@ -50,18 +50,18 @@
 
         <Button x:Name="AddSave" Content="AddSave" HorizontalAlignment="Left" Margin="52,405,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="AddSave_Click" Visibility="Visible" Grid.Row="1"/>
         <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="174,405,0,0" VerticalAlignment="Top" Height="40" Width="100" Click="Save_Click" Grid.Row="1" Grid.ColumnSpan="2"/>
-        <Button x:Name="Play" Content="Play" HorizontalAlignment="Left" Margin="46,421,0,0" VerticalAlignment="Top" Grid.Column="4" Grid.Row="1" Width="100" Height="40"/>
-        <Button Content="Pause" HorizontalAlignment="Left" Margin="185,420,0,0" VerticalAlignment="Top" Grid.Column="4" Grid.Row="1" Width="100" Height="40"/>
-        <Button Content="Stop" HorizontalAlignment="Left" Margin="317,420,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.21,-0.866" Grid.Column="4" Grid.Row="1" Width="100" Height="40"/>
-        <ListBox Grid.Column="4" Grid.Row="1" Margin="32,42,62,153"/>
+        <Button x:Name="Play" Content="Play" HorizontalAlignment="Left" Margin="48,406,0,0" VerticalAlignment="Top" Grid.Column="4" Grid.Row="1" Width="100" Height="40"/>
+        <Button x:Name="Pause" Content="Pause" HorizontalAlignment="Left" Margin="187,405,0,0" VerticalAlignment="Top" Grid.Column="4" Grid.Row="1" Width="100" Height="40"/>
+        <Button x:Name="Stop" Content="Stop" HorizontalAlignment="Left" Margin="319,405,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.21,-0.866" Grid.Column="4" Grid.Row="1" Width="100" Height="40"/>
+        <ListBox x:Name="Save_List" Grid.Column="4" Grid.Row="1" Margin="32,27,62,168" SelectionChanged="Save_List_SelectionChange" FontFamily="Verdana" FontWeight="Bold" FontStyle="Normal" Background="#FFA3ACB1" FontSize="13"/>
         <Button x:Name="Settings" HorizontalAlignment="Left" Margin="443,19,0,0" RenderTransformOrigin="0.21,-0.866" Grid.Column="4" Click="Settings_Click" Width="30" Grid.ColumnSpan="1" FontSize="15" Height="30" VerticalAlignment="Top">
             <Button.Background>
                 <ImageBrush ImageSource="/cog_icon.png" TileMode="Tile" Stretch="Fill"/>
             </Button.Background>
             <Image Source="Data\cog_icon.png" Width="25"/>
         </Button>
-        <ProgressBar x:Name="PB" Grid.Column="4" HorizontalAlignment="Left" Height="10" Margin="32,380,0,0" Grid.Row="1" VerticalAlignment="Top" Width="406"/>
-        <Label x:Name="percent" Grid.Column="4" HorizontalAlignment="Left" Margin="216,391,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <ProgressBar x:Name="PB" Grid.Column="4" HorizontalAlignment="Left" Height="10" Margin="32,365,0,0" Grid.Row="1" VerticalAlignment="Top" Width="406"/>
+        <Label x:Name="percent" Grid.Column="4" HorizontalAlignment="Left" Margin="216,376,0,0" Grid.Row="1" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

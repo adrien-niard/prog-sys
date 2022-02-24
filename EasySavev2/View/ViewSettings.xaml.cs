@@ -12,6 +12,9 @@ using System.Windows.Shapes;
 using System.Configuration;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using System.Resources;
+using System.Reflection;
+using System.ComponentModel;
 using System.Windows.Navigation;
 
 namespace EasySavev2
@@ -21,14 +24,43 @@ namespace EasySavev2
     /// </summary>
     public partial class Settings : Window
     {
-
+        public static ResourceManager rm = new ResourceManager("EasySavev2.English", Assembly.GetExecutingAssembly());
+        public static ResourceManager rm2 = new ResourceManager("EasySavev2.Francais", Assembly.GetExecutingAssembly());
         public Settings()
         {
             InitializeComponent();
-            //startSet();
 
             ConfigurationManager.RefreshSection("appSettings");
-           
+            try
+            {
+                if (ConfigurationManager.AppSettings.Get("langue") == "EN")
+                {
+
+                    Language.Content = rm.GetString("Language");
+                    EncExt.Content = rm.GetString("EncExt");
+                    PrioExt.Content = rm.GetString("PrioExt");
+                    SizeMax.Content = rm.GetString("SizeMax");
+                    BusinessTool.Content = rm.GetString("BusinessTool");
+                    Save.Content = rm.GetString("SaveSettings");
+                    Back.Content = rm.GetString("Back");
+                }
+
+                if (ConfigurationManager.AppSettings.Get("langue") == "FR")
+                {
+                    Language.Content = rm2.GetString("Language");
+                    EncExt.Content = rm2.GetString("EncExt");
+                    PrioExt.Content = rm2.GetString("PrioExt");
+                    SizeMax.Content = rm2.GetString("SizeMax");
+                    BusinessTool.Content = rm2.GetString("BusinessTool");
+                    Save.Content = rm2.GetString("SaveSettings");
+                    Back.Content = rm2.GetString("Back");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+
             //NameValueCollection test = new NameValueCollection();
             string[] keys = ConfigurationManager.AppSettings.AllKeys;
             
@@ -60,7 +92,7 @@ namespace EasySavev2
             {
                 string[] keys2 = ConfigurationManager.AppSettings.AllKeys;
                 Settings settings = new Settings();
-                MessageBox.Show("init tab2");
+
                 foreach (string key in keys2)
                 {
 
@@ -208,11 +240,18 @@ namespace EasySavev2
                    
                 }
                 conf.Save(ConfigurationSaveMode.Modified);
-                
-                MessageBox.Show("Settings saved");
 
-                
-                MainWindow main = new MainWindow();
+                if (ConfigurationManager.AppSettings.Get("langue") == "EN")
+                {
+                    MessageBox.Show("Settings saved !");
+                }
+
+                if (ConfigurationManager.AppSettings.Get("langue") == "FR")
+                {
+                    MessageBox.Show("Paramètres sauvegardés !");
+                }
+
+                    MainWindow main = new MainWindow();
                 main.Show();
                 this.Close();
                 

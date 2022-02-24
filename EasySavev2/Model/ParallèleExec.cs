@@ -18,12 +18,6 @@ namespace EasySavev2.Model
             try
             {
                 Save Obj = SList[NbSave];
-                
-                //Start the timer & define variables for save attributes
-                /*string name = Obj.Name;
-                string src = Obj.Src;
-                string dest = Obj.Dest;
-                string type = Obj.Type;*/
 
                 //Set object for directories info
                 DirectoryInfo DirSrc = new DirectoryInfo(Obj.Src);
