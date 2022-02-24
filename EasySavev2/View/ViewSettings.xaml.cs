@@ -121,7 +121,7 @@ namespace EasySavev2
             try
             {
                 bool Exist = false;
-                if (ListEncrypt != null && TextEncrypt.Text != null)
+                if (ListEncrypt != null && TextEncrypt.Text != "")
                 {
                     foreach (string i in ListEncrypt.Items)
                     {
@@ -133,8 +133,9 @@ namespace EasySavev2
                     }
                 }
 
-                if (Exist == false && TextEncrypt.Text != null)
+                if (Exist == false && TextEncrypt.Text != "")
                 {
+
                     ListEncrypt.Items.Add(TextEncrypt.Text);
                 }
                 TextEncrypt.Clear();
@@ -151,11 +152,13 @@ namespace EasySavev2
             {
                 Configuration conf = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 object selectobj = ListEncrypt.SelectedItem;
-                string selectstring = selectobj.ToString();
-                conf.AppSettings.Settings.Remove("ext" + selectstring);
-                ListEncrypt.Items.Remove(selectobj);
-                TextEncrypt.Clear();
-
+                if (ListEncrypt.SelectedItem != null)
+                {
+                    string selectstring = selectobj.ToString();
+                    conf.AppSettings.Settings.Remove("ext" + selectstring);
+                    ListEncrypt.Items.Remove(selectobj);
+                    TextEncrypt.Clear();
+                }
 
                 conf.Save(ConfigurationSaveMode.Modified);
             }
@@ -297,7 +300,7 @@ namespace EasySavev2
             try
             {
                 bool Exist = false;
-                if (ListPriority != null && TextPriority.Text != null)
+                if (ListPriority != null && TextPriority.Text != "")
                 {
                     foreach (string i in ListPriority.Items)
                     {
@@ -309,7 +312,7 @@ namespace EasySavev2
                     }
                 }
 
-                if (Exist == false && TextPriority.Text != null)
+                if (Exist == false && TextPriority.Text != "")
                 {
                     ListPriority.Items.Add(TextPriority.Text);
                 }
@@ -327,12 +330,14 @@ namespace EasySavev2
             {
                 Configuration conf = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 object selectobj = ListPriority.SelectedItem;
-                string selectstring = selectobj.ToString();
-                conf.AppSettings.Settings.Remove("pri" + selectstring);
-                ListPriority.Items.Remove(selectobj);
-                TextPriority.Clear();
-                
-                conf.Save(ConfigurationSaveMode.Modified);
+                if (ListPriority.SelectedItem != null)
+                {
+                    string selectstring = selectobj.ToString();
+                    conf.AppSettings.Settings.Remove("pri" + selectstring);
+                    ListPriority.Items.Remove(selectobj);
+                    TextPriority.Clear();
+                    conf.Save(ConfigurationSaveMode.Modified);
+                }
             }
             catch (Exception ex)
             {
