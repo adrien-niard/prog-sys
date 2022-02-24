@@ -123,11 +123,23 @@
   <data name="Add" xml:space="preserve">
     <value>Ajouter</value>
   </data>
+  <data name="Back" xml:space="preserve">
+    <value>Retour</value>
+  </data>
   <data name="Browse" xml:space="preserve">
     <value>...</value>
   </data>
+  <data name="BusinessTool" xml:space="preserve">
+    <value>Logiciel métier</value>
+  </data>
   <data name="Destination" xml:space="preserve">
     <value>Destination de la Sauvegarde</value>
+  </data>
+  <data name="EncExt" xml:space="preserve">
+    <value>Ajout d'une extension à crypter</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Choisir la langue</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Nom de la Sauvegarde</value>
@@ -136,19 +148,28 @@
     <value>Pause</value>
   </data>
   <data name="Play" xml:space="preserve">
-    <value>Play</value>
+    <value>Lancer</value>
+  </data>
+  <data name="PrioExt" xml:space="preserve">
+    <value>Ajout d'une extension à prioriser</value>
   </data>
   <data name="Save" xml:space="preserve">
+    <value>Sauvegarder</value>
+  </data>
+  <data name="SaveSettings" xml:space="preserve">
     <value>Sauvegarder</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Paramètres</value>
   </data>
+  <data name="SizeMax" xml:space="preserve">
+    <value>Taille max d'un fichier (ko)</value>
+  </data>
   <data name="Source" xml:space="preserve">
     <value>Source de la Sauvegarde</value>
   </data>
   <data name="Stop" xml:space="preserve">
-    <value>Stop</value>
+    <value>Arrêter</value>
   </data>
   <data name="Type" xml:space="preserve">
     <value>Type</value>

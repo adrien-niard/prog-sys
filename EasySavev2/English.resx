@@ -123,11 +123,23 @@
   <data name="Add" xml:space="preserve">
     <value>AddSave</value>
   </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
   <data name="Browse" xml:space="preserve">
     <value>...</value>
   </data>
+  <data name="BusinessTool" xml:space="preserve">
+    <value>Business Tool</value>
+  </data>
   <data name="Destination" xml:space="preserve">
     <value>Copy Destination</value>
+  </data>
+  <data name="EncExt" xml:space="preserve">
+    <value>     Add Encrypt Extension(s)</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Choice Language</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Save Name</value>
@@ -138,11 +150,20 @@
   <data name="Play" xml:space="preserve">
     <value>Play</value>
   </data>
+  <data name="PrioExt" xml:space="preserve">
+    <value>    Add Priority Extension(s)</value>
+  </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="SaveSettings" xml:space="preserve">
+    <value>Save Settings</value>
+  </data>
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="SizeMax" xml:space="preserve">
+    <value>   Max size of a file (ko)</value>
   </data>
   <data name="Source" xml:space="preserve">
     <value>Copy Source</value>

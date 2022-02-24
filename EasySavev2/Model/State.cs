@@ -46,7 +46,7 @@ namespace EasySavev2.Model
                 if (NbObj > 0)
                 {
                     string State = "ACTIVE";
-                    string NbFilesLeftToDo = ((int)StateObj.GetValue("TotalFilesToCopy") - NbObj).ToString();
+                    string NbFilesLeftToDo = (NbObj).ToString();
                     string TotalFilesSizeLeftToDo = ((int)StateObj.GetValue("TotalFilesSize") - (int)StateObj.GetValue("TotalFileSizeCopied")).ToString();
 
                     StateObj["State"] = State;
@@ -56,8 +56,12 @@ namespace EasySavev2.Model
                 else
                 {
                     string State = "END";
+                    string NbFilesLeftToDo = "0";
+                    string TotalFilesSizeLeftToDo = "0";
 
                     StateObj["State"] = State;
+                    StateObj["NbFilesLeftToDo"] = NbFilesLeftToDo;
+                    StateObj["TotalFilesSizeLeftToDo"] = TotalFilesSizeLeftToDo;
                 }
 
                 if (!Fi.Exists)
@@ -67,9 +71,8 @@ namespace EasySavev2.Model
                 else
                 {
                     string JsonRead = File.ReadAllText(StatePath);
-
+                    
                     stateJsonList = JsonConvert.DeserializeObject<List<JObject>>(JsonRead);
-
                     stateJsonList.Add(StateObj);
                 }
 
@@ -79,7 +82,7 @@ namespace EasySavev2.Model
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex);
+                Debug.WriteLine(ex.Message);
             }
         }
     }

@@ -1,10 +1,18 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "7AHPL+AUjCAM1m0Se8E5l/YF6xwuSXcb1ltKqx6KMyic2USKGVEluFKguUU8CzHrT93NnZrWj7hf4VvmOS1LQg==",
   "success": true,
   "projectFilePath": "C:\\Users\\JeanGONCALVES\\Source\\Repos\\adrien-niard\\prog-sys\\EasySavev2\\EasySavev2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\JeanGONCALVES\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+=======
+  "dgSpecHash": "GvZIEaUjMgrr3fein1vXznkJxdc5ajyhKMaPAJK/0jd1+DpD3dxUmWs9qVfwQm+qpyKeboaSKqMa/3n5ASKtPQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Jean\\Source\\Repos\\adrien-niard\\prog-sys\\EasySavev2\\EasySavev2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jean\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+>>>>>>> cdbe7fead5815c7bf85fbee6c559633fe5d1b5d2
   ],
   "logs": []
 }

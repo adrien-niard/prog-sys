@@ -1,25 +1,16 @@
 ﻿using EasySavev2.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.IO;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Configuration;
 using System.Windows.Forms;
 using System.Resources;
 using System.Reflection;
 using System.ComponentModel;
-using System.Threading;
+using System.Diagnostics;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace EasySavev2
 {
@@ -48,7 +39,10 @@ namespace EasySavev2
                     BrowseDest.Content = rm.GetString("Browse");
                     AddSave.Content = rm.GetString("Add");
                     Save.Content = rm.GetString("Save");
+                    Play.Content = rm.GetString("Play");
+                    Stop.Content = rm.GetString("Stop");
                 }
+
                 if (ConfigurationManager.AppSettings.Get("langue") == "FR")
                 {
                     SaveNameLabel.Content = rm2.GetString("Name");
@@ -59,11 +53,49 @@ namespace EasySavev2
                     BrowseDest.Content = rm2.GetString("Browse");
                     AddSave.Content = rm2.GetString("Add");
                     Save.Content = rm2.GetString("Save");
+                    Play.Content = rm2.GetString("Play");
+                    Stop.Content = rm2.GetString("Stop");
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                Debug.WriteLine(ex.Message);
+            }
 
+            try
+            {
+                string ESapp = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/EasySave/";
+                string JsonPath = ESapp + DateTime.Now.ToString("yyyy'-'MM'-'dd") + ".json";
+
+                string JsonRead = File.ReadAllText(JsonPath);
+                List<JObject> JsonSaveList = JsonConvert.DeserializeObject<List<JObject>>(JsonRead);
+
+                bool alreadyAdd = false;
+
+                foreach (JObject save in JsonSaveList)
+                {
+                    foreach (var item in Save_List.Items)
+                    {
+                        alreadyAdd = false;
+
+                        if (item.ToString().Substring(0, item.ToString().IndexOf(":") - 1) == save.GetValue("Name").ToString())
+                        {
+                            alreadyAdd = true;
+                        }
+                    }
+
+                    if (alreadyAdd == false)
+                    {
+                        string name = save.GetValue("Name").ToString();
+                        string time = save.GetValue("Time").ToString();
+                        
+                        Save_List.Items.Add($@"{name} : {time}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
             }
         }
         //initiate the event when we click on the first browse button
@@ -75,7 +107,7 @@ namespace EasySavev2
 
             if (result.ToString() == "OK")
             {
-                SaveSrc.Text = openFolderDialog.SelectedPath;
+                SaveSrc.Text = openFolderDialog.SelectedPath + @"\";
             }
         }
         //initiate the event when we click on the second browse button
@@ -87,7 +119,7 @@ namespace EasySavev2
 
             if (result.ToString() == "OK")
             {
-                SaveDest.Text = openFolderDialog.SelectedPath;
+                SaveDest.Text = openFolderDialog.SelectedPath + @"\";
             }
         }
 
@@ -112,18 +144,35 @@ namespace EasySavev2
 
                 DirectoryInfo di = new DirectoryInfo(obj.Src);
                 int NbFile = di.GetFiles("*.*", SearchOption.AllDirectories).Length;
-
+                
                 if (obj.Type == "Full")
                 {
                     ASave ParaExec = new ParallèleExec();
-                    ParaExec.ExecFull(SaveList, log, state, NbFile, NbSave); ;
-                    System.Windows.MessageBox.Show("Your full save as been done");
+                    ParaExec.ExecFull(SaveList, log, state, NbFile, NbSave);
+                    if (ConfigurationManager.AppSettings.Get("langue") == "EN")
+                    {
+                        System.Windows.MessageBox.Show("Full save as been done");
+                    }
+
+                    if (ConfigurationManager.AppSettings.Get("langue") == "FR")
+                    {
+                        System.Windows.MessageBox.Show("La sauvegarde complète à été exécutée");
+                    }
+
                 }
                 else if (obj.Type == "Diff")
                 {
                     ASave ParaExec = new ParallèleExec();
                     ParaExec.ExecDiff(SaveList, log, state, NbFile, NbSave);
-                    System.Windows.MessageBox.Show("Your diff save as been done");
+                    if (ConfigurationManager.AppSettings.Get("langue") == "EN")
+                    {
+                        System.Windows.MessageBox.Show("Your differiencial save as been done");
+                    }
+
+                    if (ConfigurationManager.AppSettings.Get("langue") == "FR")
+                    {
+                        System.Windows.MessageBox.Show("La sauvegarde différentielle a été exécutée");
+                    }
                 }
 
                 NbSave++;
@@ -143,9 +192,17 @@ namespace EasySavev2
             save.Time = save.GetTime();
             SaveList.Add(save);
 
-            System.Windows.MessageBox.Show("Save add in success !");
+            if (ConfigurationManager.AppSettings.Get("langue") == "EN")
+            {
+                System.Windows.MessageBox.Show("Save added !");
+            }
 
-            SaveName.Clear();
+            if (ConfigurationManager.AppSettings.Get("langue") == "FR")
+            {
+                System.Windows.MessageBox.Show("Savegarde ajoutée !");
+            }
+
+                SaveName.Clear();
             SaveDest.Clear();
             SaveSrc.Clear();
             SaveType.SelectedIndex = -1;
@@ -164,8 +221,6 @@ namespace EasySavev2
             for (int i = 1; i <= 100; i++)
             {
                 (sender as BackgroundWorker).ReportProgress(i);
-
-                Thread.Sleep(2000);
             }
         }
 
@@ -177,5 +232,30 @@ namespace EasySavev2
             //Affichage de la progression sur un label
             percent.Content = PB.Value.ToString() + "%";
         }
-    }
+
+		private void Save_List_SelectionChange(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+		{
+            if (Save_List.SelectedItem != null)
+            {
+                string ESapp = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/EasySave/";
+                string JsonPath = ESapp + DateTime.Now.ToString("yyyy'-'MM'-'dd") + ".json";
+
+                string JsonRead = File.ReadAllText(JsonPath);
+                List<JObject> JsonSaveList = JsonConvert.DeserializeObject<List<JObject>>(JsonRead);
+
+                foreach (JObject save in JsonSaveList)
+                {
+                    if (save.GetValue("Name").ToString() == Save_List.SelectedItem.ToString().Substring(0, Save_List.SelectedItem.ToString().IndexOf(":") - 1))
+                    {
+                        SaveName.Text = save.GetValue("Name").ToString();
+                        SaveSrc.Text = save.GetValue("SourceFilePath").ToString().Substring(0, save.GetValue("SourceFilePath").ToString().LastIndexOf(@"\") + 1);
+                        SaveDest.Text = save.GetValue("DestinationFilePath").ToString().Substring(0, save.GetValue("DestinationFilePath").ToString().LastIndexOf(@"\") + 1);
+                        SaveType.Text = save.GetValue("Type").ToString();
+
+                        break;
+                    }
+                }
+            }
+        }
+	}
 }

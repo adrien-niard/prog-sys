@@ -12,6 +12,9 @@ using System.Windows.Shapes;
 using System.Configuration;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using System.Resources;
+using System.Reflection;
+using System.ComponentModel;
 using System.Windows.Navigation;
 
 namespace EasySavev2
@@ -21,15 +24,43 @@ namespace EasySavev2
     /// </summary>
     public partial class Settings : Window
     {
-
+        public static ResourceManager rm = new ResourceManager("EasySavev2.English", Assembly.GetExecutingAssembly());
+        public static ResourceManager rm2 = new ResourceManager("EasySavev2.Francais", Assembly.GetExecutingAssembly());
         public Settings()
         {
             InitializeComponent();
-            //startSet();
 
             ConfigurationManager.RefreshSection("appSettings");
-           
-           
+            try
+            {
+                if (ConfigurationManager.AppSettings.Get("langue") == "EN")
+                {
+
+                    Language.Content = rm.GetString("Language");
+                    EncExt.Content = rm.GetString("EncExt");
+                    PrioExt.Content = rm.GetString("PrioExt");
+                    SizeMax.Content = rm.GetString("SizeMax");
+                    BusinessTool.Content = rm.GetString("BusinessTool");
+                    Save.Content = rm.GetString("SaveSettings");
+                    Back.Content = rm.GetString("Back");
+                }
+
+                if (ConfigurationManager.AppSettings.Get("langue") == "FR")
+                {
+                    Language.Content = rm2.GetString("Language");
+                    EncExt.Content = rm2.GetString("EncExt");
+                    PrioExt.Content = rm2.GetString("PrioExt");
+                    SizeMax.Content = rm2.GetString("SizeMax");
+                    BusinessTool.Content = rm2.GetString("BusinessTool");
+                    Save.Content = rm2.GetString("SaveSettings");
+                    Back.Content = rm2.GetString("Back");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+
             //NameValueCollection test = new NameValueCollection();
             string[] keys = ConfigurationManager.AppSettings.AllKeys;
             
@@ -50,6 +81,7 @@ namespace EasySavev2
 
                     SizeKo.Text = ConfigurationManager.AppSettings.Get("size");
                     LanguageBox.Text = ConfigurationManager.AppSettings.Get("langue");
+                    Logicielm.Text = ConfigurationManager.AppSettings.Get("job");
                 }
             }
            
@@ -57,59 +89,80 @@ namespace EasySavev2
         
         public void startSet()
         {
-            string[] keys2 = ConfigurationManager.AppSettings.AllKeys;
-            Settings settings = new Settings();
-            MessageBox.Show("init tab2");
-            foreach (string key in keys2)
+            try
             {
+                string[] keys2 = ConfigurationManager.AppSettings.AllKeys;
+                Settings settings = new Settings();
 
-                if (keys2 != null)
+                foreach (string key in keys2)
                 {
-                    if (key.IndexOf(".") != -1 && key.Substring(0, key.IndexOf(".")) == "ext")
-                    {
-                        settings.ListEncrypt.Items.Add(key.Substring(3, key.Length - 3));
-                    }
 
-                    settings.SizeKo.Text = ConfigurationManager.AppSettings.Get("size");
-                    settings.LanguageBox.Text = ConfigurationManager.AppSettings.Get("langue");
+                    if (keys2 != null)
+                    {
+                        if (key.IndexOf(".") != -1 && key.Substring(0, key.IndexOf(".")) == "ext")
+                        {
+                            settings.ListEncrypt.Items.Add(key.Substring(3, key.Length - 3));
+                        }
+
+                        settings.SizeKo.Text = ConfigurationManager.AppSettings.Get("size");
+                        settings.LanguageBox.Text = ConfigurationManager.AppSettings.Get("langue");
+                    }
                 }
             }
-        }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+}
         
 
         private void ButAdd_Click(object sender, RoutedEventArgs e)
         {
-            bool Exist = false;
-            if (ListEncrypt != null && TextEncrypt.Text != null)
+            try
             {
-                foreach (string i in ListEncrypt.Items)
+                bool Exist = false;
+                if (ListEncrypt != null && TextEncrypt.Text != null)
                 {
-                    if (TextEncrypt.Text == i)
+                    foreach (string i in ListEncrypt.Items)
                     {
-                        Exist = true;
-                        break;
+                        if (TextEncrypt.Text == i)
+                        {
+                            Exist = true;
+                            break;
+                        }
                     }
                 }
-            }
 
-            if (Exist == false && TextEncrypt.Text != null)
-            {
-                ListEncrypt.Items.Add(TextEncrypt.Text);
+                if (Exist == false && TextEncrypt.Text != null)
+                {
+                    ListEncrypt.Items.Add(TextEncrypt.Text);
+                }
+                TextEncrypt.Clear();
             }
-            TextEncrypt.Clear();
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
         }
 
         private void ButDelete_Click(object sender, RoutedEventArgs e)
         {
-            Configuration conf = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            object selectobj = ListEncrypt.SelectedItem;
-            string selectstring =selectobj.ToString();
-            conf.AppSettings.Settings.Remove("ext" + selectstring);
-            ListEncrypt.Items.Remove(selectobj);
-            TextEncrypt.Clear(); 
-                
-  
-            conf.Save(ConfigurationSaveMode.Modified);
+            try
+            {
+                Configuration conf = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                object selectobj = ListEncrypt.SelectedItem;
+                string selectstring = selectobj.ToString();
+                conf.AppSettings.Settings.Remove("ext" + selectstring);
+                ListEncrypt.Items.Remove(selectobj);
+                TextEncrypt.Clear();
+
+
+                conf.Save(ConfigurationSaveMode.Modified);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -174,14 +227,16 @@ namespace EasySavev2
                             conf.AppSettings.Settings.Add("pri" + Element2, Element2);
                         }
                     }
-
-
                 }
 
                 string size = SizeKo.Text;
                 conf.AppSettings.Settings.Remove("size");
                 conf.AppSettings.Settings.Add("size", size);
-                
+
+                string job = Logicielm.Text;
+                conf.AppSettings.Settings.Remove("job");
+                conf.AppSettings.Settings.Add("job", job);
+
                 string language = LanguageBox.Text;
                 if (language != "")
                 {
@@ -190,11 +245,18 @@ namespace EasySavev2
                    
                 }
                 conf.Save(ConfigurationSaveMode.Modified);
-                
-                MessageBox.Show("Settings saved");
 
-                
-                MainWindow main = new MainWindow();
+                if (ConfigurationManager.AppSettings.Get("langue") == "EN")
+                {
+                    MessageBox.Show("Settings saved !");
+                }
+
+                if (ConfigurationManager.AppSettings.Get("langue") == "FR")
+                {
+                    MessageBox.Show("Paramètres sauvegardés !");
+                }
+
+                    MainWindow main = new MainWindow();
                 main.Show();
                 this.Close();
                 
@@ -232,37 +294,50 @@ namespace EasySavev2
 
         private void ButAdd_Click2(object sender, RoutedEventArgs e)
         {
-            bool Exist = false;
-            if (ListPriority != null && TextPriority.Text != null)
+            try
             {
-                foreach (string i in ListPriority.Items)
+                bool Exist = false;
+                if (ListPriority != null && TextPriority.Text != null)
                 {
-                    if (TextPriority.Text == i)
+                    foreach (string i in ListPriority.Items)
                     {
-                        Exist = true;
-                        break;
+                        if (TextPriority.Text == i)
+                        {
+                            Exist = true;
+                            break;
+                        }
                     }
                 }
-            }
 
-            if (Exist == false && TextPriority.Text != null)
-            {
-                ListPriority.Items.Add(TextPriority.Text);
+                if (Exist == false && TextPriority.Text != null)
+                {
+                    ListPriority.Items.Add(TextPriority.Text);
+                }
+                TextPriority.Clear();
             }
-            TextPriority.Clear();
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
         }
 
         private void ButDelete_Click2(object sender, RoutedEventArgs e)
         {
-            Configuration conf = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            object selectobj = ListPriority.SelectedItem;
-            string selectstring = selectobj.ToString();
-            conf.AppSettings.Settings.Remove("pri" + selectstring);
-            ListPriority.Items.Remove(selectobj);
-            TextPriority.Clear();
-
-
-            conf.Save(ConfigurationSaveMode.Modified);
+            try
+            {
+                Configuration conf = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                object selectobj = ListPriority.SelectedItem;
+                string selectstring = selectobj.ToString();
+                conf.AppSettings.Settings.Remove("pri" + selectstring);
+                ListPriority.Items.Remove(selectobj);
+                TextPriority.Clear();
+                
+                conf.Save(ConfigurationSaveMode.Modified);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
         }
     }
 }

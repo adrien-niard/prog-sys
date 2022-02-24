@@ -16,27 +16,27 @@
         <Grid.ColumnDefinitions>
 
         </Grid.ColumnDefinitions>
-        <Label Content="Choice Language" HorizontalAlignment="Left" Margin="160,25,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="LanguageBox" HorizontalAlignment="Left" Height="20" Margin="152,55,0,0" VerticalAlignment="Top" Width="116" SelectionChanged="ComboBox_SelectionChanged">
+        <Label x:Name="Language" Content="Choice Language" HorizontalAlignment="Left" Margin="160,31,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="LanguageBox" HorizontalAlignment="Left" Height="20" Margin="152,57,0,0" VerticalAlignment="Top" Width="116" SelectionChanged="ComboBox_SelectionChanged">
             <ComboBoxItem Content="FR"/>
             <ComboBoxItem Content="EN"/>
         </ComboBox>
-        <Label Content="Add Extention Encrypt" HorizontalAlignment="Left" Margin="54,99,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="EncExt" Content="Add Extention Encrypt" HorizontalAlignment="Left" Margin="30,99,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TextEncrypt" HorizontalAlignment="Left" Margin="56,126,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="18"/>
         <ListBox x:Name="ListEncrypt" HorizontalAlignment="Left" Height="114" Margin="56,169,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ListEncrypt_SelectionChanged"/>
         <Button x:Name ="ButAdd" Content="+" HorizontalAlignment="Left" Margin="26,171,0,0" Click="ButAdd_Click" Width="20" Height="20" VerticalAlignment="Top"/>
         <Button x:Name="ButDelete" Content="-" HorizontalAlignment="Left" Margin="26,205,0,0" Click="ButDelete_Click" Width="20" Height="20" VerticalAlignment="Top"/>
         <Button x:Name="Save" Content="Save Settings" HorizontalAlignment="Left" Margin="160,361,0,0" VerticalAlignment="Top" Height="40" Width="100" Click="SaveSet_Click"/>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="24,18,0,0" VerticalAlignment="Top" Click="ButBack_Click" Width="100" Height="40"/>
-        <Label Content="File size max" HorizontalAlignment="Left" Margin="78,287,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name ="SizeKo"  HorizontalAlignment="Left" Height="20" Margin="66,317,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="57" TextChanged="SizeKo_TextChanged"/>
-        <Label Content="Add Priority Extension
-" HorizontalAlignment="Left" Margin="242,99,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextPriority" HorizontalAlignment="Left" Margin="248,126,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="18" TextChanged="TextPriority_TextChanged"/>
+        <Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Margin="24,28,0,0" VerticalAlignment="Top" Click="ButBack_Click" Width="100" Height="40"/>
+        <Label x:Name="SizeMax" Content="File size max (ko)" HorizontalAlignment="Left" Margin="46,287,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name ="SizeKo"  HorizontalAlignment="Left" Height="20" Margin="56,313,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="SizeKo_TextChanged"/>
+        <Label x:Name="PrioExt" Content="Add Priority Extension
+" HorizontalAlignment="Left" Margin="222,99,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextPriority" HorizontalAlignment="Left" Margin="244,126,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="18" TextChanged="TextPriority_TextChanged"/>
         <ListBox x:Name="ListPriority" HorizontalAlignment="Left" Height="114" Margin="244,170,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ListPriority_SelectionChanged"/>
         <Button x:Name ="ButAdd_2" Content="+" HorizontalAlignment="Left" Margin="376,172,0,0" Click="ButAdd_Click2" Width="20" Height="20" VerticalAlignment="Top"/>
         <Button x:Name="ButDelete_2" Content="-" HorizontalAlignment="Left" Margin="376,205,0,0" Click="ButDelete_Click2" Width="20" Height="20" VerticalAlignment="Top"/>
-        <Label Content="Logiciel métier" HorizontalAlignment="Left" Margin="264,287,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name ="Logicielm"  HorizontalAlignment="Left" Height="20" Margin="258,318,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="57" TextChanged="SizeKo_TextChanged"/>
+        <Label x:Name="BusinessTool" Content="Business tool" HorizontalAlignment="Left" Margin="262,287,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name ="Logicielm"  HorizontalAlignment="Left" Height="20" Margin="244,314,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="SizeKo_TextChanged"/>
     </Grid>
 </Window>
