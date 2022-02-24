@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\adrie\\Source\\Repos\\prog-sys\\EasySavev2\\EasySavev2.csproj": {}
+    "C:\\Users\\Jean\\Source\\Repos\\adrien-niard\\prog-sys\\EasySavev2\\EasySavev2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\adrie\\Source\\Repos\\prog-sys\\EasySavev2\\EasySavev2.csproj": {
+    "C:\\Users\\Jean\\Source\\Repos\\adrien-niard\\prog-sys\\EasySavev2\\EasySavev2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\adrie\\Source\\Repos\\prog-sys\\EasySavev2\\EasySavev2.csproj",
+        "projectUniqueName": "C:\\Users\\Jean\\Source\\Repos\\adrien-niard\\prog-sys\\EasySavev2\\EasySavev2.csproj",
         "projectName": "EasySavev2",
-        "projectPath": "C:\\Users\\adrie\\Source\\Repos\\prog-sys\\EasySavev2\\EasySavev2.csproj",
-        "packagesPath": "C:\\Users\\adrie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\adrie\\Source\\Repos\\prog-sys\\EasySavev2\\obj\\",
+        "projectPath": "C:\\Users\\Jean\\Source\\Repos\\adrien-niard\\prog-sys\\EasySavev2\\EasySavev2.csproj",
+        "packagesPath": "C:\\Users\\Jean\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jean\\Source\\Repos\\adrien-niard\\prog-sys\\EasySavev2\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\adrie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jean\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -63,7 +67,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     }

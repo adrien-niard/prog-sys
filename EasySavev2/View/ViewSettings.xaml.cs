@@ -81,6 +81,7 @@ namespace EasySavev2
 
                     SizeKo.Text = ConfigurationManager.AppSettings.Get("size");
                     LanguageBox.Text = ConfigurationManager.AppSettings.Get("langue");
+                    Logicielm.Text = ConfigurationManager.AppSettings.Get("job");
                 }
             }
            
@@ -231,7 +232,11 @@ namespace EasySavev2
                 string size = SizeKo.Text;
                 conf.AppSettings.Settings.Remove("size");
                 conf.AppSettings.Settings.Add("size", size);
-                
+
+                string job = Logicielm.Text;
+                conf.AppSettings.Settings.Remove("job");
+                conf.AppSettings.Settings.Add("job", job);
+
                 string language = LanguageBox.Text;
                 if (language != "")
                 {
